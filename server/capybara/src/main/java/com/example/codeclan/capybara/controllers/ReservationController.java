@@ -32,6 +32,14 @@ public class ReservationController {
         return new ResponseEntity<>(reservation, HttpStatus.CREATED);
     }
 
+    // Delete All Reservations
+    // http://localhost:8080/reservations/
+    @DeleteMapping
+    public ResponseEntity deleteAllReservations(){
+        reservationRepository.deleteAll();
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     // http://localhost:8080/reservations/1
     @DeleteMapping(value="/{id}")
     public ResponseEntity<Long> deleteReservation(@PathVariable Long id){

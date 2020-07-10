@@ -58,6 +58,15 @@ class ReservationTest {
     }
 
     @Test
+    public void canDeleteAllReservations(){
+        int preDeleteSize = reservationRepository.findAll().size();
+        assertTrue(preDeleteSize > 0);
+        reservationRepository.deleteAll();
+        int postDeleteSize = reservationRepository.findAll().size();
+        assertTrue(postDeleteSize == 0);
+    }
+
+    @Test
     public void canSetStartAndEnd(){
         Customer customer1 = new Customer("Abby", "Anvil", "111111", "abbyanvil@gmail.com");
         Venue venue1 = new Venue("The Empty Venue");
