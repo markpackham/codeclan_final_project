@@ -3,6 +3,7 @@ package com.example.codeclan.capybara.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -34,7 +35,10 @@ public class Customer {
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
+        this.reservations = new ArrayList<>();
     }
+
+    public Customer() {}
 
     public Long getId() {
         return id;
@@ -83,4 +87,5 @@ public class Customer {
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
+
 }

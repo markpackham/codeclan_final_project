@@ -3,6 +3,7 @@ package com.example.codeclan.capybara.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "venue_tables")
@@ -12,21 +13,24 @@ public class VenueTable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="cover")
-    private int cover;
+    @Column(name = "cover")
+    private int covers;
 
     @JsonIgnoreProperties({"venue_table"})
     @ManyToOne
     @JoinColumn(name = "venue_id", nullable = false)
     private Venue venue;
 
-    public VenueTable(int cover) {
-        this.cover = cover;
-    }
+    @JsonIgnoreProperties({"venue_table"})
+    @OneToMany(mappedBy = "venueTable", fetch = FetchType.LAZY)
+    private List<Reservation> reservations;
 
-    public VenueTable(Venue venue) {
+    public VenueTable(int covers, Venue venue) {
+        this.covers = covers;
         this.venue = venue;
     }
+
+    public VenueTable() {}
 
     public Long getId() {
         return id;
@@ -36,12 +40,12 @@ public class VenueTable {
         this.id = id;
     }
 
-    public int getCover() {
-        return cover;
+    public int getCovers() {
+        return covers;
     }
 
-    public void setCover(int cover) {
-        this.cover = cover;
+    public void setCovers(int covers) {
+        this.covers = covers;
     }
 
     public Venue getVenue() {
@@ -51,4 +55,5 @@ public class VenueTable {
     public void setVenue(Venue venue) {
         this.venue = venue;
     }
+
 }

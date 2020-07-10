@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IVenueTable extends JpaRepository<VenueTable, Long> {
+public interface IVenueTableRepository extends JpaRepository<VenueTable, Long> {
 }

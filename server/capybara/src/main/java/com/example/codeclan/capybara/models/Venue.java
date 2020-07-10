@@ -13,18 +13,19 @@ public class Venue {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
 
     @JsonIgnoreProperties({"venue"})
-    @OneToMany(mappedBy = "venue")
-    private List venueTables;
+    @OneToMany(mappedBy = "venue", fetch = FetchType.LAZY)
+    private List<VenueTable> venueTables;
 
-
-    public Venue(String name, List venueTables) {
+    public Venue(String name) {
         this.name = name;
-        this.venueTables = venueTables;
+        this.venueTables = new ArrayList<>();
     }
+
+    public Venue() {}
 
     public Long getId() {
         return id;
@@ -42,11 +43,12 @@ public class Venue {
         this.name = name;
     }
 
-    public ArrayList getVenueTables() {
+    public List<VenueTable> getVenueTables() {
         return venueTables;
     }
 
-    public void setVenueTables(ArrayList venueTables) {
+    public void setVenueTables(List<VenueTable> venueTables) {
         this.venueTables = venueTables;
     }
+
 }

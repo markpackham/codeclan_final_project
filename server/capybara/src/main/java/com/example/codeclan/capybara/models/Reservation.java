@@ -1,5 +1,7 @@
 package com.example.codeclan.capybara.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -11,12 +13,20 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="customer")
+    @JsonIgnoreProperties
+    @ManyToOne
+    @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-
+    @JsonIgnoreProperties
+    @ManyToOne
+    @JoinColumn(name = "venue_table_id", nullable = false)
     private VenueTable venueTable;
+
+    @Column(name = "start")
     private LocalDateTime start;
+
+    @Column(name = "end")
     private LocalDateTime end;
 
     public Reservation(Customer customer, VenueTable venueTable, LocalDateTime start, LocalDateTime end) {
@@ -25,6 +35,8 @@ public class Reservation {
         this.start = start;
         this.end = end;
     }
+
+    public Reservation() {}
 
     public Long getId() {
         return id;
@@ -65,4 +77,5 @@ public class Reservation {
     public void setEnd(LocalDateTime end) {
         this.end = end;
     }
+
 }
