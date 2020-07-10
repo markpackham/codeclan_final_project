@@ -16,8 +16,7 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class CapybaraApplicationTests {
@@ -100,6 +99,16 @@ class CapybaraApplicationTests {
 		assertNotNull(foundVenue);
 	}
 
+	@Test
+	public void canFindCovers(){
+		List<VenueTable> foundVenueTable = venueTableRepository.findByCovers(4);
+		assertNotNull(foundVenueTable);
+	}
 
+	@Test
+	public void canFindCovers__Null(){
+		List<VenueTable> foundVenueTable = venueTableRepository.findByCovers(400000000);
+		assertEquals(0,foundVenueTable.size());
+	}
 
 }
