@@ -1,5 +1,7 @@
 package com.example.codeclan.capybara.controllers;
 
+import com.example.codeclan.capybara.models.Customer;
+import com.example.codeclan.capybara.models.Venue;
 import com.example.codeclan.capybara.respositories.IVenueRepository;
 import com.example.codeclan.capybara.respositories.IVenueTableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +41,12 @@ public class VenueController {
     @GetMapping(value = "/{id}/venue-tables")
     public ResponseEntity getAllVenueTablesByVenue(@PathVariable Long id) {
         return new ResponseEntity(venueTableRepository.findByVenueId(id), HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<Venue>createVenue(@RequestBody Venue venue){
+        venueRepository.save(venue);
+        return new ResponseEntity<>(venue,HttpStatus.CREATED);
     }
 
 }
