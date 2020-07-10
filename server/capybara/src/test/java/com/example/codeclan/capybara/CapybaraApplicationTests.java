@@ -31,17 +31,6 @@ class CapybaraApplicationTests {
 	IReservationRepository reservationRepository;
 
 	@Test
-	void contextLoads() {
-	}
-
-
-	@Test
-	public void createVenueThenSave(){
-		Venue venue1 = new Venue("The Empty Venue");
-		venueRepository.save(venue1);
-	}
-
-	@Test
 	public void createVenueTableThenSave(){
 		Venue venue1 = new Venue("The Empty Venue");
 		venueRepository.save(venue1);
@@ -82,14 +71,6 @@ class CapybaraApplicationTests {
 		assertNotNull(venueRepository.findById(1L));
 		assertNotNull(venueTableRepository.findById(1L));
 		assertNotNull(reservationRepository.findById(1L));
-	}
-
-	@Test
-	public void canFindVenueName(){
-		Venue venue100 = new Venue("The Super Unique Venue");
-		venueRepository.save(venue100);
-		Venue foundVenue = venueRepository.findByName("The Super Unique Venue");
-		assertNotNull(foundVenue);
 	}
 
 	@Test

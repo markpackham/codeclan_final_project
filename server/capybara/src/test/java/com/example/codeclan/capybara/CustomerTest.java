@@ -12,9 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
-public class CustomerTest {
+class CustomerTest {
     @Autowired
     ICustomerRepository customerRepository;
+
+    @Test
+    void contextLoads() {
+    }
 
     @Test
     public void createCustomerThenSave(){
