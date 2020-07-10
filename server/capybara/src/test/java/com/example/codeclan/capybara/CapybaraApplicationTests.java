@@ -70,6 +70,18 @@ class CapybaraApplicationTests {
 	}
 
 	@Test
+	public void canGetCustomersVenuesVenueTablesAndReservations(){
+		int foundCustomers = customerRepository.findAll().size();
+		int foundVenues = venueRepository.findAll().size();
+		int foundVenueTables = venueTableRepository.findAll().size();
+		int foundReservations = reservationRepository.findAll().size();
+		assertTrue(foundCustomers > 0);
+		assertTrue( foundVenues > 0);
+		assertTrue(foundVenueTables > 0);
+		assertTrue(foundReservations > 0);
+	}
+
+	@Test
 	public void canFindCustomerFirstAndLastName(){
 		Customer customer999 = new Customer("RareFirstName", "RareLastName", "111111", "abbyanvil@gmail.com");
 		customerRepository.save(customer999);
