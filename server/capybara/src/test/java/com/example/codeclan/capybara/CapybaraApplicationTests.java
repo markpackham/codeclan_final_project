@@ -71,6 +71,12 @@ class CapybaraApplicationTests {
 	}
 
 	@Test
+	public void canFindCustomerLastName(){
+		List<Customer> foundCustomer = customerRepository.findByLastName("Anvil");
+		assertEquals(1,foundCustomer.size());
+	}
+
+	@Test
 	public void canFindCustomerEmail(){
 		Customer foundCustomer = customerRepository.findByEmail("abbyanvil@gmail.com");
 		assertNotNull(foundCustomer);
@@ -81,5 +87,7 @@ class CapybaraApplicationTests {
 		Customer foundCustomer = customerRepository.findByPhone("111111");
 		assertNotNull(foundCustomer);
 	}
+
+
 
 }
