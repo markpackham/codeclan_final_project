@@ -19,11 +19,16 @@ public class ReservationController {
     // http://localhost:8080/reservations
     @GetMapping
     public ResponseEntity getAllReservationsWithFilters(
-            @RequestParam(required = false, name = "startBefore")LocalDateTime startBefore
+            @RequestParam(required = false, name = "startBefore")LocalDateTime startBefore,
+            @RequestParam(required = false, name = "startAfter")LocalDateTime startAfter
             ) {
 
         if(startBefore != null){
             return new ResponseEntity(reservationRepository.findByStartLessThan(startBefore), HttpStatus.OK);
+        }
+
+        if(startAfter != null){
+            return new ResponseEntity(reservationRepository.findByStartGreaterThan(startAfter), HttpStatus.OK);
         }
 
         return new ResponseEntity(reservationRepository.findAll(), HttpStatus.OK);

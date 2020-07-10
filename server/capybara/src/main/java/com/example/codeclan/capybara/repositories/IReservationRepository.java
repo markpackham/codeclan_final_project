@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface IReservationRepository extends JpaRepository<Reservation, Long>{
     List<Reservation> findByStartLessThan(LocalDateTime startBefore);
+
+    List<Reservation> findByStartGreaterThan(LocalDateTime startAfter);
 }
