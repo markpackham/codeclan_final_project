@@ -94,6 +94,12 @@ class CapybaraApplicationTests {
 		assertNotNull(foundCustomer);
 	}
 
+	@Test
+	public void canFindVenueName(){
+		Venue foundVenue = venueRepository.findByName("The Empty Venue");
+		assertNotNull(foundVenue);
+	}
+
 
 
 }
