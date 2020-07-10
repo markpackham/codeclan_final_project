@@ -82,6 +82,14 @@ class CapybaraApplicationTests {
 	}
 
 	@Test
+	public void canGetSpecificCustomersVenuesVenueTablesAndReservations(){
+		assertNotNull(customerRepository.findById(1L));
+		assertNotNull(venueRepository.findById(1L));
+		assertNotNull(venueTableRepository.findById(1L));
+		assertNotNull(reservationRepository.findById(1L));
+	}
+	
+	@Test
 	public void canFindCustomerFirstAndLastName(){
 		Customer customer999 = new Customer("RareFirstName", "RareLastName", "111111", "abbyanvil@gmail.com");
 		customerRepository.save(customer999);
