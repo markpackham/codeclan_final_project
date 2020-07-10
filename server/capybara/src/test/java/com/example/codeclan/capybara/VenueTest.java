@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
@@ -29,5 +30,12 @@ class VenueTest {
         venueRepository.save(venue100);
         Venue foundVenue = venueRepository.findByName("The Super Unique Venue");
         assertNotNull(foundVenue);
+    }
+
+    @Test
+    public void canSetName(){
+        Venue venue1 = new Venue("This Venue Has No Name");
+        venue1.setName("Mega Venue");
+        assertEquals("Mega Venue",venue1.getName());
     }
 }
