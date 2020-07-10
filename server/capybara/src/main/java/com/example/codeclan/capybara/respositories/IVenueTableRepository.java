@@ -11,4 +11,6 @@ public interface IVenueTableRepository extends JpaRepository<VenueTable, Long> {
     List<VenueTable> findByCovers(Integer covers);
 
     List<VenueTable> findByCoversGreaterThan(Integer covers);
+
+    List<VenueTable> findByCoversLessThan(Integer covers);
 }

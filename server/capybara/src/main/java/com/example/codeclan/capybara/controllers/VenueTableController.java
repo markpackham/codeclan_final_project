@@ -19,7 +19,8 @@ public class VenueTableController {
     @GetMapping
     public ResponseEntity getAllVenueTablesWithFilters(
             @RequestParam(required = false, name = "covers") Integer covers,
-            @RequestParam(required = false, name = "coversOver") Integer coversOver
+            @RequestParam(required = false, name = "coversOver") Integer coversOver,
+            @RequestParam(required = false, name = "coversUnder") Integer coversUnder
     ) {
         // http://localhost:8080/venue-tables?covers=4
         if(covers != null) {
@@ -28,6 +29,10 @@ public class VenueTableController {
         // http://localhost:8080/venue-tables?coversOver=2
         if(coversOver != null) {
             return new ResponseEntity(venueTableRepository.findByCoversGreaterThan(coversOver), HttpStatus.OK);
+        }
+        // http://localhost:8080/venue-tables?coversUnder=7
+        if(coversUnder != null) {
+            return new ResponseEntity(venueTableRepository.findByCoversLessThan(coversUnder), HttpStatus.OK);
         }
         return new ResponseEntity(venueTableRepository.findAll(), HttpStatus.OK);
     }
