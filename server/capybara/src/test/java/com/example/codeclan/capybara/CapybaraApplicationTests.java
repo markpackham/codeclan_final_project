@@ -118,9 +118,21 @@ class CapybaraApplicationTests {
 	}
 
 	@Test
+	public void canFindCoversGreaterThan__ZeroFound(){
+		List<VenueTable> foundVenueTable = venueTableRepository.findByCoversGreaterThan(10000000);
+		assertEquals(0,foundVenueTable.size());
+	}
+
+	@Test
 	public void canFindCoversLessThan(){
 		List<VenueTable> foundVenueTable = venueTableRepository.findByCoversLessThan(10000000);
 		assertNotNull(foundVenueTable);
+	}
+
+	@Test
+	public void canFindCoversLessThan__ZeroFound(){
+		List<VenueTable> foundVenueTable = venueTableRepository.findByCoversLessThan(1);
+		assertEquals(0,foundVenueTable.size());
 	}
 
 }
