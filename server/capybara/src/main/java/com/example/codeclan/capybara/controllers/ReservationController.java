@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+
 @RestController
 @RequestMapping(value = "/reservations")
 public class ReservationController {
@@ -16,7 +18,14 @@ public class ReservationController {
 
     // http://localhost:8080/reservations
     @GetMapping
-    public ResponseEntity getAllReservationsWithFilters() {
+    public ResponseEntity getAllReservationsWithFilters(
+            @RequestParam(required = false, name = "startBefore")LocalDateTime startBefore
+            ) {
+
+        if(startBefore != null){
+            return new ResponseEntity(reservationRepository.findByStartLessThan(startBefore), HttpStatus.OK);
+        }
+
         return new ResponseEntity(reservationRepository.findAll(), HttpStatus.OK);
     }
 
