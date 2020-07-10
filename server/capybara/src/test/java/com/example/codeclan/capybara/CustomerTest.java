@@ -57,4 +57,17 @@ class CustomerTest {
         Customer foundCustomer = customerRepository.findByPhone("131313131313");
         assertNotNull(foundCustomer);
     }
+
+    @Test
+    public void canSetFirstNameLastNamePhoneEmail(){
+        Customer customer1 = new Customer("ChangeFirstName", "ChangeLastName", "999999999","changeme@gmail.com");
+        customer1.setFirstName("Albert");
+        assertEquals("Albert", customer1.getFirstName());
+        customer1.setLastName("Billington");
+        assertEquals("Billington",customer1.getLastName());
+        customer1.setPhone("000000000");
+        assertEquals("000000000",customer1.getPhone());
+        customer1.setEmail("yahoo@yahoo.com");
+        assertEquals("yahoo@yahoo.com",customer1.getEmail());
+    }
 }
