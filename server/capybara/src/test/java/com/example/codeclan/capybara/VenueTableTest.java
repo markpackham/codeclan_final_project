@@ -68,4 +68,11 @@ class VenueTableTest {
         List<VenueTable> foundVenueTable = venueTableRepository.findByCoversLessThan(1);
         assertEquals(0,foundVenueTable.size());
     }
+
+    @Test
+    public void canSetCovers(){
+        VenueTable venueTable1 = new VenueTable(10,null);
+        venueTable1.setCovers(22);
+        assertEquals(22,venueTable1.getCovers());
+    }
 }
