@@ -17,10 +17,17 @@ public class VenueTableController {
     IVenueTableRepository venueTableRepository;
 
     @GetMapping
-    public ResponseEntity getAllVenueTablesWithFilters(@RequestParam(required = false, name = "covers") Integer covers) {
+    public ResponseEntity getAllVenueTablesWithFilters(
+            @RequestParam(required = false, name = "covers") Integer covers,
+            @RequestParam(required = false, name = "coversOver") Integer coversOver
+    ) {
         // http://localhost:8080/venue-tables?covers=4
-        if(covers != null){
+        if(covers != null) {
             return new ResponseEntity(venueTableRepository.findByCovers(covers), HttpStatus.OK);
+        }
+        // http://localhost:8080/venue-tables?coversOver=2
+        if(coversOver != null) {
+            return new ResponseEntity(venueTableRepository.findByCoversGreaterThan(coversOver), HttpStatus.OK);
         }
         return new ResponseEntity(venueTableRepository.findAll(), HttpStatus.OK);
     }
