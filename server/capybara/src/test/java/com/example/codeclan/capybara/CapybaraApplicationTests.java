@@ -71,6 +71,12 @@ class CapybaraApplicationTests {
 	}
 
 	@Test
+	public void canFindCustomerFirstAndLastName(){
+		List<Customer> foundCustomer = customerRepository.findByFirstNameAndLastName("Abby", "Anvil");
+		assertEquals(1,foundCustomer.size());
+	}
+
+	@Test
 	public void canFindCustomerLastName(){
 		List<Customer> foundCustomer = customerRepository.findByLastName("Anvil");
 		assertEquals(1,foundCustomer.size());
