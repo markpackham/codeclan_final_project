@@ -1,13 +1,11 @@
 package com.example.codeclan.capybara.controllers;
 
+import com.example.codeclan.capybara.models.Reservation;
 import com.example.codeclan.capybara.repositories.IReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/reservations")
@@ -25,5 +23,11 @@ public class ReservationController {
     public ResponseEntity getReservationById(@PathVariable Long id){
         return new ResponseEntity(reservationRepository.findById(id), HttpStatus.OK);
     }
+
+//    @PostMapping
+//    public ResponseEntity<Reservation>createReservation(@RequestBody Reservation reservation){
+//        reservationRepository.save(reservation);
+//        return new ResponseEntity<>(reservation,HttpStatus.CREATED);
+//    }
 
 }
