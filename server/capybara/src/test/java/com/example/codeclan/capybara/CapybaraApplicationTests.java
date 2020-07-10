@@ -71,31 +71,41 @@ class CapybaraApplicationTests {
 
 	@Test
 	public void canFindCustomerFirstAndLastName(){
-		List<Customer> foundCustomer = customerRepository.findByFirstNameAndLastName("Abby", "Anvil");
+		Customer customer999 = new Customer("RareFirstName", "RareLastName", "111111", "abbyanvil@gmail.com");
+		customerRepository.save(customer999);
+		List<Customer> foundCustomer = customerRepository.findByFirstNameAndLastName("RareFirstName", "RareLastName");
 		assertEquals(1,foundCustomer.size());
 	}
 
 	@Test
 	public void canFindCustomerLastName(){
-		List<Customer> foundCustomer = customerRepository.findByLastName("Anvil");
+		Customer customer999 = new Customer("Abby", "UniqueLastName", "111111", "abbyanvil@gmail.com");
+		customerRepository.save(customer999);
+		List<Customer> foundCustomer = customerRepository.findByLastName("UniqueLastName");
 		assertEquals(1,foundCustomer.size());
 	}
 
 	@Test
 	public void canFindCustomerEmail(){
-		Customer foundCustomer = customerRepository.findByEmail("abbyanvil@gmail.com");
+		Customer customer12 = new Customer("FirstName12", "LastName12", "333333", "customer12@gmail.com");
+		customerRepository.save(customer12);
+		Customer foundCustomer = customerRepository.findByEmail("customer12@gmail.com");
 		assertNotNull(foundCustomer);
 	}
 
 	@Test
 	public void canFindCustomerPhone(){
-		Customer foundCustomer = customerRepository.findByPhone("111111");
+		Customer customer13 = new Customer("FirstName13", "LastName13", "131313131313", "customer13@gmail.com");
+		customerRepository.save(customer13);
+		Customer foundCustomer = customerRepository.findByPhone("131313131313");
 		assertNotNull(foundCustomer);
 	}
 
 	@Test
 	public void canFindVenueName(){
-		Venue foundVenue = venueRepository.findByName("The Empty Venue");
+		Venue venue100 = new Venue("The Super Unique Venue");
+		venueRepository.save(venue100);
+		Venue foundVenue = venueRepository.findByName("The Super Unique Venue");
 		assertNotNull(foundVenue);
 	}
 
