@@ -1,6 +1,7 @@
 package com.example.codeclan.capybara.controllers;
 
 import com.example.codeclan.capybara.models.Customer;
+import com.example.codeclan.capybara.repositories.ICustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class CustomerController {
 
     @Autowired
-    com.example.codeclan.capybara.repositories.ICustomerRepository customerRepository;
+    ICustomerRepository customerRepository;
 
     @GetMapping
     public ResponseEntity getAllCustomersWithFilters(
