@@ -135,4 +135,12 @@ class CapybaraApplicationTests {
 		assertEquals(0,foundVenueTable.size());
 	}
 
+	@Test
+	public void canDeleteReservation(){
+		int preDeleteSize = reservationRepository.findAll().size();
+		reservationRepository.deleteById(1L);
+		int postDeleteSize = reservationRepository.findAll().size();
+		assertTrue(preDeleteSize > postDeleteSize);
+	}
+
 }
