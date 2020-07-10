@@ -1,6 +1,8 @@
 package com.example.codeclan.capybara;
 
+import com.example.codeclan.capybara.models.Venue;
 import com.example.codeclan.capybara.models.VenueTable;
+import com.example.codeclan.capybara.repositories.IVenueRepository;
 import com.example.codeclan.capybara.repositories.IVenueTableRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +18,19 @@ class VenueTableTest {
 
     @Autowired
     IVenueTableRepository venueTableRepository;
+    @Autowired
+    IVenueRepository venueRepository;
 
     @Test
     void contextLoads() {
+    }
+
+    @Test
+    public void createVenueTableThenSave(){
+        Venue venue1 = new Venue("The Empty Venue");
+        venueRepository.save(venue1);
+        VenueTable venueTable1 = new VenueTable(4, venue1);
+        venueTableRepository.save(venueTable1);
     }
 
     @Test
