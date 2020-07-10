@@ -175,7 +175,7 @@ class ReservationTest {
     }
 
     @Test
-    public void canGetStartBeforeDateTimeAndAfterDateTime(){
+    public void canGetBeforeDateTimeAndAfterDateTime(){
         Customer customer1 = new Customer("Abby", "Anvil", "111111", "abbyanvil@gmail.com");
         customerRepository.save(customer1);
         Venue venue1 = new Venue("The Empty Venue");
@@ -203,6 +203,37 @@ class ReservationTest {
         List<Reservation> foundReservations = reservationRepository.findByStartLessThanAndStartGreaterThan(LocalDateTime.of(2090, Month.AUGUST, 31, 18, 30),LocalDateTime.of(1980, Month.AUGUST, 31, 18, 30));
         System.out.println(foundReservations);
         assertTrue(foundReservations.size()>1);
+    }
+
+    @Test
+    public void canGetBeforeDateTimeAndAfterDateTime__ZeroResults(){
+        Customer customer1 = new Customer("Abby", "Anvil", "111111", "abbyanvil@gmail.com");
+        customerRepository.save(customer1);
+        Venue venue1 = new Venue("The Empty Venue");
+        venueRepository.save(venue1);
+        VenueTable venueTable1 = new VenueTable(4, venue1);
+        venueTableRepository.save(venueTable1);
+
+        Reservation reservation1 = new Reservation(customer1, venueTable1,
+                LocalDateTime.of(2020, Month.AUGUST, 31, 18, 30),
+                LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30));
+        reservationRepository.save(reservation1);
+
+        Customer customer2 = new Customer("Abby2", "Anvil2", "211111", "abbyanvil2@gmail.com");
+        customerRepository.save(customer2);
+        Venue venue2 = new Venue("The Empty Venue");
+        venueRepository.save(venue2);
+        VenueTable venueTable2 = new VenueTable(4, venue2);
+        venueTableRepository.save(venueTable2);
+
+        Reservation reservation2 = new Reservation(customer2, venueTable2,
+                LocalDateTime.of(2021, Month.AUGUST, 31, 18, 30),
+                LocalDateTime.of(2021, Month.AUGUST, 31, 20, 30));
+        reservationRepository.save(reservation2);
+
+        List<Reservation> foundReservations = reservationRepository.findByStartLessThanAndStartGreaterThan(LocalDateTime.of(1977, Month.AUGUST, 31, 18, 30),LocalDateTime.of(4040, Month.AUGUST, 31, 18, 30));
+        System.out.println(foundReservations);
+        assertTrue(foundReservations.size()==0);
     }
 
     @Test
