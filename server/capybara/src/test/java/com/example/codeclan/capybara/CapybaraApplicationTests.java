@@ -53,16 +53,19 @@ class CapybaraApplicationTests {
 		venueTableRepository.save(venueTable1);
 	}
 
-//	@Test
-//	public void createReservationThenSave(){
-//		Customer customer1 = new Customer("Abby", "Anvil", "111111", "abbyanvil@gmail.com");
-//		Venue venue1 = new Venue("The Empty Venue");
-//		VenueTable venueTable1 = new VenueTable(4, venue1);
-//
-//		Reservation reservation1 = new Reservation(customer1, venueTable1,
-//				LocalDateTime.of(2020, Month.AUGUST, 31, 18, 30),
-//				LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30));
-//		reservationRepository.save(reservation1);
-//	}
+	@Test
+	public void createReservationThenSave(){
+		Customer customer1 = new Customer("Abby", "Anvil", "111111", "abbyanvil@gmail.com");
+		customerRepository.save(customer1);
+		Venue venue1 = new Venue("The Empty Venue");
+		venueRepository.save(venue1);
+		VenueTable venueTable1 = new VenueTable(4, venue1);
+		venueTableRepository.save(venueTable1);
+
+		Reservation reservation1 = new Reservation(customer1, venueTable1,
+				LocalDateTime.of(2020, Month.AUGUST, 31, 18, 30),
+				LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30));
+		reservationRepository.save(reservation1);
+	}
 
 }
