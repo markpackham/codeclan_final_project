@@ -29,7 +29,7 @@ public class VenueController {
         return new ResponseEntity(venueRepository.findAll(), HttpStatus.OK);
     }
 
-
+    // http://localhost:8080/venues/1
     @GetMapping(value = "/{id}")
     public ResponseEntity getVenueById(@PathVariable Long id) {
         return new ResponseEntity(venueRepository.findById(id), HttpStatus.OK);

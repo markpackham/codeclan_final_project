@@ -20,11 +20,15 @@ public class CustomerController {
             @RequestParam(required = false, name = "lastName") String lastName,
             @RequestParam(required = false, name = "email") String email,
             @RequestParam(required = false, name = "phone") String phone
-    ){
-
-        // http://localhost:8080/customers?=firstName=Abby&&lastName=Anvil
+    ) {
+        // http://localhost:8080/customers?firstName=Abby&&lastName=Anvil
         if(firstName != null && lastName != null){
             return new ResponseEntity(customerRespository.findByFirstNameAndLastName(firstName,lastName), HttpStatus.OK);
+        }
+
+        // http://localhost:8080/customers?lastName=Anvil
+        if(lastName != null) {
+            return new ResponseEntity(customerRespository.findByLastName(lastName), HttpStatus.OK);
         }
 
         // http://localhost:8080/customers?email=abbyanvil@gmail.com
@@ -44,7 +48,6 @@ public class CustomerController {
     public ResponseEntity getCustomerById(@PathVariable Long id){
         return new ResponseEntity(customerRespository.findById(id), HttpStatus.OK);
     }
-
 
     @PostMapping
     public ResponseEntity<Customer>createCustomer(@RequestBody Customer customer){
