@@ -10,8 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class VenueTableTest {
@@ -70,9 +69,13 @@ class VenueTableTest {
     }
 
     @Test
-    public void canSetCovers(){
+    public void canSetAndVenueCovers(){
         VenueTable venueTable1 = new VenueTable(10,null);
         venueTable1.setCovers(22);
         assertEquals(22,venueTable1.getCovers());
+        assertNull(venueTable1.getVenue());
+        Venue venue1 = new Venue("The Empty Venue");
+        venueTable1.setVenue(venue1);
+        assertEquals(venue1,venueTable1.getVenue());
     }
 }
