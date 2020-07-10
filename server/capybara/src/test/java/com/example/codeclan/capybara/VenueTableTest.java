@@ -1,0 +1,59 @@
+package com.example.codeclan.capybara;
+
+import com.example.codeclan.capybara.models.VenueTable;
+import com.example.codeclan.capybara.repositories.IVenueTableRepository;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+@SpringBootTest
+class VenueTableTest {
+
+    @Autowired
+    IVenueTableRepository venueTableRepository;
+
+    @Test
+    void contextLoads() {
+    }
+
+    @Test
+    public void canFindCovers(){
+        List<VenueTable> foundVenueTable = venueTableRepository.findByCovers(4);
+        assertNotNull(foundVenueTable);
+    }
+
+    @Test
+    public void canFindCovers__ZeroFound(){
+        List<VenueTable> foundVenueTable = venueTableRepository.findByCovers(400000000);
+        assertEquals(0,foundVenueTable.size());
+    }
+
+    @Test
+    public void canFindCoversGreaterThan(){
+        List<VenueTable> foundVenueTable = venueTableRepository.findByCoversGreaterThan(1);
+        assertNotNull(foundVenueTable);
+    }
+
+    @Test
+    public void canFindCoversGreaterThan__ZeroFound(){
+        List<VenueTable> foundVenueTable = venueTableRepository.findByCoversGreaterThan(10000000);
+        assertEquals(0,foundVenueTable.size());
+    }
+
+    @Test
+    public void canFindCoversLessThan(){
+        List<VenueTable> foundVenueTable = venueTableRepository.findByCoversLessThan(10000000);
+        assertNotNull(foundVenueTable);
+    }
+
+    @Test
+    public void canFindCoversLessThan__ZeroFound(){
+        List<VenueTable> foundVenueTable = venueTableRepository.findByCoversLessThan(1);
+        assertEquals(0,foundVenueTable.size());
+    }
+}

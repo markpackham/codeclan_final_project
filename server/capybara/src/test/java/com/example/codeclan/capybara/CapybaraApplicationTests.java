@@ -31,6 +31,10 @@ class CapybaraApplicationTests {
 	IReservationRepository reservationRepository;
 
 	@Test
+	void contextLoads() {
+	}
+
+	@Test
 	public void createVenueTableThenSave(){
 		Venue venue1 = new Venue("The Empty Venue");
 		venueRepository.save(venue1);
@@ -71,42 +75,6 @@ class CapybaraApplicationTests {
 		assertNotNull(venueRepository.findById(1L));
 		assertNotNull(venueTableRepository.findById(1L));
 		assertNotNull(reservationRepository.findById(1L));
-	}
-
-	@Test
-	public void canFindCovers(){
-		List<VenueTable> foundVenueTable = venueTableRepository.findByCovers(4);
-		assertNotNull(foundVenueTable);
-	}
-
-	@Test
-	public void canFindCovers__ZeroFound(){
-		List<VenueTable> foundVenueTable = venueTableRepository.findByCovers(400000000);
-		assertEquals(0,foundVenueTable.size());
-	}
-
-	@Test
-	public void canFindCoversGreaterThan(){
-		List<VenueTable> foundVenueTable = venueTableRepository.findByCoversGreaterThan(1);
-		assertNotNull(foundVenueTable);
-	}
-
-	@Test
-	public void canFindCoversGreaterThan__ZeroFound(){
-		List<VenueTable> foundVenueTable = venueTableRepository.findByCoversGreaterThan(10000000);
-		assertEquals(0,foundVenueTable.size());
-	}
-
-	@Test
-	public void canFindCoversLessThan(){
-		List<VenueTable> foundVenueTable = venueTableRepository.findByCoversLessThan(10000000);
-		assertNotNull(foundVenueTable);
-	}
-
-	@Test
-	public void canFindCoversLessThan__ZeroFound(){
-		List<VenueTable> foundVenueTable = venueTableRepository.findByCoversLessThan(1);
-		assertEquals(0,foundVenueTable.size());
 	}
 
 	@Test
