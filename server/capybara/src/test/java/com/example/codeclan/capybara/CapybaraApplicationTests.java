@@ -14,8 +14,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 class CapybaraApplicationTests {
@@ -66,6 +68,18 @@ class CapybaraApplicationTests {
 				LocalDateTime.of(2020, Month.AUGUST, 31, 18, 30),
 				LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30));
 		reservationRepository.save(reservation1);
+	}
+
+	@Test
+	public void canFindCustomerEmail(){
+		Customer foundCustomer = customerRepository.findByEmail("abbyanvil@gmail.com");
+		assertNotNull(foundCustomer);
+	}
+
+	@Test
+	public void canFindCustomerPhone(){
+		Customer foundCustomer = customerRepository.findByPhone("111111");
+		assertNotNull(foundCustomer);
 	}
 
 }
