@@ -15,7 +15,7 @@ public class CustomerController {
     ICustomerRespository customerRespository;
 
     @GetMapping
-    public ResponseEntity getAllCustomersAndFilters(
+    public ResponseEntity getAllCustomersWithFilters(
             @RequestParam(required = false, name = "firstName") String firstName,
             @RequestParam(required = false, name = "lastName") String lastName,
             @RequestParam(required = false, name = "email") String email,
@@ -27,12 +27,12 @@ public class CustomerController {
             return new ResponseEntity(customerRespository.findByFirstNameAndLastName(firstName,lastName), HttpStatus.OK);
         }
 
-        // url path, http://localhost:8080/customers?email=abbyanvil@gmail.com
+        // http://localhost:8080/customers?email=abbyanvil@gmail.com
         if(email != null){
             return new ResponseEntity(customerRespository.findByEmail(email), HttpStatus.OK);
         }
 
-        // url path, http://localhost:8080/customers?phone=111111
+        // http://localhost:8080/customers?phone=111111
         if(phone != null){
             return new ResponseEntity(customerRespository.findByPhone(phone), HttpStatus.OK);
         }

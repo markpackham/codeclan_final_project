@@ -16,7 +16,7 @@ public class ReservationController {
     IReservationRepository reservationRepository;
 
     @GetMapping
-    public ResponseEntity getAllReservationsAndFilters(){
+    public ResponseEntity getAllReservationsWithFilters(){
         return new ResponseEntity(reservationRepository.findAll(), HttpStatus.OK);
     }
 }

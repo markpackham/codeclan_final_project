@@ -17,7 +17,7 @@ public class VenueController {
     IVenueRepository venueRepository;
 
     @GetMapping
-    public ResponseEntity getAllVenuesAndFilters(
+    public ResponseEntity getAllVenuesWithFilters(
             @RequestParam(required = false, name = "name") String name
     ){
 
