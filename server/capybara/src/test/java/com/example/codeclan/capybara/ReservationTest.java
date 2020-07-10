@@ -15,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.time.LocalDateTime;
 import java.time.Month;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
@@ -54,5 +55,19 @@ class ReservationTest {
         reservationRepository.deleteById(1L);
         int postDeleteSize = reservationRepository.findAll().size();
         assertTrue(preDeleteSize > postDeleteSize);
+    }
+
+    @Test
+    public void canSetStartAndEnd(){
+        Customer customer1 = new Customer("Abby", "Anvil", "111111", "abbyanvil@gmail.com");
+        Venue venue1 = new Venue("The Empty Venue");
+        VenueTable venueTable1 = new VenueTable(4, venue1);
+        Reservation reservation1 = new Reservation(customer1, venueTable1,
+                LocalDateTime.of(2020, Month.AUGUST, 20, 18, 30),
+                LocalDateTime.of(2020, Month.AUGUST, 20, 20, 30));
+        reservation1.setStart(LocalDateTime.of(2033, Month.SEPTEMBER, 20, 18, 50));
+        assertEquals("2033-09-20T18:50",reservation1.getStart().toString());
+        reservation1.setEnd(LocalDateTime.of(2043, Month.OCTOBER, 20, 18, 55));
+        assertEquals("2043-10-20T18:55",reservation1.getEnd().toString());
     }
 }
