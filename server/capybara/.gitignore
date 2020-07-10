@@ -13,6 +13,9 @@ target/
 .springBeans
 .sts4-cache
 
+### Database Files ###
+/db/
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
