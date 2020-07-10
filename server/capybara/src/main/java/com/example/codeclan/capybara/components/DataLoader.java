@@ -4,10 +4,10 @@ import com.example.codeclan.capybara.models.Customer;
 import com.example.codeclan.capybara.models.Reservation;
 import com.example.codeclan.capybara.models.Venue;
 import com.example.codeclan.capybara.models.VenueTable;
-import com.example.codeclan.capybara.respositories.ICustomerRespository;
-import com.example.codeclan.capybara.respositories.IReservationRepository;
-import com.example.codeclan.capybara.respositories.IVenueRepository;
-import com.example.codeclan.capybara.respositories.IVenueTableRepository;
+import com.example.codeclan.capybara.repositories.ICustomerRepository;
+import com.example.codeclan.capybara.repositories.IReservationRepository;
+import com.example.codeclan.capybara.repositories.IVenueRepository;
+import com.example.codeclan.capybara.repositories.IVenueTableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -20,7 +20,7 @@ import java.time.Month;
 public class DataLoader implements ApplicationRunner {
 
     @Autowired
-    ICustomerRespository customerRespository;
+    ICustomerRepository customerRespository;
 
     @Autowired
     IReservationRepository reservationRepository;

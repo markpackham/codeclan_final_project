@@ -1,4 +1,4 @@
-package com.example.codeclan.capybara.respositories;
+package com.example.codeclan.capybara.repositories;
 
 import com.example.codeclan.capybara.models.VenueTable;
 import org.springframework.data.jpa.repository.JpaRepository;

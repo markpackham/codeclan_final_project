@@ -1,9 +1,8 @@
 package com.example.codeclan.capybara.controllers;
 
-import com.example.codeclan.capybara.models.Customer;
 import com.example.codeclan.capybara.models.Venue;
-import com.example.codeclan.capybara.respositories.IVenueRepository;
-import com.example.codeclan.capybara.respositories.IVenueTableRepository;
+import com.example.codeclan.capybara.repositories.IVenueRepository;
+import com.example.codeclan.capybara.repositories.IVenueTableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

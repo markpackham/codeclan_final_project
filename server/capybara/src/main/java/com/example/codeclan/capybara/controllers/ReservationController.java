@@ -1,6 +1,6 @@
 package com.example.codeclan.capybara.controllers;
 
-import com.example.codeclan.capybara.respositories.IReservationRepository;
+import com.example.codeclan.capybara.repositories.IReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
