@@ -38,4 +38,10 @@ class VenueTest {
         venue1.setName("Mega Venue");
         assertEquals("Mega Venue",venue1.getName());
     }
+
+    @Test
+    public void checkVenueTableStartsOffEmpty(){
+        Venue venue1 = new Venue("This Venue Has No Name");
+        assertEquals(0, venue1.getVenueTables().size());
+    }
 }
