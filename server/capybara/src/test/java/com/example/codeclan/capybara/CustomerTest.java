@@ -70,4 +70,10 @@ class CustomerTest {
         customer1.setEmail("yahoo@yahoo.com");
         assertEquals("yahoo@yahoo.com",customer1.getEmail());
     }
+
+    @Test
+    public void checkReservationsStartEmpty(){
+        Customer customer1 = new Customer("ChangeFirstName", "ChangeLastName", "999999999","changeme@gmail.com");
+        assertEquals(0,customer1.getReservations().size());
+    }
 }
