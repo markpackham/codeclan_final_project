@@ -43,7 +43,7 @@ public class VenueTableController {
     @PostMapping
     public ResponseEntity<VenueTable>createVenueTable(@RequestBody VenueTable venueTable){
         venueTableRepository.save(venueTable);
-        return new ResponseEntity<>(venueTable,HttpStatus.CREATED);
+        return new ResponseEntity<>(venueTable, HttpStatus.CREATED);
     }
 
 }

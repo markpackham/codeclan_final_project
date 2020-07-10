@@ -22,7 +22,7 @@ public class VenueController {
     public ResponseEntity getAllVenuesWithFilters(
             @RequestParam(required = false, name = "name") String name
     ) {
-        // url path, http://localhost:8080/venues?name=WalkAbout
+        // http://localhost:8080/venues?name=WalkAbout
         if(name != null) {
             return new ResponseEntity(venueRepository.findByName(name), HttpStatus.OK);
         }
@@ -45,7 +45,7 @@ public class VenueController {
     @PostMapping
     public ResponseEntity<Venue>createVenue(@RequestBody Venue venue){
         venueRepository.save(venue);
-        return new ResponseEntity<>(venue,HttpStatus.CREATED);
+        return new ResponseEntity<>(venue, HttpStatus.CREATED);
     }
 
 }
