@@ -1,16 +1,32 @@
 package com.example.codeclan.capybara.models;
 
-import javax.persistence.Entity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name="customers")
 public class Customer {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "firstName")
     private String firstName;
+
+    @Column(name = "lastName")
     private String lastName;
+
+    @Column(name = "phone")
     private String phone;
+
+    @Column(name = "email")
     private String email;
+
+    @JsonIgnoreProperties({"customer"})
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private List<Reservation> reservations;
 
     public Customer(String firstName, String lastName, String phone, String email) {

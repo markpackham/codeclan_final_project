@@ -1,15 +1,27 @@
 package com.example.codeclan.capybara.models;
 
-import javax.persistence.Entity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Table(name="venues")
 public class Venue {
-    private Long id;
-    private String name;
-    private ArrayList venueTables;
 
-    public Venue(String name, ArrayList venueTables) {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name="name")
+    private String name;
+
+    @JsonIgnoreProperties({"venue"})
+    @OneToMany(mappedBy = "venue")
+    private List venueTables;
+
+
+    public Venue(String name, List venueTables) {
         this.name = name;
         this.venueTables = venueTables;
     }

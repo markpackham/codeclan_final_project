@@ -1,13 +1,20 @@
 package com.example.codeclan.capybara.models;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name="reservations")
 public class Reservation {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name="customer")
     private Customer customer;
+
+
     private VenueTable venueTable;
     private LocalDateTime start;
     private LocalDateTime end;

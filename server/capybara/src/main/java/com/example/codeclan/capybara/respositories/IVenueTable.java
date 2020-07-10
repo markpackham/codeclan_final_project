@@ -1,9 +1,9 @@
 package com.example.codeclan.capybara.respositories;
 
-import com.example.codeclan.capybara.models.Reservation;
+import com.example.codeclan.capybara.models.VenueTable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IReservationRepository extends JpaRepository<Reservation, Long>{
+public interface IVenueTable extends JpaRepository<VenueTable, Long> {
 }
