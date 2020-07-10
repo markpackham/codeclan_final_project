@@ -40,6 +40,12 @@ public class CustomerController {
         return new ResponseEntity(customerRespository.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/{id}")
+    public ResponseEntity getCustomerById(@PathVariable Long id){
+        return new ResponseEntity(customerRespository.findById(id), HttpStatus.OK);
+    }
+
+
     @PostMapping
     public ResponseEntity<Customer>createCustomer(@RequestBody Customer customer){
         customerRespository.save(customer);
