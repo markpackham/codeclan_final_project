@@ -9,6 +9,7 @@ class Customer extends Component {
         <p>{this.props.lastName}</p>
         <p>{this.props.phone}</p>
         <p>{this.props.email}</p>
+        <p>hello</p>
       </li>
     );
   }

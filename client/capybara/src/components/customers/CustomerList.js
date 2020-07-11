@@ -17,6 +17,7 @@ class CustomerList extends Component {
     return (
       <ul className="customer-list">
         {customerNodes}
+        I am a Customer List
       </ul>
     );
   }
