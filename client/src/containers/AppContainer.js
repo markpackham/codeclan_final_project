@@ -9,7 +9,7 @@ class AppContainer extends Component {
         this.state = { 
             customers: [],
             venueTables: []
-         };
+        };
     }
 
     componentDidMount() {
@@ -31,8 +31,8 @@ class AppContainer extends Component {
     render() {
         return (
             <div className="app-container">
-                <CustomerList customers={this.state.customers}/>
-                <VenueTableGrid />
+                <CustomerList customers={this.state.customers} />
+                <VenueTableGrid venueTables={this.state.venueTables} />
                 <MainFooter />
             </div>
         );

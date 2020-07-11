@@ -46,6 +46,7 @@ public class ReservationController {
         return new ResponseEntity(reservationRepository.findById(id), HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
     public ResponseEntity<Reservation> createReservation(@RequestBody Reservation reservation) {
         reservationRepository.save(reservation);
@@ -54,6 +55,7 @@ public class ReservationController {
 
     // Delete All Reservations
     // http://localhost:8080/reservations/
+    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping
     public ResponseEntity deleteAllReservations(){
         reservationRepository.deleteAll();
@@ -61,6 +63,7 @@ public class ReservationController {
     }
 
     // http://localhost:8080/reservations/1
+    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping(value="/{id}")
     public ResponseEntity<Long> deleteReservation(@PathVariable Long id){
         reservationRepository.deleteById(id);

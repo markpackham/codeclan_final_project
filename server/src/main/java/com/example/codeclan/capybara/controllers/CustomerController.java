@@ -13,6 +13,7 @@ public class CustomerController {
 
     @Autowired
     ICustomerRepository customerRepository;
+
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
     public ResponseEntity getAllCustomersWithFilters(
@@ -88,6 +89,7 @@ public class CustomerController {
         return new ResponseEntity(customerRepository.findById(id), HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
     public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer){
         customerRepository.save(customer);

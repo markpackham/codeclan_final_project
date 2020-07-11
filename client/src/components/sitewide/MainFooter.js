@@ -2,7 +2,7 @@ import React from 'react';
 
 const MainFooter = () => (
     <div className="main-footer">
-        <p>Copyright {new Date().getFullYear()}</p>
+        <p>Project Capybara ©{new Date().getFullYear()}</p>
         </div>
   );
 
