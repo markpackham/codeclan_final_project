@@ -44,6 +44,7 @@ public class VenueTableController {
         return new ResponseEntity(venueTableRepository.findById(id), HttpStatus.OK);
     }
 
+    // http://localhost:8080/venue-tables
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
     public ResponseEntity<VenueTable>createVenueTable(@RequestBody VenueTable venueTable){
@@ -51,4 +52,15 @@ public class VenueTableController {
         return new ResponseEntity<>(venueTable, HttpStatus.CREATED);
     }
 
+    // http://localhost:8080/venue-tables/1
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<VenueTable> putVenueTable(@RequestBody VenueTable venueTable, @PathVariable Long id){
+        VenueTable venueTableToUpdate = venueTableRepository.findById(id).get();
+        venueTableToUpdate.setCovers(venueTable.getCovers());
+        venueTableToUpdate.setVenue(venueTable.getVenue());
+        venueTableToUpdate.setReservations(venueTable.getReservations());
+        venueTableRepository.save(venueTableToUpdate);
+        return new ResponseEntity<>(venueTableToUpdate, HttpStatus.OK);
+    }
 }
