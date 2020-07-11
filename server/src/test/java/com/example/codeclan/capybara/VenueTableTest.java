@@ -26,56 +26,56 @@ class VenueTableTest {
 
     @Test
     public void createVenueTableThenSave(){
-        Venue venue1 = new Venue("The Empty Venue");
-        venueRepository.save(venue1);
-        VenueTable venueTable1 = new VenueTable(4, venue1);
-        venueTableRepository.save(venueTable1);
+        Venue venue1027 = new Venue("venue1027");
+        venueRepository.save(venue1027);
+        VenueTable venueTable1027 = new VenueTable(4, venue1027);
+        venueTableRepository.save(venueTable1027);
     }
 
     @Test
     public void canFindCovers(){
-        List<VenueTable> foundVenueTable = venueTableRepository.findByCovers(4);
-        assertNotNull(foundVenueTable);
+        List<VenueTable> foundVenueTables = venueTableRepository.findByCovers(4);
+        assertNotNull(foundVenueTables);
     }
 
     @Test
     public void canFindCovers__ZeroFound(){
-        List<VenueTable> foundVenueTable = venueTableRepository.findByCovers(400000000);
-        assertEquals(0,foundVenueTable.size());
+        List<VenueTable> foundVenueTables = venueTableRepository.findByCovers(90000);
+        assertEquals(0,foundVenueTables.size());
     }
 
     @Test
     public void canFindCoversGreaterThan(){
-        List<VenueTable> foundVenueTable = venueTableRepository.findByCoversGreaterThan(1);
-        assertNotNull(foundVenueTable);
+        List<VenueTable> foundVenueTables = venueTableRepository.findByCoversGreaterThan(1);
+        assertNotNull(foundVenueTables);
     }
 
     @Test
     public void canFindCoversGreaterThan__ZeroFound(){
-        List<VenueTable> foundVenueTable = venueTableRepository.findByCoversGreaterThan(10000000);
-        assertEquals(0,foundVenueTable.size());
+        List<VenueTable> foundVenueTables = venueTableRepository.findByCoversGreaterThan(90000);
+        assertEquals(0,foundVenueTables.size());
     }
 
     @Test
     public void canFindCoversLessThan(){
-        List<VenueTable> foundVenueTable = venueTableRepository.findByCoversLessThan(10000000);
-        assertNotNull(foundVenueTable);
+        List<VenueTable> foundVenueTables = venueTableRepository.findByCoversLessThan(90000);
+        assertNotNull(foundVenueTables);
     }
 
     @Test
     public void canFindCoversLessThan__ZeroFound(){
-        List<VenueTable> foundVenueTable = venueTableRepository.findByCoversLessThan(1);
-        assertEquals(0,foundVenueTable.size());
+        List<VenueTable> foundVenueTables = venueTableRepository.findByCoversLessThan(1);
+        assertEquals(0,foundVenueTables.size());
     }
 
     @Test
     public void canSetAndVenueCovers(){
-        VenueTable venueTable1 = new VenueTable(10,null);
-        venueTable1.setCovers(22);
-        assertEquals(22,venueTable1.getCovers());
-        assertNull(venueTable1.getVenue());
-        Venue venue1 = new Venue("The Empty Venue");
-        venueTable1.setVenue(venue1);
-        assertEquals(venue1,venueTable1.getVenue());
+        VenueTable venueTable1028 = new VenueTable(10,null);
+        venueTable1028.setCovers(22);
+        assertEquals(22,venueTable1028.getCovers());
+        assertNull(venueTable1028.getVenue());
+        Venue venue1028 = new Venue("venue1028");
+        venueTable1028.setVenue(venue1028);
+        assertEquals(venue1028,venueTable1028.getVenue());
     }
 }
