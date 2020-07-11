@@ -23,6 +23,7 @@ public class ReservationController {
             @RequestParam(required = false, name = "startAfter")LocalDateTime startAfter
             ) {
 
+
         if(startBefore!= null && startAfter != null){
                 return new ResponseEntity(reservationRepository.findByStartLessThanAndStartGreaterThan(startBefore, startAfter), HttpStatus.OK);
         }
@@ -46,6 +47,7 @@ public class ReservationController {
         return new ResponseEntity(reservationRepository.findById(id), HttpStatus.OK);
     }
 
+    // http://localhost:8080/reservations/
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
     public ResponseEntity<Reservation> createReservation(@RequestBody Reservation reservation) {

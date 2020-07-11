@@ -70,6 +70,7 @@ public class VenueController {
         return new ResponseEntity(venueTableRepository.findByVenueId(id), HttpStatus.OK);
     }
 
+    // http://localhost:8080/venues
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
     public ResponseEntity<Venue>createVenue(@RequestBody Venue venue){

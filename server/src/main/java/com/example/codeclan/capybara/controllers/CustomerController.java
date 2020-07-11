@@ -106,6 +106,7 @@ public class CustomerController {
         return new ResponseEntity(customerRepository.findById(id), HttpStatus.OK);
     }
 
+    // http://localhost:8080/customers
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
     public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer){
