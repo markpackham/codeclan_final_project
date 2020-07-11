@@ -14,6 +14,7 @@ public class VenueTableController {
     @Autowired
     IVenueTableRepository venueTableRepository;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
     public ResponseEntity getAllVenueTablesWithFilters(
             @RequestParam(required = false, name = "covers") Integer covers,

@@ -1,8 +1,9 @@
 import React from 'react'
+import VenueTable from './VenueTable';
 
 const VenueTableGrid = (props) => {
     return (
-        <h1>Hello Venue Tables!</h1>
+        <VenueTable />
     );
 }
 
