@@ -8,8 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class CustomerTest {
@@ -62,6 +61,14 @@ class CustomerTest {
         assertNotNull(foundCustomer);
         Customer foundCustomer2 = customerRepository.findByEmailIgnoreCase("cusTOMER12@gmail.COM");
         assertNotNull(foundCustomer2);
+    }
+
+    @Test
+    public void canFindCustomerEmailStartsWith(){
+        Customer customer121 = new Customer("FirstName121", "LastName121", "333333", "customer99@gmail.com");
+        customerRepository.save(customer121);
+        List<Customer> foundCustomer = customerRepository.findByEmailIgnoreCaseStartingWith("customer99@gm");
+        assertTrue(foundCustomer.size()>0);
     }
 
     @Test

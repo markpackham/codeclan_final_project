@@ -17,4 +17,6 @@ public interface ICustomerRepository extends JpaRepository<Customer, Long> {
     List<Customer> findByLastNameIgnoreCase(String lastName);
 
     List<Customer> findByLastNameIgnoreCaseStartingWith(String lastNameStartsWith);
+
+    List<Customer> findByEmailIgnoreCaseStartingWith(String emailStartsWith);
 }
