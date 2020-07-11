@@ -6,8 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class VenueTest {
@@ -32,6 +33,14 @@ class VenueTest {
         assertNotNull(foundVenue);
         Venue foundVenue2 = venueRepository.findByNameIgnoreCase("The super unique venuE");
         assertNotNull(foundVenue2);
+    }
+
+    @Test
+    public void canFindVenueNameContaining(){
+        Venue venue001 = new Venue("Venue 001");
+        venueRepository.save(venue001);
+        List<Venue> foundVenue = venueRepository.findByNameIgnoreCaseContaining("001");
+        assertTrue(foundVenue.size()>0);
     }
 
     @Test
