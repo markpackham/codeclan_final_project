@@ -33,6 +33,11 @@ public class CustomerController {
             return new ResponseEntity(customerRepository.findByFirstNameIgnoreCaseAndLastNameIgnoreCase(firstName,lastName), HttpStatus.OK);
         }
 
+        // http://localhost:8080/customers?firstName=Abby
+        if(firstName != null) {
+            return new ResponseEntity(customerRepository.findByFirstNameIgnoreCase(firstName), HttpStatus.OK);
+        }
+
         // http://localhost:8080/customers?lastName=Anvil
         if(lastName != null) {
             return new ResponseEntity(customerRepository.findByLastNameIgnoreCase(lastName), HttpStatus.OK);

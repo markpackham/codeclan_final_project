@@ -25,6 +25,14 @@ class CustomerTest {
     }
 
     @Test
+    public void canFindCustomerFirstName(){
+        Customer customer999 = new Customer("customer999FN", "customer999LN", "999", "customer999@gmail.com");
+        customerRepository.save(customer999);
+        List<Customer> foundCustomers = customerRepository.findByFirstNameIgnoreCase("customer999FN");
+        assertEquals(1,foundCustomers.size());
+    }
+
+    @Test
     public void canFindCustomerFirstAndLastName(){
         Customer customer1001 = new Customer("RareFirstName", "RareLastName", "1001", "customer1001@gmail.com");
         customerRepository.save(customer1001);
