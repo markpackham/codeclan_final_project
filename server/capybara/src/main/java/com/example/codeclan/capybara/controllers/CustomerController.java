@@ -59,9 +59,11 @@ public class CustomerController {
             return new ResponseEntity(customerRepository.findByPhone(phone), HttpStatus.OK);
         }
 
+        // http://localhost:8080/customers
         return new ResponseEntity(customerRepository.findAll(), HttpStatus.OK);
     }
 
+    // http://localhost:8080/customers/1
     @GetMapping(value = "/{id}")
     public ResponseEntity getCustomerById(@PathVariable Long id){
         return new ResponseEntity(customerRepository.findById(id), HttpStatus.OK);

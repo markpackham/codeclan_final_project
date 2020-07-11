@@ -16,7 +16,6 @@ public class ReservationController {
     @Autowired
     IReservationRepository reservationRepository;
 
-    // http://localhost:8080/reservations
     @GetMapping
     public ResponseEntity getAllReservationsWithFilters(
             @RequestParam(required = false, name = "startBefore")LocalDateTime startBefore,
@@ -35,6 +34,7 @@ public class ReservationController {
             return new ResponseEntity(reservationRepository.findByStartGreaterThan(startAfter), HttpStatus.OK);
         }
 
+        // http://localhost:8080/reservations
         return new ResponseEntity(reservationRepository.findAll(), HttpStatus.OK);
     }
 

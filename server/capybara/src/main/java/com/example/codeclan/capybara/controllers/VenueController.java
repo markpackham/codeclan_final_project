@@ -39,6 +39,7 @@ public class VenueController {
             return new ResponseEntity(venueRepository.findByNameIgnoreCaseContaining(nameContaining), HttpStatus.OK);
         }
 
+        // http://localhost:8080/venues
         return new ResponseEntity(venueRepository.findAll(), HttpStatus.OK);
     }
 

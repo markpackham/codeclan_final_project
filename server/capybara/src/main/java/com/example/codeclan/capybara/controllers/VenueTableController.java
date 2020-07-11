@@ -32,9 +32,11 @@ public class VenueTableController {
         if(coversUnder != null) {
             return new ResponseEntity(venueTableRepository.findByCoversLessThan(coversUnder), HttpStatus.OK);
         }
+        // http://localhost:8080/venue-tables
         return new ResponseEntity(venueTableRepository.findAll(), HttpStatus.OK);
     }
 
+    // http://localhost:8080/venue-tables/1
     @GetMapping(value = "/{id}")
     public ResponseEntity getVenueTableById(@PathVariable Long id){
         return new ResponseEntity(venueTableRepository.findById(id), HttpStatus.OK);
