@@ -5,8 +5,11 @@ class CustomerList extends Component {
   render() {
     const customerNodes = this.props.customers.map(customer => {
       return (
-        <Customer author={customer.author} key={customer.id}>
-          {customer.text}
+        <Customer 
+        firstName={customer.firstName}
+        lastName={customer.lastName}
+        phone={customer.phone}
+        email={customer.email}>
         </Customer>
       );
     });
