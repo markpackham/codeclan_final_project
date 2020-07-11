@@ -71,6 +71,7 @@ public class ReservationController {
     }
 
     // http://localhost:8080/reservations/1
+    @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping(value = "/{id}")
     public ResponseEntity<Reservation> putReservation(@RequestBody Reservation reservation, @PathVariable Long id){
         Reservation reservationToUpdate = reservationRepository.findById(id).get();

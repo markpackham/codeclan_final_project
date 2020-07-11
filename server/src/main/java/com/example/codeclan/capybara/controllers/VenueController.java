@@ -77,4 +77,14 @@ public class VenueController {
         return new ResponseEntity<>(venue, HttpStatus.CREATED);
     }
 
+    // http://localhost:8080/venues/1
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Venue> putVenue(@RequestBody Venue venue, @PathVariable Long id){
+        Venue venueToUpdate = venueRepository.findById(id).get();
+        venueToUpdate.setName(venue.getName());
+        venueToUpdate.setVenueTables(venue.getVenueTables());
+        venueRepository.save(venueToUpdate);
+        return new ResponseEntity<>(venueToUpdate, HttpStatus.OK);
+    }
 }
