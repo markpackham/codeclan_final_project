@@ -50,8 +50,10 @@ class CustomerTest {
     public void canFindCustomerEmail(){
         Customer customer12 = new Customer("FirstName12", "LastName12", "333333", "customer12@gmail.com");
         customerRepository.save(customer12);
-        Customer foundCustomer = customerRepository.findByEmail("customer12@gmail.com");
+        Customer foundCustomer = customerRepository.findByEmailIgnoreCase("customer12@gmail.com");
         assertNotNull(foundCustomer);
+        Customer foundCustomer2 = customerRepository.findByEmailIgnoreCase("cusTOMER12@gmail.COM");
+        assertNotNull(foundCustomer2);
     }
 
     @Test

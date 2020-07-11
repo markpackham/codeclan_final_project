@@ -33,7 +33,7 @@ public class CustomerController {
 
         // http://localhost:8080/customers?email=abbyanvil@gmail.com
         if(email != null){
-            return new ResponseEntity(customerRepository.findByEmail(email), HttpStatus.OK);
+            return new ResponseEntity(customerRepository.findByEmailIgnoreCase(email), HttpStatus.OK);
         }
 
         // http://localhost:8080/customers?phone=111111
