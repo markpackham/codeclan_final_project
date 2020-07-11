@@ -23,7 +23,8 @@ public class VenueController {
     public ResponseEntity getAllVenuesWithFilters(
             @RequestParam(required = false, name = "name") String name,
             @RequestParam(required = false, name = "nameContaining") String nameContaining,
-            @RequestParam(required = false, name = "notName") String notName
+            @RequestParam(required = false, name = "notName") String notName,
+            @RequestParam(required = false, name = "nameNotContaining") String nameNotContaining
     ) {
         // http://localhost:8080/venues?name=WalkAbout
         if(name != null) {
@@ -38,6 +39,11 @@ public class VenueController {
         // http://localhost:8080/venues?nameContaining=WalkAb
         if(nameContaining != null) {
             return new ResponseEntity(venueRepository.findByNameIgnoreCaseContaining(nameContaining), HttpStatus.OK);
+        }
+
+        // http://localhost:8080/venues?nameNotContaining=WalkAb
+        if(nameNotContaining != null) {
+            return new ResponseEntity(venueRepository.findByNameIgnoreCaseNotContaining(nameNotContaining), HttpStatus.OK);
         }
 
         // http://localhost:8080/venues

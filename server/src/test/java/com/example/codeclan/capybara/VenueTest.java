@@ -53,6 +53,14 @@ class VenueTest {
     }
 
     @Test
+    public void canFindVenueNameNotContaining(){
+        Venue venue0001 = new Venue("Venue 0001");
+        venueRepository.save(venue0001);
+        List<Venue> foundVenue = venueRepository.findByNameIgnoreCaseNotContaining("0001");
+        assertTrue(foundVenue.size()>0);
+    }
+
+    @Test
     public void canSetName(){
         Venue venue1 = new Venue("This Venue Has No Name");
         venue1.setName("Mega Venue");
