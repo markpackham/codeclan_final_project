@@ -30,8 +30,10 @@ class CustomerTest {
     public void canFindCustomerFirstAndLastName(){
         Customer customer999 = new Customer("RareFirstName", "RareLastName", "111111", "abbyanvil@gmail.com");
         customerRepository.save(customer999);
-        List<Customer> foundCustomer = customerRepository.findByFirstNameAndLastName("RareFirstName", "RareLastName");
+        List<Customer> foundCustomer = customerRepository.findByFirstNameIgnoreCaseAndLastNameIgnoreCase("RareFirstName", "RareLastName");
         assertEquals(1,foundCustomer.size());
+        List<Customer> foundCustomer2 = customerRepository.findByFirstNameIgnoreCaseAndLastNameIgnoreCase("rareFirstName", "Rarelastname");
+        assertEquals(1,foundCustomer2.size());
     }
 
     @Test

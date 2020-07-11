@@ -23,7 +23,7 @@ public class CustomerController {
     ) {
         // http://localhost:8080/customers?firstName=Abby&&lastName=Anvil
         if(firstName != null && lastName != null){
-            return new ResponseEntity(customerRepository.findByFirstNameAndLastName(firstName,lastName), HttpStatus.OK);
+            return new ResponseEntity(customerRepository.findByFirstNameIgnoreCaseAndLastNameIgnoreCase(firstName,lastName), HttpStatus.OK);
         }
 
         // http://localhost:8080/customers?lastName=Anvil
