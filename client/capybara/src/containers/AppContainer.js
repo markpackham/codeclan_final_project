@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import MainFooter from '../components/sitewide/MainFooter';
+import CustomerList from '../components/customers/CustomerList'
+
 
 class AppContainer extends Component {
     constructor(props) {
@@ -10,6 +12,7 @@ class AppContainer extends Component {
         return (
             <React.Fragment>
             <MainFooter />
+            <CustomerList />
             </React.Fragment>
         );
     }
