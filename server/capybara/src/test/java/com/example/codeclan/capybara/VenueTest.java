@@ -28,8 +28,10 @@ class VenueTest {
     public void canFindVenueName(){
         Venue venue100 = new Venue("The Super Unique Venue");
         venueRepository.save(venue100);
-        Venue foundVenue = venueRepository.findByName("The Super Unique Venue");
+        Venue foundVenue = venueRepository.findByNameIgnoreCase("The Super Unique Venue");
         assertNotNull(foundVenue);
+        Venue foundVenue2 = venueRepository.findByNameIgnoreCase("The super unique venuE");
+        assertNotNull(foundVenue2);
     }
 
     @Test

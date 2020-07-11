@@ -24,7 +24,7 @@ public class VenueController {
     ) {
         // http://localhost:8080/venues?name=WalkAbout
         if(name != null) {
-            return new ResponseEntity(venueRepository.findByName(name), HttpStatus.OK);
+            return new ResponseEntity(venueRepository.findByNameIgnoreCase(name), HttpStatus.OK);
         }
 
         return new ResponseEntity(venueRepository.findAll(), HttpStatus.OK);
