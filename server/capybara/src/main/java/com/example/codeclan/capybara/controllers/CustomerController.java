@@ -14,6 +14,7 @@ public class CustomerController {
     @Autowired
     ICustomerRepository customerRepository;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
     public ResponseEntity getAllCustomersWithFilters(
             @RequestParam(required = false, name = "firstName") String firstName,
