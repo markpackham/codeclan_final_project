@@ -18,6 +18,7 @@ public class CustomerController {
     public ResponseEntity getAllCustomersWithFilters(
             @RequestParam(required = false, name = "firstName") String firstName,
             @RequestParam(required = false, name = "lastName") String lastName,
+            @RequestParam(required = false, name = "lastNameContaining") String lastNameContaining,
             @RequestParam(required = false, name = "lastNameStartsWith") String lastNameStartsWith,
             @RequestParam(required = false, name = "lastNameNotContaining") String lastNameNotContaining,
             @RequestParam(required = false, name = "email") String email,
@@ -33,6 +34,11 @@ public class CustomerController {
         // http://localhost:8080/customers?lastName=Anvil
         if(lastName != null) {
             return new ResponseEntity(customerRepository.findByLastNameIgnoreCase(lastName), HttpStatus.OK);
+        }
+
+        // http://localhost:8080/customers?lastNameContaining=Anvil
+        if(lastNameContaining != null) {
+            return new ResponseEntity(customerRepository.findByLastNameIgnoreCaseContaining(lastNameContaining), HttpStatus.OK);
         }
 
         // http://localhost:8080/customers?lastNameNotContaining=Anvil

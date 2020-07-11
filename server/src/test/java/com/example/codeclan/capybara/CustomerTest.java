@@ -45,6 +45,14 @@ class CustomerTest {
     }
 
     @Test
+    public void canFindCustomersContainingLastName(){
+        Customer customer0221 = new Customer("AbbyZZZZZ", "ZZZZZ", "142342423", "abbyanvilZZZZZ@gmail.com");
+        customerRepository.save(customer0221);
+        List<Customer> foundCustomers = customerRepository.findByLastNameIgnoreCaseNotContaining("ZZZ");
+        assertTrue(foundCustomers.size() > 1);
+    }
+
+    @Test
     public void canFindCustomersNotContainingLastName(){
         Customer customer022 = new Customer("AbbyXXXXX", "XXXXX", "42342423", "abbyanvilXXXXX@gmail.com");
         customerRepository.save(customer022);
