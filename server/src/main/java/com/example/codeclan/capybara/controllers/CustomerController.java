@@ -45,6 +45,11 @@ public class CustomerController {
             return new ResponseEntity(customerRepository.findByFirstNameContainingIgnoreCase(firstNameContaining), HttpStatus.OK);
         }
 
+        // http://localhost:8080/customers?firstNameStartsWith=Ab
+        if(firstNameStartsWith != null) {
+            return new ResponseEntity(customerRepository.findByFirstNameStartsWithIgnoreCase(firstNameStartsWith), HttpStatus.OK);
+        }
+
         // http://localhost:8080/customers?lastName=Anvil
         if(lastName != null) {
             return new ResponseEntity(customerRepository.findByLastNameIgnoreCase(lastName), HttpStatus.OK);

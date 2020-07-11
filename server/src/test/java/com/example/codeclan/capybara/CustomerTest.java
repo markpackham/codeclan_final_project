@@ -19,6 +19,14 @@ class CustomerTest {
     }
 
     @Test
+    public void canFindCustomerFirstNameStartsWith(){
+        Customer customer997 = new Customer("customer997FN", "customer997LN", "997", "customer997@gmail.com");
+        customerRepository.save(customer997);
+        List<Customer> foundCustomers = customerRepository.findByFirstNameStartsWithIgnoreCase("customer9");
+        assertTrue(foundCustomers.size() > 0);
+    }
+
+    @Test
     public void canFindCustomerFirstNameContaining(){
         Customer customer998 = new Customer("customer998FN", "customer998LN", "998", "customer998@gmail.com");
         customerRepository.save(customer998);
