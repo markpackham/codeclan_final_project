@@ -1,5 +1,4 @@
 package com.example.codeclan.capybara;
-
 import com.example.codeclan.capybara.models.Customer;
 import com.example.codeclan.capybara.repositories.ICustomerRepository;
 import org.junit.jupiter.api.Test;
@@ -46,6 +45,14 @@ class CustomerTest {
     }
 
     @Test
+    public void canFindCustomersContainingLastName(){
+        Customer customer0221 = new Customer("AbbyZZZZZ", "ZZZZZ", "142342423", "abbyanvilZZZZZ@gmail.com");
+        customerRepository.save(customer0221);
+        List<Customer> foundCustomers = customerRepository.findByLastNameIgnoreCaseNotContaining("ZZZ");
+        assertTrue(foundCustomers.size() > 1);
+    }
+
+    @Test
     public void canFindCustomersNotContainingLastName(){
         Customer customer022 = new Customer("AbbyXXXXX", "XXXXX", "42342423", "abbyanvilXXXXX@gmail.com");
         customerRepository.save(customer022);
@@ -76,6 +83,14 @@ class CustomerTest {
         Customer customer121 = new Customer("FirstName121", "LastName121", "333333", "customer99@gmail.com");
         customerRepository.save(customer121);
         List<Customer> foundCustomer = customerRepository.findByEmailIgnoreCaseStartingWith("customer99@gm");
+        assertTrue(foundCustomer.size()>0);
+    }
+
+    @Test
+    public void canFindCustomerEmailContaining(){
+        Customer customer88121 = new Customer("FirstName12188", "LastName12188", "33333388", "customer9988@gmail.com");
+        customerRepository.save(customer88121);
+        List<Customer> foundCustomer = customerRepository.findByEmailIgnoreCaseContaining("@gmail");
         assertTrue(foundCustomer.size()>0);
     }
 
