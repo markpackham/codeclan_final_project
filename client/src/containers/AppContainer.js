@@ -1,33 +1,40 @@
 import React, { Component } from 'react';
 import MainFooter from '../components/sitewide/MainFooter';
-import CustomerList from '../components/customers/CustomerList'
-
-
+import CustomerList from '../components/customers/CustomerList';
+import VenueTableGrid from '../components/venue_tables/VenueTableGrid';
 
 class AppContainer extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            customers: []
+            customers: [],
+            venueTables: []
          };
     }
 
     componentDidMount() {
-        const customerUrl = 'http://localhost:8080/customers';
+        const customersUrl = 'http://localhost:8080/customers';
     
-        fetch(customerUrl)
+        fetch(customersUrl)
           .then(res => res.json())
-          .then(customers => this.setState({ customers: customers }))
-          .catch(err => console.error);
-      }
+          .then(data => this.setState({ customers: data }))
+          .catch(err => console.error(err));
 
+        const venueTablesUrl = 'http://localhost:8080/venue-tables';
+
+        fetch(venueTablesUrl)
+          .then(res => res.json())
+          .then(data => this.setState({ venueTables: data }))
+          .catch(err => console.error(err));
+    }
 
     render() {
         return (
-            <React.Fragment>
-            <MainFooter />
-            <CustomerList customers={this.state.customers}/>
-            </React.Fragment>
+            <div className="app-container">
+                <CustomerList customers={this.state.customers}/>
+                <VenueTableGrid />
+                <MainFooter />
+            </div>
         );
     }
 }
