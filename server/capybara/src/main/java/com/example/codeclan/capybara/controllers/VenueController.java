@@ -21,11 +21,17 @@ public class VenueController {
     @GetMapping
     public ResponseEntity getAllVenuesWithFilters(
             @RequestParam(required = false, name = "name") String name,
-            @RequestParam(required = false, name = "nameContaining") String nameContaining
+            @RequestParam(required = false, name = "nameContaining") String nameContaining,
+            @RequestParam(required = false, name = "notName") String notName
     ) {
         // http://localhost:8080/venues?name=WalkAbout
         if(name != null) {
             return new ResponseEntity(venueRepository.findByNameIgnoreCase(name), HttpStatus.OK);
+        }
+
+        // http://localhost:8080/venues?notName=WalkAbout
+        if(notName != null) {
+            return new ResponseEntity(venueRepository.findByNameIgnoreCaseNot(notName), HttpStatus.OK);
         }
 
         // http://localhost:8080/venues?nameContaining=WalkAb

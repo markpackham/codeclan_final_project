@@ -36,6 +36,15 @@ class VenueTest {
     }
 
     @Test
+    public void canFindVenueNotName(){
+        Venue venue101 = new Venue("The Venue That Must Not Be");
+        venueRepository.save(venue101);
+        List<Venue> foundVenues = venueRepository.findAll();
+        List<Venue> foundVenuesNoteApplied = venueRepository.findByNameIgnoreCaseNot("The Venue That Must Not Be");
+        assertTrue(foundVenues.size() > foundVenuesNoteApplied.size());
+    }
+
+    @Test
     public void canFindVenueNameContaining(){
         Venue venue001 = new Venue("Venue 001");
         venueRepository.save(venue001);
