@@ -18,6 +18,7 @@ public class VenueController {
     @Autowired
     IVenueTableRepository venueTableRepository;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
     public ResponseEntity getAllVenuesWithFilters(
             @RequestParam(required = false, name = "name") String name,
@@ -44,6 +45,7 @@ public class VenueController {
     }
 
     // http://localhost:8080/venues/1
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(value = "/{id}")
     public ResponseEntity getVenueById(@PathVariable Long id) {
         return new ResponseEntity(venueRepository.findById(id), HttpStatus.OK);
