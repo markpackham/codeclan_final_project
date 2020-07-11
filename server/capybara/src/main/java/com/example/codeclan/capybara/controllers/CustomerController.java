@@ -21,7 +21,8 @@ public class CustomerController {
             @RequestParam(required = false, name = "lastNameStartsWith") String lastNameStartsWith,
             @RequestParam(required = false, name = "email") String email,
             @RequestParam(required = false, name = "emailStartsWith") String emailStartsWith,
-            @RequestParam(required = false, name = "phone") String phone
+            @RequestParam(required = false, name = "phone") String phone,
+            @RequestParam(required = false, name = "phoneContaining") String phoneContaining
     ) {
         // http://localhost:8080/customers?firstName=Abby&&lastName=Anvil
         if(firstName != null && lastName != null){
@@ -46,6 +47,11 @@ public class CustomerController {
         // http://localhost:8080/customers?emailStartsWith=abbyanvil@g
         if(emailStartsWith != null){
             return new ResponseEntity(customerRepository.findByEmailIgnoreCaseStartingWith(emailStartsWith), HttpStatus.OK);
+        }
+
+        // http://localhost:8080/customers?phoneContaining=1111
+        if(phoneContaining != null){
+            return new ResponseEntity(customerRepository.findByPhoneContaining(phoneContaining), HttpStatus.OK);
         }
 
         // http://localhost:8080/customers?phone=111111

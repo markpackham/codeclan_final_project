@@ -80,6 +80,14 @@ class CustomerTest {
     }
 
     @Test
+    public void canFindCustomerPhoneContaining(){
+        Customer customer1113 = new Customer("FirstName1113", "LastName1113", "1131313131313", "customer1113@gmail.com");
+        customerRepository.save(customer1113);
+        List<Customer> foundCustomer = customerRepository.findByPhoneContaining("3131");
+        assertTrue(foundCustomer.size() > 0);
+    }
+
+    @Test
     public void canSetFirstNameLastNamePhoneEmail(){
         Customer customer1 = new Customer("ChangeFirstName", "ChangeLastName", "999999999","changeme@gmail.com");
         customer1.setFirstName("Albert");
