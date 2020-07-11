@@ -70,6 +70,7 @@ public class CustomerController {
     }
 
     // http://localhost:8080/customers/1
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(value = "/{id}")
     public ResponseEntity getCustomerById(@PathVariable Long id){
         return new ResponseEntity(customerRepository.findById(id), HttpStatus.OK);

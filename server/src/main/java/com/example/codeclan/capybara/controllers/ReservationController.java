@@ -16,6 +16,7 @@ public class ReservationController {
     @Autowired
     IReservationRepository reservationRepository;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
     public ResponseEntity getAllReservationsWithFilters(
             @RequestParam(required = false, name = "startBefore")LocalDateTime startBefore,
@@ -39,6 +40,7 @@ public class ReservationController {
     }
 
     // http://localhost:8080/reservations/1
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(value = "/{id}")
     public ResponseEntity getReservationById(@PathVariable Long id) {
         return new ResponseEntity(reservationRepository.findById(id), HttpStatus.OK);
