@@ -87,6 +87,14 @@ class CustomerTest {
     }
 
     @Test
+    public void canFindCustomerEmailContaining(){
+        Customer customer88121 = new Customer("FirstName12188", "LastName12188", "33333388", "customer9988@gmail.com");
+        customerRepository.save(customer88121);
+        List<Customer> foundCustomer = customerRepository.findByEmailIgnoreCaseContaining("@gmail");
+        assertTrue(foundCustomer.size()>0);
+    }
+
+    @Test
     public void canFindCustomerPhone(){
         Customer customer13 = new Customer("FirstName13", "LastName13", "131313131313", "customer13@gmail.com");
         customerRepository.save(customer13);

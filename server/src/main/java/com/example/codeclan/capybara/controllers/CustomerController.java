@@ -23,6 +23,7 @@ public class CustomerController {
             @RequestParam(required = false, name = "lastNameNotContaining") String lastNameNotContaining,
             @RequestParam(required = false, name = "email") String email,
             @RequestParam(required = false, name = "emailStartsWith") String emailStartsWith,
+            @RequestParam(required = false, name = "emailContaining") String emailContaining,
             @RequestParam(required = false, name = "phone") String phone,
             @RequestParam(required = false, name = "phoneContaining") String phoneContaining
     ) {
@@ -54,6 +55,11 @@ public class CustomerController {
         // http://localhost:8080/customers?email=abbyanvil@gmail.com
         if(email != null){
             return new ResponseEntity(customerRepository.findByEmailIgnoreCase(email), HttpStatus.OK);
+        }
+
+        // http://localhost:8080/customers?emailContaining=@gmail.com
+        if(emailContaining != null){
+            return new ResponseEntity(customerRepository.findByEmailIgnoreCaseContaining(emailContaining), HttpStatus.OK);
         }
 
         // http://localhost:8080/customers?emailStartsWith=abbyanvil@g
