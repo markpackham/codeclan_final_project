@@ -113,4 +113,17 @@ public class CustomerController {
         return new ResponseEntity<>(customer,HttpStatus.CREATED);
     }
 
+    // http://localhost:8080/customers/1
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Customer> putCustomer(@RequestBody Customer customer, @PathVariable Long id){
+        Customer customerToUpdate = customerRepository.findById(id).get();
+        customerToUpdate.setFirstName(customer.getFirstName());
+        customerToUpdate.setLastName(customer.getLastName());
+        customerToUpdate.setEmail(customer.getEmail());
+        customerToUpdate.setPhone(customer.getPhone());
+        customerToUpdate.setReservations(customer.getReservations());
+        customerRepository.save(customerToUpdate);
+        return new ResponseEntity<>(customerToUpdate, HttpStatus.OK);
+    }
+
 }
