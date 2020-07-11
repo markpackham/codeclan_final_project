@@ -20,112 +20,112 @@ class CustomerTest {
 
     @Test
     public void createCustomerThenSave(){
-        Customer customer1 = new Customer("Abby", "Anvil", "111111", "abbyanvil@gmail.com");
-        customerRepository.save(customer1);
+        Customer customer1000 = new Customer("customer1000FN", "customer1000LN", "1000", "customer1000@gmail.com");
+        customerRepository.save(customer1000);
     }
 
     @Test
     public void canFindCustomerFirstAndLastName(){
-        Customer customer999 = new Customer("RareFirstName", "RareLastName", "111111", "abbyanvil@gmail.com");
-        customerRepository.save(customer999);
-        List<Customer> foundCustomer = customerRepository.findByFirstNameIgnoreCaseAndLastNameIgnoreCase("RareFirstName", "RareLastName");
-        assertEquals(1,foundCustomer.size());
-        List<Customer> foundCustomer2 = customerRepository.findByFirstNameIgnoreCaseAndLastNameIgnoreCase("rareFirstName", "Rarelastname");
-        assertEquals(1,foundCustomer2.size());
+        Customer customer1001 = new Customer("RareFirstName", "RareLastName", "1001", "customer1001@gmail.com");
+        customerRepository.save(customer1001);
+        List<Customer> foundCustomers = customerRepository.findByFirstNameIgnoreCaseAndLastNameIgnoreCase("RareFirstName", "RareLastName");
+        assertEquals(1,foundCustomers.size());
+        List<Customer> foundCustomers2 = customerRepository.findByFirstNameIgnoreCaseAndLastNameIgnoreCase("rareFirstName", "Rarelastname");
+        assertEquals(1,foundCustomers2.size());
     }
 
     @Test
     public void canFindCustomerLastName(){
-        Customer customer999 = new Customer("Abby", "UniqueLastName", "111111", "abbyanvil@gmail.com");
-        customerRepository.save(customer999);
-        List<Customer> foundCustomer = customerRepository.findByLastNameIgnoreCase("UniqueLastName");
-        assertEquals(1,foundCustomer.size());
-        List<Customer> foundCustomer2 = customerRepository.findByLastNameIgnoreCase("uniqueLastName");
-        assertEquals(1,foundCustomer2.size());
+        Customer customer1002 = new Customer("customer1002FN", "UniqueLastName", "1002", "customer1002@gmail.com");
+        customerRepository.save(customer1002);
+        List<Customer> foundCustomers = customerRepository.findByLastNameIgnoreCase("UniqueLastName");
+        assertEquals(1,foundCustomers.size());
+        List<Customer> foundCustomers2 = customerRepository.findByLastNameIgnoreCase("uniqueLastName");
+        assertEquals(1,foundCustomers2.size());
     }
 
     @Test
     public void canFindCustomersContainingLastName(){
-        Customer customer0221 = new Customer("AbbyZZZZZ", "ZZZZZ", "142342423", "abbyanvilZZZZZ@gmail.com");
-        customerRepository.save(customer0221);
+        Customer customer1003 = new Customer("customer1003FN", "ZZZZZ", "1003", "customer1003@gmail.com");
+        customerRepository.save(customer1003);
         List<Customer> foundCustomers = customerRepository.findByLastNameIgnoreCaseNotContaining("ZZZ");
         assertTrue(foundCustomers.size() > 1);
     }
 
     @Test
     public void canFindCustomersNotContainingLastName(){
-        Customer customer022 = new Customer("AbbyXXXXX", "XXXXX", "42342423", "abbyanvilXXXXX@gmail.com");
-        customerRepository.save(customer022);
+        Customer customer1004 = new Customer("customer1004FN", "XXXXX", "1004", "customer1004@gmail.com");
+        customerRepository.save(customer1004);
         List<Customer> foundCustomers = customerRepository.findByLastNameIgnoreCaseNotContaining("XXXXX");
         assertTrue(customerRepository.findAll().size()> foundCustomers.size());
     }
 
     @Test
     public void canFindCustomerLastNameStartingWith(){
-        Customer customer9999 = new Customer("Abby", "ZZUniqueLastName", "111111", "abbyanvil@gmail.com");
-        customerRepository.save(customer9999);
-        List<Customer> foundCustomer = customerRepository.findByLastNameIgnoreCaseStartingWith("ZZUn");
-        assertEquals(1,foundCustomer.size());
+        Customer customer1005 = new Customer("customer1005FN", "ZZUniqueLastName", "1005", "customer1005@gmail.com");
+        customerRepository.save(customer1005);
+        List<Customer> foundCustomers = customerRepository.findByLastNameIgnoreCaseStartingWith("ZZUn");
+        assertEquals(1,foundCustomers.size());
     }
 
     @Test
     public void canFindCustomerEmail(){
-        Customer customer12 = new Customer("FirstName12", "LastName12", "333333", "customer12@gmail.com");
-        customerRepository.save(customer12);
-        Customer foundCustomer = customerRepository.findByEmailIgnoreCase("customer12@gmail.com");
+        Customer customer1006 = new Customer("customer1006FN", "customer1006LN", "1006", "customer1006@gmail.com");
+        customerRepository.save(customer1006);
+        Customer foundCustomer = customerRepository.findByEmailIgnoreCase("customer1006@gmail.com");
         assertNotNull(foundCustomer);
-        Customer foundCustomer2 = customerRepository.findByEmailIgnoreCase("cusTOMER12@gmail.COM");
+        Customer foundCustomer2 = customerRepository.findByEmailIgnoreCase("cUSTOMER1006@gmail.COM");
         assertNotNull(foundCustomer2);
     }
 
     @Test
     public void canFindCustomerEmailStartsWith(){
-        Customer customer121 = new Customer("FirstName121", "LastName121", "333333", "customer99@gmail.com");
-        customerRepository.save(customer121);
-        List<Customer> foundCustomer = customerRepository.findByEmailIgnoreCaseStartingWith("customer99@gm");
-        assertTrue(foundCustomer.size()>0);
+        Customer customer1007 = new Customer("customer1007FN", "customer1007LN", "1007", "customer1007@gmail.com");
+        customerRepository.save(customer1007);
+        List<Customer> foundCustomers = customerRepository.findByEmailIgnoreCaseStartingWith("customer1007@gm");
+        assertTrue(foundCustomers.size()>0);
     }
 
     @Test
     public void canFindCustomerEmailContaining(){
-        Customer customer88121 = new Customer("FirstName12188", "LastName12188", "33333388", "customer9988@gmail.com");
-        customerRepository.save(customer88121);
-        List<Customer> foundCustomer = customerRepository.findByEmailIgnoreCaseContaining("@gmail");
-        assertTrue(foundCustomer.size()>0);
+        Customer customer1008 = new Customer("customer1008FN", "customer1008LN", "1008", "customer1008@gmail.com");
+        customerRepository.save(customer1008);
+        List<Customer> foundCustomers = customerRepository.findByEmailIgnoreCaseContaining("@gmail");
+        assertTrue(foundCustomers.size()>0);
     }
 
     @Test
     public void canFindCustomerPhone(){
-        Customer customer13 = new Customer("FirstName13", "LastName13", "131313131313", "customer13@gmail.com");
-        customerRepository.save(customer13);
+        Customer customer1009 = new Customer("customer1009FN", "customer1009LN", "131313131313", "customer1009@gmail.com");
+        customerRepository.save(customer1009);
         Customer foundCustomer = customerRepository.findByPhone("131313131313");
         assertNotNull(foundCustomer);
     }
 
     @Test
     public void canFindCustomerPhoneContaining(){
-        Customer customer1113 = new Customer("FirstName1113", "LastName1113", "1131313131313", "customer1113@gmail.com");
-        customerRepository.save(customer1113);
-        List<Customer> foundCustomer = customerRepository.findByPhoneContaining("3131");
-        assertTrue(foundCustomer.size() > 0);
+        Customer customer1010 = new Customer("customer1010FN", "customer1010LN", "1131313131313", "customer1010@gmail.com");
+        customerRepository.save(customer1010);
+        List<Customer> foundCustomers = customerRepository.findByPhoneContaining("3131");
+        assertTrue(foundCustomers.size() > 0);
     }
 
     @Test
     public void canSetFirstNameLastNamePhoneEmail(){
-        Customer customer1 = new Customer("ChangeFirstName", "ChangeLastName", "999999999","changeme@gmail.com");
-        customer1.setFirstName("Albert");
-        assertEquals("Albert", customer1.getFirstName());
-        customer1.setLastName("Billington");
-        assertEquals("Billington",customer1.getLastName());
-        customer1.setPhone("000000000");
-        assertEquals("000000000",customer1.getPhone());
-        customer1.setEmail("yahoo@yahoo.com");
-        assertEquals("yahoo@yahoo.com",customer1.getEmail());
+        Customer customer1011 = new Customer("ChangeFirstName", "ChangeLastName", "999999999","changeme@gmail.com");
+        customer1011.setFirstName("customer1011FN");
+        assertEquals("customer1011FN", customer1011.getFirstName());
+        customer1011.setLastName("customer1011LN");
+        assertEquals("customer1011LN",customer1011.getLastName());
+        customer1011.setPhone("1011");
+        assertEquals("1011",customer1011.getPhone());
+        customer1011.setEmail("1011@yahoo.com");
+        assertEquals("1011@yahoo.com",customer1011.getEmail());
     }
 
     @Test
     public void checkReservationsStartEmpty(){
-        Customer customer1 = new Customer("ChangeFirstName", "ChangeLastName", "999999999","changeme@gmail.com");
-        assertEquals(0,customer1.getReservations().size());
+        Customer customer1012 = new Customer("customer1012FN", "customer1012LN", "1012","customer1012@gmail.com");
+        assertEquals(0,customer1012.getReservations().size());
     }
 }
