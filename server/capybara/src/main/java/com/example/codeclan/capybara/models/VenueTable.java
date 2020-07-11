@@ -16,12 +16,12 @@ public class VenueTable {
     @Column(name = "cover")
     private int covers;
 
-    @JsonIgnoreProperties({"venue_table"})
+    @JsonIgnoreProperties({"venueTables"})
     @ManyToOne
     @JoinColumn(name = "venue_id", nullable = false)
     private Venue venue;
 
-    @JsonIgnoreProperties({"venue_table"})
+    @JsonIgnoreProperties({"venueTable"})
     @OneToMany(mappedBy = "venueTable", fetch = FetchType.LAZY)
     private List<Reservation> reservations;
 
@@ -54,6 +54,14 @@ public class VenueTable {
 
     public void setVenue(Venue venue) {
         this.venue = venue;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 
 }
