@@ -6,6 +6,7 @@ class CustomerList extends Component {
     const customerNodes = this.props.customers.map(customer => {
       return (
         <Customer 
+        id={customer.id}
         firstName={customer.firstName}
         lastName={customer.lastName}
         phone={customer.phone}
@@ -17,7 +18,6 @@ class CustomerList extends Component {
     return (
       <ul className="customer-list">
         {customerNodes}
-        I am a Customer List
       </ul>
     );
   }

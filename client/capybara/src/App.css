@@ -15,3 +15,18 @@ ul{
     list-style: 
     none; 
 }
+
+.customer{
+    border: solid;
+    border-color: gray;
+}
+
+.customer-list{
+    border: solid;
+    border-color: black;
+}
+
+.customer-form {
+    border: solid;
+    border-color: black;
+}

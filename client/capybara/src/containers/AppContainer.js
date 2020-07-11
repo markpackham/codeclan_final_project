@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MainFooter from '../components/sitewide/MainFooter';
 import CustomerList from '../components/customers/CustomerList'
+import CustomerForm from '../components/customers/CustomerForm';
 
 
 
@@ -8,8 +9,18 @@ class AppContainer extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            customers: []
+            customers: [
+            ]
          };
+
+         this.handleCustomerSubmit = this.handleCustomerSubmit.bind(this);
+    }
+
+    handleCustomerSubmit(newCustomer) {
+        const updatedCustomers = [...this.state.customers, newCustomer];
+        this.setState({
+            customers: updatedCustomers
+        });
     }
 
     componentDidMount() {
@@ -26,6 +37,8 @@ class AppContainer extends Component {
         return (
             <React.Fragment>
             <MainFooter />
+            <h3>Create Customer</h3>
+            <CustomerForm title="Create Customer" onCustomerSubmit={this.handleCustomerSubmit}/>
             <CustomerList customers={this.state.customers}/>
             </React.Fragment>
         );
