@@ -28,7 +28,7 @@ public class CustomerController {
 
         // http://localhost:8080/customers?lastName=Anvil
         if(lastName != null) {
-            return new ResponseEntity(customerRepository.findByLastName(lastName), HttpStatus.OK);
+            return new ResponseEntity(customerRepository.findByLastNameIgnoreCase(lastName), HttpStatus.OK);
         }
 
         // http://localhost:8080/customers?email=abbyanvil@gmail.com

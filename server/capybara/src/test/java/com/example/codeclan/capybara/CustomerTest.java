@@ -38,8 +38,10 @@ class CustomerTest {
     public void canFindCustomerLastName(){
         Customer customer999 = new Customer("Abby", "UniqueLastName", "111111", "abbyanvil@gmail.com");
         customerRepository.save(customer999);
-        List<Customer> foundCustomer = customerRepository.findByLastName("UniqueLastName");
+        List<Customer> foundCustomer = customerRepository.findByLastNameIgnoreCase("UniqueLastName");
         assertEquals(1,foundCustomer.size());
+        List<Customer> foundCustomer2 = customerRepository.findByLastNameIgnoreCase("uniqueLastName");
+        assertEquals(1,foundCustomer2.size());
     }
 
     @Test
