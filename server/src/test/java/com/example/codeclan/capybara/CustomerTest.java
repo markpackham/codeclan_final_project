@@ -19,9 +19,11 @@ class CustomerTest {
     }
 
     @Test
-    public void createCustomerThenSave(){
-        Customer customer1000 = new Customer("customer1000FN", "customer1000LN", "1000", "customer1000@gmail.com");
-        customerRepository.save(customer1000);
+    public void canFindCustomerFirstNameContaining(){
+        Customer customer998 = new Customer("customer998FN", "customer998LN", "998", "customer998@gmail.com");
+        customerRepository.save(customer998);
+        List<Customer> foundCustomers = customerRepository.findByFirstNameContainingIgnoreCase("998FN");
+        assertEquals(1,foundCustomers.size());
     }
 
     @Test
@@ -30,6 +32,12 @@ class CustomerTest {
         customerRepository.save(customer999);
         List<Customer> foundCustomers = customerRepository.findByFirstNameIgnoreCase("customer999FN");
         assertEquals(1,foundCustomers.size());
+    }
+
+    @Test
+    public void createCustomerThenSave(){
+        Customer customer1000 = new Customer("customer1000FN", "customer1000LN", "1000", "customer1000@gmail.com");
+        customerRepository.save(customer1000);
     }
 
     @Test

@@ -18,6 +18,8 @@ public class CustomerController {
     @GetMapping
     public ResponseEntity getAllCustomersWithFilters(
             @RequestParam(required = false, name = "firstName") String firstName,
+            @RequestParam(required = false, name = "firstNameContaining") String firstNameContaining,
+            @RequestParam(required = false, name = "firstNameStartsWith") String firstNameStartsWith,
             @RequestParam(required = false, name = "lastName") String lastName,
             @RequestParam(required = false, name = "lastNameContaining") String lastNameContaining,
             @RequestParam(required = false, name = "lastNameStartsWith") String lastNameStartsWith,
@@ -36,6 +38,11 @@ public class CustomerController {
         // http://localhost:8080/customers?firstName=Abby
         if(firstName != null) {
             return new ResponseEntity(customerRepository.findByFirstNameIgnoreCase(firstName), HttpStatus.OK);
+        }
+
+        // http://localhost:8080/customers?firstNameContaining=by
+        if(firstNameContaining != null) {
+            return new ResponseEntity(customerRepository.findByFirstNameContainingIgnoreCase(firstNameContaining), HttpStatus.OK);
         }
 
         // http://localhost:8080/customers?lastName=Anvil
