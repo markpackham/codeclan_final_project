@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import MainFooter from '../components/sitewide/MainFooter';
 
 class AppContainer extends Component {
     constructor(props) {
@@ -7,7 +8,9 @@ class AppContainer extends Component {
     }
     render() {
         return (
-            <h1>Hello World</h1>
+            <React.Fragment>
+            <MainFooter />
+            </React.Fragment>
         );
     }
 }
