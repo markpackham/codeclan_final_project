@@ -18,11 +18,14 @@ public class VenueController {
     @Autowired
     IVenueTableRepository venueTableRepository;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
     public ResponseEntity getAllVenuesWithFilters(
             @RequestParam(required = false, name = "name") String name,
             @RequestParam(required = false, name = "nameContaining") String nameContaining,
-            @RequestParam(required = false, name = "notName") String notName
+            @RequestParam(required = false, name = "notName") String notName,
+            @RequestParam(required = false, name = "nameNotContaining") String nameNotContaining,
+            @RequestParam(required = false, name = "noTables") String noTables
     ) {
         // http://localhost:8080/venues?name=WalkAbout
         if(name != null) {
@@ -39,17 +42,29 @@ public class VenueController {
             return new ResponseEntity(venueRepository.findByNameIgnoreCaseContaining(nameContaining), HttpStatus.OK);
         }
 
+        // http://localhost:8080/venues?nameNotContaining=WalkAb
+        if(nameNotContaining != null) {
+            return new ResponseEntity(venueRepository.findByNameIgnoreCaseNotContaining(nameNotContaining), HttpStatus.OK);
+        }
+
+        // http://localhost:8080/venues?noTables=t
+        if(noTables != null){
+            return new ResponseEntity(venueRepository.findByVenueTablesIsNull(), HttpStatus.OK);
+        }
+
         // http://localhost:8080/venues
         return new ResponseEntity(venueRepository.findAll(), HttpStatus.OK);
     }
 
     // http://localhost:8080/venues/1
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(value = "/{id}")
     public ResponseEntity getVenueById(@PathVariable Long id) {
         return new ResponseEntity(venueRepository.findById(id), HttpStatus.OK);
     }
 
     // http://localhost:8080/venues/1/venue-tables
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(value = "/{id}/venue-tables")
     public ResponseEntity getAllVenueTablesByVenue(@PathVariable Long id) {
         return new ResponseEntity(venueTableRepository.findByVenueId(id), HttpStatus.OK);
