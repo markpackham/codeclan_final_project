@@ -1,17 +1,17 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     padding: 1rem;
 }
 
-a{ 
+a { 
     text-decoration: none; 
 } 
 
-ul{ 
+ul { 
     list-style: 
     none; 
 }
