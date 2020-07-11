@@ -18,6 +18,7 @@ public class CustomerController {
     public ResponseEntity getAllCustomersWithFilters(
             @RequestParam(required = false, name = "firstName") String firstName,
             @RequestParam(required = false, name = "lastName") String lastName,
+            @RequestParam(required = false, name = "lastNameStartsWith") String lastNameStartsWith,
             @RequestParam(required = false, name = "email") String email,
             @RequestParam(required = false, name = "phone") String phone
     ) {
@@ -29,6 +30,11 @@ public class CustomerController {
         // http://localhost:8080/customers?lastName=Anvil
         if(lastName != null) {
             return new ResponseEntity(customerRepository.findByLastNameIgnoreCase(lastName), HttpStatus.OK);
+        }
+
+        // http://localhost:8080/customers?lastNameStartsWith=An
+        if(lastNameStartsWith != null) {
+            return new ResponseEntity(customerRepository.findByLastNameIgnoreCaseStartingWith(lastNameStartsWith), HttpStatus.OK);
         }
 
         // http://localhost:8080/customers?email=abbyanvil@gmail.com

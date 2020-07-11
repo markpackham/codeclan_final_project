@@ -47,6 +47,14 @@ class CustomerTest {
     }
 
     @Test
+    public void canFindCustomerLastNameStartingWith(){
+        Customer customer9999 = new Customer("Abby", "ZZUniqueLastName", "111111", "abbyanvil@gmail.com");
+        customerRepository.save(customer9999);
+        List<Customer> foundCustomer = customerRepository.findByLastNameIgnoreCaseStartingWith("ZZUn");
+        assertEquals(1,foundCustomer.size());
+    }
+
+    @Test
     public void canFindCustomerEmail(){
         Customer customer12 = new Customer("FirstName12", "LastName12", "333333", "customer12@gmail.com");
         customerRepository.save(customer12);
