@@ -23,10 +23,8 @@ public class ReservationController {
             @RequestParam(required = false, name = "startAfter")LocalDateTime startAfter
             ) {
 
-        if(startBefore!= null){
-            if(startAfter != null){
+        if(startBefore!= null && startAfter != null){
                 return new ResponseEntity(reservationRepository.findByStartLessThanAndStartGreaterThan(startBefore, startAfter), HttpStatus.OK);
-            }
         }
 
         if(startBefore != null){
