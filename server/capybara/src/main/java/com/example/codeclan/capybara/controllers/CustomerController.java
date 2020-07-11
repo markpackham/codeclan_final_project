@@ -19,6 +19,7 @@ public class CustomerController {
             @RequestParam(required = false, name = "firstName") String firstName,
             @RequestParam(required = false, name = "lastName") String lastName,
             @RequestParam(required = false, name = "lastNameStartsWith") String lastNameStartsWith,
+            @RequestParam(required = false, name = "lastNameContains") String lastNameContains,
             @RequestParam(required = false, name = "lastNameNotContaining") String lastNameNotContaining,
             @RequestParam(required = false, name = "email") String email,
             @RequestParam(required = false, name = "emailStartsWith") String emailStartsWith,
@@ -43,6 +44,11 @@ public class CustomerController {
         // http://localhost:8080/customers?lastNameStartsWith=An
         if(lastNameStartsWith != null) {
             return new ResponseEntity(customerRepository.findByLastNameIgnoreCaseStartingWith(lastNameStartsWith), HttpStatus.OK);
+        }
+
+        // http://localhost:8080/customers?lastNameContains=An
+        if(lastNameContains != null) {
+            return new ResponseEntity(customerRepository.findByLastNameIgnoreCaseContains(lastNameContains), HttpStatus.OK);
         }
 
         // http://localhost:8080/customers?email=abbyanvil@gmail.com
