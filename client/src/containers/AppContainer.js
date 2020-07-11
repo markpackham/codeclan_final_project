@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MainFooter from '../components/sitewide/MainFooter';
 import CustomerList from '../components/customers/CustomerList';
 import VenueTableGrid from '../components/venue_tables/VenueTableGrid';
+import ReservationForm from '../components/reservations/ReservationForm';
 
 class AppContainer extends Component {
     constructor(props) {
@@ -33,6 +34,7 @@ class AppContainer extends Component {
             <div className="app-container">
                 <CustomerList customers={this.state.customers} />
                 <VenueTableGrid venueTables={this.state.venueTables} />
+                <ReservationForm />
                 <MainFooter />
             </div>
         );
