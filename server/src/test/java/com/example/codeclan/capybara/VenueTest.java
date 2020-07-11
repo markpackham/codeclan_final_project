@@ -56,8 +56,8 @@ class VenueTest {
     public void canFindVenueNameNotContaining(){
         Venue venue0001 = new Venue("Venue 0001");
         venueRepository.save(venue0001);
-        List<Venue> foundVenue = venueRepository.findByNameIgnoreCaseNotContaining("0001");
-        assertTrue(foundVenue.size()>0);
+        List<Venue> foundVenues = venueRepository.findByNameIgnoreCaseNotContaining("0001");
+        assertTrue(foundVenues.size()>0);
     }
 
     @Test
@@ -71,5 +71,13 @@ class VenueTest {
     public void checkVenueTableStartsOffEmpty(){
         Venue venue1 = new Venue("This Venue Has No Name");
         assertEquals(0, venue1.getVenueTables().size());
+    }
+
+    @Test
+    public void canGetVenuesWithNoTables(){
+        Venue venue643 = new Venue("This Venue Has No Tables");
+        venueRepository.save(venue643);
+        List<Venue> foundVenues = venueRepository.findByVenueTablesIsNull();
+        assertTrue(foundVenues.size() > 0);
     }
 }

@@ -15,4 +15,6 @@ public interface IVenueRepository extends JpaRepository<Venue, Long> {
     List<Venue> findByNameIgnoreCaseNot(String notName);
 
     List<Venue> findByNameIgnoreCaseNotContaining(String nameNotContaining);
+
+    List<Venue>  findByVenueTablesIsNull();
 }
