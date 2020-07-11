@@ -6,13 +6,15 @@ import CustomerList from '../components/customers/CustomerList'
 class AppContainer extends Component {
     constructor(props) {
         super(props);
-        this.state = {  };
+        this.state = { 
+            customers: []
+         };
     }
     render() {
         return (
             <React.Fragment>
             <MainFooter />
-            <CustomerList />
+            <CustomerList customers={this.state.customers}/>
             </React.Fragment>
         );
     }
