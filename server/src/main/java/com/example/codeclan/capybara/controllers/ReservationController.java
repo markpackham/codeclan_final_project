@@ -70,4 +70,16 @@ public class ReservationController {
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
+    // http://localhost:8080/reservations/1
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Reservation> putReservation(@RequestBody Reservation reservation, @PathVariable Long id){
+        Reservation reservationToUpdate = reservationRepository.findById(id).get();
+        reservationToUpdate.setCustomer(reservation.getCustomer());
+        reservationToUpdate.setVenueTable(reservation.getVenueTable());
+        reservationToUpdate.setStart(reservation.getStart());
+        reservationToUpdate.setEnd(reservation.getEnd());
+        reservationRepository.save(reservationToUpdate);
+        return new ResponseEntity<>(reservationToUpdate, HttpStatus.OK);
+    }
+
 }
