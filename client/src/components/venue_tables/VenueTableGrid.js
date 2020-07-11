@@ -1,5 +1,6 @@
 import React from 'react'
 import VenueTable from './VenueTable';
+import '../../styles/VenueTableGrid.css'
 
 const VenueTableGrid = (props) => {
     const venueTableNodes = props.venueTables.map((venueTable, index) => {
@@ -8,7 +9,6 @@ const VenueTableGrid = (props) => {
 
     return (
         <div className="venue-table-grid">
-            <h2>All Tables</h2>
             {venueTableNodes}
         </div>
     );

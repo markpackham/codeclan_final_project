@@ -1,8 +1,11 @@
 import React from 'react';
+import '../../styles/VenueTable.css'
 
 const VenueTable = (props) => {
     return (
-        <p>I am a table</p>
+        <div className="venue-table">
+            <h1>{props.venueTable.covers}</h1>
+        </div>
     );
 }
 
