@@ -13,12 +13,12 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonIgnoreProperties
+    @JsonIgnoreProperties({"reservations"})
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @JsonIgnoreProperties
+    @JsonIgnoreProperties({"reservations"})
     @ManyToOne
     @JoinColumn(name = "venue_table_id", nullable = false)
     private VenueTable venueTable;
