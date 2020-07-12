@@ -1,5 +1,5 @@
 import React from 'react';
-import CapybaraImage from './capybaraimage.png';
+import CapybaraImage from './capybara.png';
 
 const MainHeader = () => (
     <div className="main-header">
