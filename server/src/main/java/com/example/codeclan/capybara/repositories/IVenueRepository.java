@@ -19,4 +19,8 @@ public interface IVenueRepository extends JpaRepository<Venue, Long> {
     List<Venue> findByVenueTablesIsNull();
 
     List<Venue> findAllByOrderByIdDesc();
+
+    List<Venue> findByOrderByNameAsc();
+
+    List<Venue> findByOrderByNameDesc();
 }

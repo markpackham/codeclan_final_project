@@ -22,6 +22,8 @@ public class VenueController {
     @GetMapping
     public ResponseEntity getAllVenuesWithFilters(
             @RequestParam(required = false, name = "name") String name,
+            @RequestParam(required = false, name = "nameAsc") String nameAsc,
+            @RequestParam(required = false, name = "nameDesc") String nameDesc,
             @RequestParam(required = false, name = "nameContaining") String nameContaining,
             @RequestParam(required = false, name = "notName") String notName,
             @RequestParam(required = false, name = "nameNotContaining") String nameNotContaining,
@@ -33,6 +35,16 @@ public class VenueController {
         // http://localhost:8080/venues?name=WalkAbout
         if(name != null) {
             return new ResponseEntity(venueRepository.findByNameIgnoreCase(name), HttpStatus.OK);
+        }
+
+        // http://localhost:8080/venues?nameAsc=t
+        if(nameAsc != null) {
+            return new ResponseEntity(venueRepository.findByOrderByNameAsc(), HttpStatus.OK);
+        }
+
+        // http://localhost:8080/venues?nameDesc=t
+        if(nameDesc != null) {
+            return new ResponseEntity(venueRepository.findByOrderByNameDesc(), HttpStatus.OK);
         }
 
         // http://localhost:8080/venues?notName=WalkAbout
