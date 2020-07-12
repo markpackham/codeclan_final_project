@@ -24,6 +24,7 @@ class CustomerTest {
         customerRepository.save(customer997);
         List<Customer> foundCustomers = customerRepository.findByFirstNameStartsWithIgnoreCase("customer9");
         assertTrue(foundCustomers.size() > 0);
+        assertTrue(customerRepository.findAll().size()>0);
     }
 
     @Test

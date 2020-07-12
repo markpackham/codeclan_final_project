@@ -30,6 +30,7 @@ class VenueTableTest {
         venueRepository.save(venue1027);
         VenueTable venueTable1027 = new VenueTable(4, venue1027);
         venueTableRepository.save(venueTable1027);
+        assertTrue(venueTableRepository.findAll().size()>0);
     }
 
     @Test

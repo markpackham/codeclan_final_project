@@ -48,6 +48,7 @@ class ReservationTest {
                 LocalDateTime.of(2020, Month.AUGUST, 31, 18, 30),
                 LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30));
         reservationRepository.save(reservation1000);
+        assertTrue(reservationRepository.findAll().size()>0);
     }
 
     @Test

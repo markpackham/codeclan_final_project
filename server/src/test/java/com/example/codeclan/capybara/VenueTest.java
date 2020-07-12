@@ -23,6 +23,7 @@ class VenueTest {
     public void createVenueThenSave(){
         Venue venue1029 = new Venue("venue1029");
         venueRepository.save(venue1029);
+        assertTrue(venueRepository.findAll().size()>0);
     }
 
     @Test
