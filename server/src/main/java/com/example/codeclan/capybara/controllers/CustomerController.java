@@ -20,6 +20,8 @@ public class CustomerController {
             @RequestParam(required = false, name = "firstName") String firstName,
             @RequestParam(required = false, name = "firstNameContaining") String firstNameContaining,
             @RequestParam(required = false, name = "firstNameStartsWith") String firstNameStartsWith,
+            @RequestParam(required = false, name = "firstNameAsc") String firstNameAsc,
+            @RequestParam(required = false, name = "firstNameDesc") String firstNameDesc,
             @RequestParam(required = false, name = "lastName") String lastName,
             @RequestParam(required = false, name = "lastNameContaining") String lastNameContaining,
             @RequestParam(required = false, name = "lastNameStartsWith") String lastNameStartsWith,
@@ -38,6 +40,16 @@ public class CustomerController {
         // http://localhost:8080/customers?firstName=Abby
         if(firstName != null) {
             return new ResponseEntity(customerRepository.findByFirstNameIgnoreCase(firstName), HttpStatus.OK);
+        }
+
+        // http://localhost:8080/customers?firstNameAsc=t
+        if(firstNameAsc != null){
+            return new ResponseEntity(customerRepository.findAllByOrderByFirstNameAsc(), HttpStatus.OK);
+        }
+
+        // http://localhost:8080/customers?firstNameDesc=t
+        if(firstNameDesc != null){
+            return new ResponseEntity(customerRepository.findAllByOrderByFirstNameDesc(), HttpStatus.OK);
         }
 
         // http://localhost:8080/customers?firstNameContaining=by
