@@ -48,9 +48,9 @@ class AppContainer extends Component {
                 <Route path="/about" component={About} />
                 <CustomerList customers={this.state.customers} />
                 <VenueTableGrid venueTables={this.state.venueTables} />
-                <MainFooter />
                 <Route component={ErrorPage}/>
                 </Switch>
+                <MainFooter />
                 </React.Fragment>
                 </Router>
             </div>
