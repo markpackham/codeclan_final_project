@@ -56,6 +56,12 @@ public class DataLoader implements ApplicationRunner {
         Customer customer18 = new Customer("Romeo","Romeson","118000","roman@aol.com");
         Customer customer19 = new Customer("Steve", "Steveson","119000","steve@steve.net");
         Customer customer20 = new Customer("Terry","Terryson","120000","terry@telnet.co.uk");
+        Customer customer21 = new Customer("Ulrick","Ullson","121000","urlick@protonmail.com");
+        Customer customer22 = new Customer("Violet","Violetta","122000","velito@gmail.com");
+        Customer customer23 = new Customer("Wes","Wilfredson","123000","wes@wesorama.com");
+        Customer customer24 = new Customer("Xavier","Xereson","124000","xavier@lycos.com");
+        Customer customer25 = new Customer("Yevs","Yaleson","125000","yeves@lycos.co.uk");
+        Customer customer26 = new Customer("Zeus","Zellson","126000","zeus@hotmail.com");
 
         customerRespository.save(customer1);
         customerRespository.save(customer2);
@@ -77,6 +83,12 @@ public class DataLoader implements ApplicationRunner {
         customerRespository.save(customer18);
         customerRespository.save(customer19);
         customerRespository.save(customer20);
+        customerRespository.save(customer21);
+        customerRespository.save(customer22);
+        customerRespository.save(customer23);
+        customerRespository.save(customer24);
+        customerRespository.save(customer25);
+        customerRespository.save(customer26);
 
         Venue venue1 = new Venue("venue1");
         Venue venue2 = new Venue("venue2");
@@ -139,6 +151,13 @@ public class DataLoader implements ApplicationRunner {
         VenueTable venueTable18 = new VenueTable(1, venue18);
         VenueTable venueTable19 = new VenueTable(1, venue19);
         VenueTable venueTable20 = new VenueTable(1, venue20);
+        VenueTable venueTable21 = new VenueTable(1, venue1);
+        VenueTable venueTable22 = new VenueTable(1, venue2);
+        VenueTable venueTable23 = new VenueTable(1, venue3);
+        VenueTable venueTable24 = new VenueTable(1, venue4);
+        VenueTable venueTable25 = new VenueTable(1, venue5);
+        VenueTable venueTable26 = new VenueTable(1, venue6);
+
         venueTableRepository.save(venueTable1);
         venueTableRepository.save(venueTable2);
         venueTableRepository.save(venueTable3);
@@ -159,6 +178,12 @@ public class DataLoader implements ApplicationRunner {
         venueTableRepository.save(venueTable18);
         venueTableRepository.save(venueTable19);
         venueTableRepository.save(venueTable20);
+        venueTableRepository.save(venueTable21);
+        venueTableRepository.save(venueTable22);
+        venueTableRepository.save(venueTable23);
+        venueTableRepository.save(venueTable24);
+        venueTableRepository.save(venueTable25);
+        venueTableRepository.save(venueTable26);
 
         Reservation reservation1 = new Reservation(customer1, venueTable1,
                 LocalDateTime.of(2020, Month.AUGUST, 31, 18, 30),
@@ -240,6 +265,30 @@ public class DataLoader implements ApplicationRunner {
                 LocalDateTime.of(2020, Month.OCTOBER, 20, 13, 30),
                 LocalDateTime.of(2020, Month.OCTOBER, 20, 15, 30));
 
+        Reservation reservation21 = new Reservation(customer21, venueTable21,
+                LocalDateTime.of(2020, Month.OCTOBER, 21, 13, 30),
+                LocalDateTime.of(2020, Month.OCTOBER, 21, 15, 30));
+
+        Reservation reservation22 = new Reservation(customer22, venueTable22,
+                LocalDateTime.of(2020, Month.OCTOBER, 22, 13, 30),
+                LocalDateTime.of(2020, Month.OCTOBER, 22, 15, 30));
+
+        Reservation reservation23 = new Reservation(customer23, venueTable23,
+                LocalDateTime.of(2020, Month.OCTOBER, 23, 13, 30),
+                LocalDateTime.of(2020, Month.OCTOBER, 23, 15, 30));
+
+        Reservation reservation24 = new Reservation(customer24, venueTable24,
+                LocalDateTime.of(2020, Month.OCTOBER, 24, 13, 30),
+                LocalDateTime.of(2020, Month.OCTOBER, 24, 15, 30));
+
+        Reservation reservation25 = new Reservation(customer25, venueTable25,
+                LocalDateTime.of(2020, Month.OCTOBER, 25, 13, 30),
+                LocalDateTime.of(2020, Month.OCTOBER, 25, 15, 30));
+
+        Reservation reservation26 = new Reservation(customer26, venueTable26,
+                LocalDateTime.of(2020, Month.OCTOBER, 26, 13, 30),
+                LocalDateTime.of(2020, Month.OCTOBER, 26, 15, 30));
+
         reservationRepository.save(reservation1);
         reservationRepository.save(reservation2);
         reservationRepository.save(reservation3);
@@ -260,7 +309,12 @@ public class DataLoader implements ApplicationRunner {
         reservationRepository.save(reservation18);
         reservationRepository.save(reservation19);
         reservationRepository.save(reservation20);
-
+        reservationRepository.save(reservation21);
+        reservationRepository.save(reservation22);
+        reservationRepository.save(reservation23);
+        reservationRepository.save(reservation24);
+        reservationRepository.save(reservation25);
+        reservationRepository.save(reservation26);
     }
 
 }
