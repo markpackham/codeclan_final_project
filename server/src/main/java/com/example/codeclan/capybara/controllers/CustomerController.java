@@ -18,11 +18,13 @@ public class CustomerController {
     @GetMapping
     public ResponseEntity getAllCustomersWithFilters(
             @RequestParam(required = false, name = "firstName") String firstName,
-            @RequestParam(required = false, name = "firstNameContaining") String firstNameContaining,
-            @RequestParam(required = false, name = "firstNameStartsWith") String firstNameStartsWith,
             @RequestParam(required = false, name = "firstNameAsc") String firstNameAsc,
             @RequestParam(required = false, name = "firstNameDesc") String firstNameDesc,
+            @RequestParam(required = false, name = "firstNameContaining") String firstNameContaining,
+            @RequestParam(required = false, name = "firstNameStartsWith") String firstNameStartsWith,
             @RequestParam(required = false, name = "lastName") String lastName,
+            @RequestParam(required = false, name = "lastNameAsc") String lastNameAsc,
+            @RequestParam(required = false, name = "lastNameDesc") String lastNameDesc,
             @RequestParam(required = false, name = "lastNameContaining") String lastNameContaining,
             @RequestParam(required = false, name = "lastNameStartsWith") String lastNameStartsWith,
             @RequestParam(required = false, name = "lastNameNotContaining") String lastNameNotContaining,
@@ -65,6 +67,16 @@ public class CustomerController {
         // http://localhost:8080/customers?lastName=Anvil
         if(lastName != null) {
             return new ResponseEntity(customerRepository.findByLastNameIgnoreCase(lastName), HttpStatus.OK);
+        }
+
+        // http://localhost:8080/customers?lastNameAsc=t
+        if(lastNameAsc != null) {
+            return new ResponseEntity(customerRepository.findAllByOrderByLastNameAsc(), HttpStatus.OK);
+        }
+
+        // http://localhost:8080/customers?lastNameDesc=t
+        if(lastNameDesc != null) {
+            return new ResponseEntity(customerRepository.findAllByOrderByLastNameDesc(), HttpStatus.OK);
         }
 
         // http://localhost:8080/customers?lastNameContaining=Anvil
