@@ -3,6 +3,10 @@ import MainFooter from '../components/sitewide/MainFooter';
 import MainHeader from '../components/sitewide/MainHeader';
 import CustomerList from '../components/customers/CustomerList';
 import VenueTableGrid from '../components/venue_tables/VenueTableGrid';
+import NavBar from "../components/sitewide/NavBar";
+import About from "../components/miscellaneous/About";
+import ErrorPage from "../components/miscellaneous/ErrorPage";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class AppContainer extends Component {
     constructor(props) {
