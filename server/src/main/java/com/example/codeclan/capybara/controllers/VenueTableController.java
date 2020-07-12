@@ -27,6 +27,11 @@ public class VenueTableController {
         if(covers != null) {
             return new ResponseEntity(venueTableRepository.findByCovers(covers), HttpStatus.OK);
         }
+        // http://localhost:8080/venue-tables?coversOver=2&&coversUnder=20
+        if(coversOver != null && coversUnder != null){
+            return new ResponseEntity(venueTableRepository.findByCoversGreaterThanAndCoversLessThan(coversOver,coversUnder), HttpStatus.OK);
+        }
+
         // http://localhost:8080/venue-tables?coversOver=2
         if(coversOver != null) {
             return new ResponseEntity(venueTableRepository.findByCoversGreaterThan(coversOver), HttpStatus.OK);
