@@ -25,7 +25,7 @@ class VenueTableTest {
     }
 
     @Test
-    public void createVenueTableThenSave(){
+    public void canCreateVenueTableThenSave(){
         Venue venue1027 = new Venue("venue1027");
         venueRepository.save(venue1027);
         VenueTable venueTable1027 = new VenueTable(4, venue1027);

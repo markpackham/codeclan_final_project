@@ -36,7 +36,7 @@ class ReservationTest {
     }
 
     @Test
-    public void createReservationThenSave(){
+    public void canCreateReservationThenSave(){
         Customer customer1013 = new Customer("customer1013FN", "customer1013LN", "1013", "customer1013@gmail.com");
         customerRepository.save(customer1013);
         Venue venue1000 = new Venue("venue1000");

@@ -44,7 +44,7 @@ class CustomerTest {
     }
 
     @Test
-    public void createCustomerThenSave(){
+    public void canCreateCustomerThenSave(){
         Customer customer1000 = new Customer("customer1000FN", "customer1000LN", "1000", "customer1000@gmail.com");
         customerRepository.save(customer1000);
     }
@@ -152,5 +152,11 @@ class CustomerTest {
     public void checkReservationsStartEmpty(){
         Customer customer1012 = new Customer("customer1012FN", "customer1012LN", "1012","customer1012@gmail.com");
         assertEquals(0,customer1012.getReservations().size());
+    }
+
+    @Test
+    public void checkPhoneIsString(){
+        Customer customer1013 = new Customer("customer1013FN", "customer1013LN", "1013","customer1013@gmail.com");
+        assertTrue(customer1013.getPhone() instanceof String);
     }
 }

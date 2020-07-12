@@ -35,7 +35,7 @@ class CapybaraApplicationTests {
 	}
 
 	@Test
-	public void canGetCustomersVenuesVenueTablesAndReservations(){
+	public void canGetCustomersVenuesVenueTablesAndReservationsFromDatabase(){
 		int foundCustomers = customerRepository.findAll().size();
 		int foundVenues = venueRepository.findAll().size();
 		int foundVenueTables = venueTableRepository.findAll().size();
