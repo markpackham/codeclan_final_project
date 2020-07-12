@@ -27,6 +27,8 @@ public class VenueController {
             @RequestParam(required = false, name = "nameNotContaining") String nameNotContaining,
             @RequestParam(required = false, name = "noTables") String noTables
     ) {
+
+        /* Venue Names */
         // http://localhost:8080/venues?name=WalkAbout
         if(name != null) {
             return new ResponseEntity(venueRepository.findByNameIgnoreCase(name), HttpStatus.OK);
@@ -47,11 +49,13 @@ public class VenueController {
             return new ResponseEntity(venueRepository.findByNameIgnoreCaseNotContaining(nameNotContaining), HttpStatus.OK);
         }
 
+        /* VenueTables */
         // http://localhost:8080/venues?noTables=t
         if(noTables != null){
             return new ResponseEntity(venueRepository.findByVenueTablesIsNull(), HttpStatus.OK);
         }
 
+        /* All */
         // http://localhost:8080/venues
         return new ResponseEntity(venueRepository.findAll(), HttpStatus.OK);
     }

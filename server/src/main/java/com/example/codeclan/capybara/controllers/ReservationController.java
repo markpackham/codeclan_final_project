@@ -25,7 +25,7 @@ public class ReservationController {
             @RequestParam(required = false, name = "coversDesc") String coversDesc
             ) {
 
-
+        /* LocalDateTime */
         if(startBefore!= null && startAfter != null){
                 return new ResponseEntity(reservationRepository.findByStartLessThanAndStartGreaterThan(startBefore, startAfter), HttpStatus.OK);
         }
@@ -38,6 +38,7 @@ public class ReservationController {
             return new ResponseEntity(reservationRepository.findByStartGreaterThan(startAfter), HttpStatus.OK);
         }
 
+        /* Covers */
         // http://localhost:8080/reservations?coversAsc=t
         if(coversAsc != null){
             return new ResponseEntity(reservationRepository.findAllByOrderByVenueTableCoversAsc(), HttpStatus.OK);
@@ -47,6 +48,7 @@ public class ReservationController {
             return new ResponseEntity(reservationRepository.findAllByOrderByVenueTableCoversDesc(), HttpStatus.OK);
         }
 
+        /* All */
         // http://localhost:8080/reservations
         return new ResponseEntity(reservationRepository.findAll(), HttpStatus.OK);
     }

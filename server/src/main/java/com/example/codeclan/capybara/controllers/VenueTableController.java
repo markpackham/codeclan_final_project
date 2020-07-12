@@ -23,31 +23,39 @@ public class VenueTableController {
             @RequestParam(required = false, name = "coversAsc") String coversAsc,
             @RequestParam(required = false, name = "coversDesc") String coversDesc
     ) {
+
+        /* Covers */
         // http://localhost:8080/venue-tables?covers=4
-        if(covers != null) {
+        if (covers != null) {
             return new ResponseEntity(venueTableRepository.findByCovers(covers), HttpStatus.OK);
         }
+
         // http://localhost:8080/venue-tables?coversOver=2&&coversUnder=20
-        if(coversOver != null && coversUnder != null){
-            return new ResponseEntity(venueTableRepository.findByCoversGreaterThanAndCoversLessThan(coversOver,coversUnder), HttpStatus.OK);
+        if (coversOver != null && coversUnder != null) {
+            return new ResponseEntity(venueTableRepository.findByCoversGreaterThanAndCoversLessThan(coversOver, coversUnder), HttpStatus.OK);
         }
 
         // http://localhost:8080/venue-tables?coversOver=2
-        if(coversOver != null) {
+        if (coversOver != null) {
             return new ResponseEntity(venueTableRepository.findByCoversGreaterThan(coversOver), HttpStatus.OK);
         }
+
         // http://localhost:8080/venue-tables?coversUnder=7
-        if(coversUnder != null) {
+        if (coversUnder != null) {
             return new ResponseEntity(venueTableRepository.findByCoversLessThan(coversUnder), HttpStatus.OK);
         }
+
         // http://localhost:8080/venue-tables?coversAsc=t
-        if(coversAsc != null){
+        if (coversAsc != null) {
             return new ResponseEntity(venueTableRepository.findAllByOrderByCoversAsc(), HttpStatus.OK);
         }
+
         // http://localhost:8080/venue-tables?coversDesc=t
-        if(coversDesc != null){
+        if (coversDesc != null) {
             return new ResponseEntity(venueTableRepository.findAllByOrderByCoversDesc(), HttpStatus.OK);
         }
+
+        /* All */
         // http://localhost:8080/venue-tables
         return new ResponseEntity(venueTableRepository.findAll(), HttpStatus.OK);
     }
@@ -55,14 +63,14 @@ public class VenueTableController {
     // http://localhost:8080/venue-tables/1
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(value = "/{id}")
-    public ResponseEntity getVenueTableById(@PathVariable Long id){
+    public ResponseEntity getVenueTableById(@PathVariable Long id) {
         return new ResponseEntity(venueTableRepository.findById(id), HttpStatus.OK);
     }
 
     // http://localhost:8080/venue-tables
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
-    public ResponseEntity<VenueTable>createVenueTable(@RequestBody VenueTable venueTable){
+    public ResponseEntity<VenueTable> createVenueTable(@RequestBody VenueTable venueTable) {
         venueTableRepository.save(venueTable);
         return new ResponseEntity<>(venueTable, HttpStatus.CREATED);
     }
@@ -70,7 +78,7 @@ public class VenueTableController {
     // http://localhost:8080/venue-tables/1
     @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping(value = "/{id}")
-    public ResponseEntity<VenueTable> putVenueTable(@RequestBody VenueTable venueTable, @PathVariable Long id){
+    public ResponseEntity<VenueTable> putVenueTable(@RequestBody VenueTable venueTable, @PathVariable Long id) {
         VenueTable venueTableToUpdate = venueTableRepository.findById(id).get();
         venueTableToUpdate.setCovers(venueTable.getCovers());
         venueTableToUpdate.setVenue(venueTable.getVenue());

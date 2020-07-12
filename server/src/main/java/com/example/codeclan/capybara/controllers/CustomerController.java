@@ -34,6 +34,8 @@ public class CustomerController {
             @RequestParam(required = false, name = "phone") String phone,
             @RequestParam(required = false, name = "phoneContaining") String phoneContaining
     ) {
+
+        /* Customer Names */
         // http://localhost:8080/customers?firstName=Abby&&lastName=Anvil
         if(firstName != null && lastName != null){
             return new ResponseEntity(customerRepository.findByFirstNameIgnoreCaseAndLastNameIgnoreCase(firstName,lastName), HttpStatus.OK);
@@ -94,6 +96,7 @@ public class CustomerController {
             return new ResponseEntity(customerRepository.findByLastNameIgnoreCaseStartingWith(lastNameStartsWith), HttpStatus.OK);
         }
 
+        /* Email */
         // http://localhost:8080/customers?email=abbyanvil@gmail.com
         if(email != null){
             return new ResponseEntity(customerRepository.findByEmailIgnoreCase(email), HttpStatus.OK);
@@ -109,6 +112,7 @@ public class CustomerController {
             return new ResponseEntity(customerRepository.findByEmailIgnoreCaseStartingWith(emailStartsWith), HttpStatus.OK);
         }
 
+        /* Phone */
         // http://localhost:8080/customers?phoneContaining=1111
         if(phoneContaining != null){
             return new ResponseEntity(customerRepository.findByPhoneContaining(phoneContaining), HttpStatus.OK);
@@ -119,6 +123,7 @@ public class CustomerController {
             return new ResponseEntity(customerRepository.findByPhone(phone), HttpStatus.OK);
         }
 
+        /* All */
         // http://localhost:8080/customers
         return new ResponseEntity(customerRepository.findAll(), HttpStatus.OK);
     }
