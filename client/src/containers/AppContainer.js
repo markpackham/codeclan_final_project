@@ -4,6 +4,7 @@ import MainHeader from '../components/sitewide/MainHeader';
 import CustomerList from '../components/customers/CustomerList';
 import VenueTableGrid from '../components/venue_tables/VenueTableGrid';
 import NavBar from "../components/sitewide/NavBar";
+import Home from "../components/miscellaneous/Home";
 import About from "../components/miscellaneous/About";
 import ErrorPage from "../components/miscellaneous/ErrorPage";
 
@@ -43,6 +44,7 @@ class AppContainer extends Component {
                 <MainHeader />
                 <NavBar />
                 <Switch>
+                <Route exact path="/" component={Home} />
                 <Route path="/about" component={About} />
                 <CustomerList customers={this.state.customers} />
                 <VenueTableGrid venueTables={this.state.venueTables} />
