@@ -6,6 +6,7 @@ import VenueTableGrid from '../components/venue_tables/VenueTableGrid';
 import NavBar from "../components/sitewide/NavBar";
 import About from "../components/miscellaneous/About";
 import ErrorPage from "../components/miscellaneous/ErrorPage";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class AppContainer extends Component {
@@ -35,11 +36,21 @@ class AppContainer extends Component {
 
     render() {
         return (
+
             <div className="app-container">
+                <Router>
+                <React.Fragment>
                 <MainHeader />
+                <NavBar />
+                <Switch>
+                <Route path="/about" component={About} />
                 <CustomerList customers={this.state.customers} />
                 <VenueTableGrid venueTables={this.state.venueTables} />
                 <MainFooter />
+                <Route component={ErrorPage}/>
+                </Switch>
+                </React.Fragment>
+                </Router>
             </div>
         );
     }
