@@ -267,4 +267,10 @@ class ReservationTest {
         reservation1026.setEnd(LocalDateTime.of(2043, Month.OCTOBER, 20, 18, 55));
         assertEquals("2043-10-20T18:55",reservation1026.getEnd().toString());
     }
+
+    @Test
+    public void canGetReservationsFromDatabase(){
+        int foundReservations = reservationRepository.findAll().size();
+        assertTrue(foundReservations > 0);
+    }
 }

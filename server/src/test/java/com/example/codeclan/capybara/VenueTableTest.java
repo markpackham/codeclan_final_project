@@ -79,4 +79,10 @@ class VenueTableTest {
         venueTable1028.setVenue(venue1028);
         assertEquals(venue1028,venueTable1028.getVenue());
     }
+
+    @Test
+    public void canGetVenueTablesFromDatabase(){
+        int foundVenueTables = venueTableRepository.findAll().size();
+        assertTrue(foundVenueTables > 0);
+    }
 }

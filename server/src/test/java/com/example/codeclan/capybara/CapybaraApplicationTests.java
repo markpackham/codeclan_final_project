@@ -35,18 +35,6 @@ class CapybaraApplicationTests {
 	}
 
 	@Test
-	public void canGetCustomersVenuesVenueTablesAndReservationsFromDatabase(){
-		int foundCustomers = customerRepository.findAll().size();
-		int foundVenues = venueRepository.findAll().size();
-		int foundVenueTables = venueTableRepository.findAll().size();
-		int foundReservations = reservationRepository.findAll().size();
-		assertTrue(foundCustomers > 0);
-		assertTrue( foundVenues > 0);
-		assertTrue(foundVenueTables > 0);
-		assertTrue(foundReservations > 0);
-	}
-
-	@Test
 	public void canGetSpecificCustomersVenuesVenueTablesAndReservations(){
 		assertNotNull(customerRepository.findById(1L));
 		assertNotNull(venueRepository.findById(1L));

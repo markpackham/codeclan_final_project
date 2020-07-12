@@ -159,4 +159,10 @@ class CustomerTest {
         Customer customer1013 = new Customer("customer1013FN", "customer1013LN", "1013","customer1013@gmail.com");
         assertTrue(customer1013.getPhone() instanceof String);
     }
+
+    @Test
+    public void canGetCustomersFromDatabase(){
+        int foundCustomers = customerRepository.findAll().size();
+        assertTrue(foundCustomers > 0);
+    }
 }
