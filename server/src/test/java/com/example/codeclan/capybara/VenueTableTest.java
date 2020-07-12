@@ -85,4 +85,9 @@ class VenueTableTest {
         int foundVenueTables = venueTableRepository.findAll().size();
         assertTrue(foundVenueTables > 0);
     }
+
+    @Test
+    public void canGetSpecificVenueTableFromDatabase(){
+        assertNotNull(venueTableRepository.findById(1L));
+    }
 }

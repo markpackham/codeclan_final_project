@@ -16,8 +16,7 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ReservationTest {
@@ -272,5 +271,10 @@ class ReservationTest {
     public void canGetReservationsFromDatabase(){
         int foundReservations = reservationRepository.findAll().size();
         assertTrue(foundReservations > 0);
+    }
+
+    @Test
+    public void canGetSpecificReservationFromDatabase(){
+        assertNotNull(reservationRepository.findById(1L));
     }
 }

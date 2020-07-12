@@ -165,4 +165,9 @@ class CustomerTest {
         int foundCustomers = customerRepository.findAll().size();
         assertTrue(foundCustomers > 0);
     }
+
+    @Test
+    public void canGetSpecificCustomerFromDatabase(){
+        assertNotNull(customerRepository.findById(1L));
+    }
 }

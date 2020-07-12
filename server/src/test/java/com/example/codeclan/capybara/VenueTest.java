@@ -87,4 +87,9 @@ class VenueTest {
         int foundVenues = venueRepository.findAll().size();
         assertTrue( foundVenues > 0);
     }
+
+    @Test
+    public void canGetSpecificVenueFromDatabase(){
+        assertNotNull(venueRepository.findById(1L));
+    }
 }
