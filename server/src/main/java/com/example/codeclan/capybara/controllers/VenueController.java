@@ -25,7 +25,8 @@ public class VenueController {
             @RequestParam(required = false, name = "nameContaining") String nameContaining,
             @RequestParam(required = false, name = "notName") String notName,
             @RequestParam(required = false, name = "nameNotContaining") String nameNotContaining,
-            @RequestParam(required = false, name = "noTables") String noTables
+            @RequestParam(required = false, name = "noTables") String noTables,
+            @RequestParam(required = false, name = "idDesc") String idDesc
     ) {
 
         /* Venue Names */
@@ -56,6 +57,12 @@ public class VenueController {
         }
 
         /* All */
+
+        // http://localhost:8080/venues?idDesc=t
+        if(idDesc != null){
+            return new ResponseEntity(venueRepository.findAllByOrderByIdDesc(), HttpStatus.OK);
+        }
+
         // http://localhost:8080/venues
         return new ResponseEntity(venueRepository.findAll(), HttpStatus.OK);
     }

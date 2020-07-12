@@ -21,7 +21,8 @@ public class VenueTableController {
             @RequestParam(required = false, name = "coversOver") Integer coversOver,
             @RequestParam(required = false, name = "coversUnder") Integer coversUnder,
             @RequestParam(required = false, name = "coversAsc") String coversAsc,
-            @RequestParam(required = false, name = "coversDesc") String coversDesc
+            @RequestParam(required = false, name = "coversDesc") String coversDesc,
+            @RequestParam(required = false, name = "idDesc") String idDesc
     ) {
 
         /* Covers */
@@ -56,6 +57,12 @@ public class VenueTableController {
         }
 
         /* All */
+
+        // http://localhost:8080/venue-tables?idDesc=t
+        if(idDesc != null){
+            return new ResponseEntity(venueTableRepository.findAllByOrderByIdDesc(), HttpStatus.OK);
+        }
+
         // http://localhost:8080/venue-tables
         return new ResponseEntity(venueTableRepository.findAll(), HttpStatus.OK);
     }

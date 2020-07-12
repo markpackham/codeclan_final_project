@@ -32,7 +32,8 @@ public class CustomerController {
             @RequestParam(required = false, name = "emailStartsWith") String emailStartsWith,
             @RequestParam(required = false, name = "emailContaining") String emailContaining,
             @RequestParam(required = false, name = "phone") String phone,
-            @RequestParam(required = false, name = "phoneContaining") String phoneContaining
+            @RequestParam(required = false, name = "phoneContaining") String phoneContaining,
+            @RequestParam(required = false, name = "idDesc") String idDesc
     ) {
 
         /* Customer Names */
@@ -124,6 +125,12 @@ public class CustomerController {
         }
 
         /* All */
+
+        // http://localhost:8080/customers?idDesc=t
+        if(idDesc != null){
+            return new ResponseEntity(customerRepository.findAllByOrderByIdDesc(), HttpStatus.OK);
+        }
+
         // http://localhost:8080/customers
         return new ResponseEntity(customerRepository.findAll(), HttpStatus.OK);
     }
