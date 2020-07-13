@@ -16,7 +16,15 @@ const MainContainer = (props) => {
                     <NavBar />
                     <Switch>
                         <Route exact path="/" render={() => <VenueTableGrid venueTables={props.venueTables} />} />
-                        <Route exact path="/new-reservation" render={() => <ReservationForm onCustomerSubmit={props.onCustomerSubmit} />} />
+                        <Route exact path="/new-reservation" render={() => {
+                            return (
+                                <ReservationForm
+                                    customers={props.customers}
+                                    venueTables={props.venueTables}
+                                    onCustomerSubmit={props.onCustomerSubmit}
+                                />
+                            );
+                        }} />
                         <Route exact path="/customers" render={() => <CustomerList customers={props.customers} />} />
                         <Route exact path="/about" component={About} />
                         <Route component={ErrorPage} />
