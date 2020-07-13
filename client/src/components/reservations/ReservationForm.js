@@ -7,16 +7,19 @@ class ReservationForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            customer: null,
-            venueTable: null,
-            start: null,
-            end: null,
+            customer: "",
+            venueTable: "",
+            start: "",
+            end: "",
             partySize: 1
         };
 
         this.handleStartChange = this.handleStartChange.bind(this);
         this.handleEndChange = this.handleEndChange.bind(this);
         this.handlePartySizeChange = this.handlePartySizeChange.bind(this);
+        this.handleCustomerSelect = this.handleCustomerSelect.bind(this);
+        this.handleVenueTableSelect = this.handleVenueTableSelect.bind(this);
+        this.selectCustomerById = this.selectCustomerById.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -41,15 +44,33 @@ class ReservationForm extends Component {
     handleCustomerSelect(event) {
         this.setState({
             customer: event.target.value
-        })
+        });
     }
 
-    addReservation(reservation) {
+    handleVenueTableSelect(event) {
+        this.setState({
+            venueTable: event.target.value
+        });
+    }
+
+    selectCustomerById(id) {
+        this.setState({
+            customer: id
+        });
+    }
+
+    addReservation() {
         const url = 'http://localhost:8080/reservations';
-        console.log(reservation);
+        const newReservation = {
+            customer: {id: this.state.customer},
+            venueTable: {id: this.state.venueTable},
+            start: this.state.start,
+            end: this.state.end,
+            partySize: this.state.partySize
+        };
         return fetch(url, {
             method: 'POST',
-            body: JSON.stringify(reservation),
+            body: JSON.stringify(newReservation),
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -58,21 +79,18 @@ class ReservationForm extends Component {
         .then(json => this.props.onReservationSubmit(json));
     }
 
-
     handleSubmit(event) {
         event.preventDefault();
-        this.addReservation(this.state);
+        this.addReservation();
         this.setState({
-            customer: null,
-            venueTable: null,
-            start: null,
-            end: null,
+            customer: "",
+            venueTable: "",
+            start: "",
+            end: "",
             partySize: 1
         });
     }
 
-    
-    
     render() {
         const customerOptions = this.props.customers.map(customer => {
             return (
@@ -92,47 +110,43 @@ class ReservationForm extends Component {
 
         return (
             <div>
-                <h1>Reservations</h1>
-                
-                    <form className="reservation-form" onSubmit={this.handleSubmit}>
-                        
-                        <input 
-                            value={this.state.start}
-                            type="datetime-local" 
-                            onChange={this.handleStartChange}
-                            required
-                        />
-           
+                <h1>New Customer</h1>
+                <CustomerForm onCustomerSubmit={this.props.onCustomerSubmit} selectCustomerById={this.selectCustomerById} />
+                <h1>New Reservation</h1>
+                <form className="reservation-form" onSubmit={this.handleSubmit}>
+                    <input
+                        type="datetime-local" 
+                        value={this.state.start}
+                        onChange={this.handleStartChange}
+                        required
+                    />
+        
+                    <input
+                        type="datetime-local"
+                        value={this.state.end}
+                        onChange={this.handleEndChange}
+                        required
+                    />
 
-                        <input 
-                            value={this.state.end}
-                            type="datetime-local" 
-                            onChange={this.handleEndChange}
-                            required
-                        />  
+                    <input
+                        type="number"
+                        value={this.state.partySize}
+                        onChange={this.handlePartySizeChange}
+                        required
+                    />
 
-                        <input
-                            value={this.state.partySize}
-                            type="number"
-                            onChange={this.handlePartySizeChange}
-                            required
-                            />
+                    <select
+                        value={this.state.customer}
+                        onChange={this.handleCustomerSelect}
+                    >{customerOptions}</select>
 
-                             <select 
-                             value={this.state.customer}
-                             onChange={this.handleCustomerSelect}>
-                               {customerOptions}
-                            </select>
-                            
-                            <CustomerForm onCustomerSubmit={this.props.onCustomerSubmit} />
-
-                            <select>
-                                {venueTableOptions}
-                            </select>
-
-                            <input type="submit" value="Create Reservation"/>
-                    </form>
-
+                    <select
+                        value={this.state.venueTable}
+                        onChange={this.handleVenueTableSelect}
+                    >{venueTableOptions}</select>
+                    
+                    <input type="submit" value="Create Reservation"/>
+                </form>
             </div>
         );
     }
