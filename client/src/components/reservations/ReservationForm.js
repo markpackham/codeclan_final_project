@@ -6,30 +6,46 @@ import CustomerForm from '../customers/CustomerForm';
 class ReservationForm extends Component {
     constructor(props) {
         super(props);
-        this.state = {  };
+        this.state = {
+            customer: null,
+            venueTable: null,
+            start: null,
+            end: null
+        };
+
+        this.handleStartChange = this.handleStartChange.bind(this);
+        this.handleEndChange = this.handleEndChange.bind(this);
     }
+
+    handleStartChange(event) {
+        this.setState({
+            start: event.target.value
+        });
+    }
+
+    handleEndChange(event) {
+        this.setState({
+            end: event.target.value
+        });
+    }
+    
     render() {
         return (
             <div className="reservationForm">
                 <h1>Reservations</h1>
                 
                     <div className="dateTime">
-                        <p>Arrival</p>
-                        <p>Saturday 01 Aug 2020</p>
-                        <input
-                            type="time"
-                            id="time"
-                            name="time"
-                            min="18:00"
-                            max="23:00"
-                            />
-                        <p>Guests</p>
-                        <input
-                            type="number"
-                            id="number"
-                            min="1"
-                            max="10"
-                            />
+                        <input 
+                            value={this.state.start}
+                            type="datetime-local" 
+                            onChange={this.handleStartChange}
+                        />
+
+                        <input 
+                            value={this.state.end}
+                            type="datetime-local" 
+                            onChange={this.handleEndChange}
+                        />  
                     
                         <p>Duration</p>
                         <input
