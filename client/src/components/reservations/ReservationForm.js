@@ -10,11 +10,14 @@ class ReservationForm extends Component {
             customer: null,
             venueTable: null,
             start: null,
-            end: null
+            end: null,
+            partySize: 1
         };
 
         this.handleStartChange = this.handleStartChange.bind(this);
         this.handleEndChange = this.handleEndChange.bind(this);
+        this.handlePartySizeChange = this.handlePartySizeChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleStartChange(event) {
@@ -28,25 +31,67 @@ class ReservationForm extends Component {
             end: event.target.value
         });
     }
+
+    handlePartySizeChange(event) {
+        this.setState({
+            partySize: event.target.value
+        });
+    }
+
+    addReservation(reservation) {
+        const url = 'http://localhost:8080/reservations';
+        return fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(reservation),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(json => this.props.onReservationSubmit(json));
+    }
+
+
+    handleSubmit(event) {
+        event.preventDefault();
+        this.addReservation(this.state);
+        this.setState({
+            customer: null,
+            venueTable: null,
+            start: null,
+            end: null,
+            partySize: 1
+        });
+    }
     
     render() {
         return (
-            <div className="reservationForm">
+            <div>
                 <h1>Reservations</h1>
                 
-                    <div className="dateTime">
+                    <form className="reservation-form" onSubmit={this.handleSubmit}>
+                        
                         <input 
                             value={this.state.start}
                             type="datetime-local" 
                             onChange={this.handleStartChange}
+                            required
                         />
 
                         <input 
                             value={this.state.end}
                             type="datetime-local" 
                             onChange={this.handleEndChange}
+                            required
                         />  
-                    
+
+                        <input
+                            value={this.state.partySize}
+                            type="number"
+                            onChange={this.handlePartySizeChange}
+                            required
+                            />
+{/*                     
                         <p>Duration</p>
                         <input
                             type="number"
@@ -54,8 +99,9 @@ class ReservationForm extends Component {
                             min="1"
                             max="3"
                             step="0.5"
-                            />
-                    </div>
+                            /> */}
+                            <input type="submit" value="Create Reservation"/>
+                    </form>
                 
                 
 
