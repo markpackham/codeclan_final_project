@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/venue-tables")
 public class VenueTableController {
@@ -22,6 +24,7 @@ public class VenueTableController {
             @RequestParam(required = false, name = "coversUnder") Integer coversUnder,
             @RequestParam(required = false, name = "coversAsc") String coversAsc,
             @RequestParam(required = false, name = "coversDesc") String coversDesc,
+            @RequestParam(required = false, name = "coversAvg") String coversAvg,
             @RequestParam(required = false, name = "idDesc") String idDesc
     ) {
 
@@ -54,6 +57,21 @@ public class VenueTableController {
         // http://localhost:8080/venue-tables?coversDesc=t
         if (coversDesc != null) {
             return new ResponseEntity(venueTableRepository.findAllByOrderByCoversDesc(), HttpStatus.OK);
+        }
+
+        // http://localhost:8080/venue-tables?coversAvg=t
+        // This returns an int and not a Json File
+        if (coversAvg != null) {
+            List<VenueTable> foundVenueTables = venueTableRepository.findAll();
+            int count = 0;
+            for (VenueTable cover:foundVenueTables) {
+                count += cover.getCovers();
+            }
+            if(foundVenueTables.size() > 0) {
+                int averageCover = count / foundVenueTables.size();
+                return  new ResponseEntity(averageCover, HttpStatus.OK);
+            }
+            return null;
         }
 
         /* All */
