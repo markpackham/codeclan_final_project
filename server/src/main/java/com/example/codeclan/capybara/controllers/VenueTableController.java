@@ -25,6 +25,8 @@ public class VenueTableController {
             @RequestParam(required = false, name = "coversAsc") String coversAsc,
             @RequestParam(required = false, name = "coversDesc") String coversDesc,
             @RequestParam(required = false, name = "coversAvg") String coversAvg,
+            @RequestParam(required = false, name = "venueAsc") String venueAsc,
+            @RequestParam(required = false, name = "venueDesc") String venueDesc,
             @RequestParam(required = false, name = "idDesc") String idDesc
     ) {
 
@@ -73,6 +75,19 @@ public class VenueTableController {
             }
             return null;
         }
+
+        // Venues
+
+        // http://localhost:8080/venue-tables?venueAsc=t
+        if(venueAsc != null){
+            return new ResponseEntity(venueTableRepository.findAllByOrderByVenue_IdAsc(), HttpStatus.OK);
+        }
+
+        // http://localhost:8080/venue-tables?venueDesc=t
+        if(venueDesc != null){
+            return new ResponseEntity(venueTableRepository.findAllByOrderByVenue_IdDesc(), HttpStatus.OK);
+        }
+
 
         /* All */
 
