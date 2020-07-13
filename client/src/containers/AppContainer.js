@@ -3,6 +3,7 @@ import MainFooter from '../components/sitewide/MainFooter';
 import CustomerList from '../components/customers/CustomerList';
 import VenueTableGrid from '../components/venue_tables/VenueTableGrid';
 import ReservationForm from '../components/reservations/ReservationForm';
+import Calendar from '../components/sitewide/Calendar'
 
 class AppContainer extends Component {
     constructor(props) {
@@ -32,6 +33,7 @@ class AppContainer extends Component {
     render() {
         return (
             <div className="app-container">
+                <Calendar className="calendar" />
                 <CustomerList customers={this.state.customers} />
                 <VenueTableGrid venueTables={this.state.venueTables} />
                 <ReservationForm />
