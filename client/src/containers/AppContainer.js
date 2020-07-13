@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MainFooter from '../components/sitewide/MainFooter';
 import MainHeader from '../components/sitewide/MainHeader';
-import Main from './Main';
+import MainContainer from './MainContainer';
 import SideBar from './SideBar';
 
 class AppContainer extends Component {
@@ -43,7 +43,7 @@ class AppContainer extends Component {
       <div className="app-container">
             <MainHeader />
             <SideBar />
-            <Main
+            <MainContainer
               customers={this.state.customers}
               venueTables={this.state.venueTables} 
               onCustomerSubmit={this.handleCustomerSubmit}

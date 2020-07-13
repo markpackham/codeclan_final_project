@@ -1,5 +1,5 @@
 import React from 'react';
-import Calendar from '../components/sitewide/Calendar';
+import CalendarComponent from '../components/sitewide/CalendarComponent';
 
 class SideBar extends React.Component {
     constructor(props) {
@@ -8,7 +8,7 @@ class SideBar extends React.Component {
     }
 
     render() {
-        return <Calendar />;
+        return <CalendarComponent />;
     }
 }
 

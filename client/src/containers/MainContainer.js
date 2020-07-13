@@ -8,7 +8,7 @@ import NavBar from '../components/sitewide/NavBar';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-const Main = (props) => {
+const MainContainer = (props) => {
     return (
         <div className="app-container">
             <Router>
@@ -27,4 +27,4 @@ const Main = (props) => {
     );
 }
 
-export default Main;
+export default MainContainer;
