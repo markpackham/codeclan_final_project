@@ -75,7 +75,7 @@ class ReservationForm extends Component {
                     </div>
                 </div>
 
-                <CustomerForm />
+                <CustomerForm onCustomerSubmit={this.props.onCustomerSubmit} />
 
                 <div className="buttonField">
                     <div className="buttonGroupOne">

@@ -27,7 +27,8 @@ class CustomerForm extends Component {
                 'Content-Type': 'application/json'
             }
         })
-        .then(res => res.json());
+        .then(res => res.json())
+        .then(json => this.props.onCustomerSubmit(json));
     }
 
     handleSubmit(event) {
@@ -102,4 +103,4 @@ class CustomerForm extends Component {
     }
 }
 
-export default CustomerForm; 
+export default CustomerForm;

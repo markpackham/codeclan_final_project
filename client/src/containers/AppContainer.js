@@ -35,7 +35,7 @@ class AppContainer extends Component {
     const updatedCustomers = [...this.state.customers, newCustomer];
     this.setState({
         customers: updatedCustomers
-    });
+  });
 }
 
   render() {
@@ -43,7 +43,11 @@ class AppContainer extends Component {
       <div className="app-container">
             <MainHeader />
             <SideBar />
-            <Main customers={this.state.customers} venueTables={this.state.venueTables} />
+            <Main
+              customers={this.state.customers}
+              venueTables={this.state.venueTables} 
+              onCustomerSubmit={this.handleCustomerSubmit}
+            />
             <MainFooter />
       </div>
     );
