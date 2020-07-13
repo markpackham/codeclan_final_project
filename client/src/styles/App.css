@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    padding: 1rem;
+}
+
+a { 
+    text-decoration: none; 
+} 
+
+ul { 
+    list-style: 
+    none; 
+}
+
+.customer{
+    border: solid;
+    border-color: gray;
+}
+
+.customer-list{
+    border: solid;
+    border-color: black;
+}
+
+.customer-form {
+    border: solid;
+    border-color: black;
+}
