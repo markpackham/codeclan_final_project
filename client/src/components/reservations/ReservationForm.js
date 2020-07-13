@@ -37,9 +37,16 @@ class ReservationForm extends Component {
             partySize: event.target.value
         });
     }
+    
+    handleCustomerSelect(event) {
+        this.setState({
+            customer: event.target.value
+        })
+    }
 
     addReservation(reservation) {
         const url = 'http://localhost:8080/reservations';
+        console.log(reservation);
         return fetch(url, {
             method: 'POST',
             body: JSON.stringify(reservation),
@@ -63,6 +70,8 @@ class ReservationForm extends Component {
             partySize: 1
         });
     }
+
+    
     
     render() {
         const customerOptions = this.props.customers.map(customer => {
@@ -109,7 +118,9 @@ class ReservationForm extends Component {
                             required
                             />
 
-                             <select>
+                             <select 
+                             value={this.state.customer}
+                             onChange={this.handleCustomerSelect}>
                                {customerOptions}
                             </select>
                             
