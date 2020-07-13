@@ -83,7 +83,7 @@ class CustomerForm extends Component {
                     required
                 /> 
                 <input
-                    type="text"
+                    type="tel"
                     placeholder="Phone number"
                     value={this.state.phone}
                     onChange={this.handlePhoneChange}

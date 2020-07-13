@@ -9,6 +9,7 @@ import About from "../components/miscellaneous/About";
 import ErrorPage from "../components/miscellaneous/ErrorPage";
 import CustomerForm from "../components/customers/CustomerForm";
 import ReservationForm from "../components/reservations/ReservationForm";
+import SideBar from './SideBar';
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -53,6 +54,7 @@ class AppContainer extends Component {
           <React.Fragment>
             <MainHeader />
             <NavBar />
+            <SideBar />
             <Switch>
               <Route exact path="/" render={() => <VenueTableGrid venueTables={this.state.venueTables} />} />
               <Route exact path="/new-reservation" component={ReservationForm} />
