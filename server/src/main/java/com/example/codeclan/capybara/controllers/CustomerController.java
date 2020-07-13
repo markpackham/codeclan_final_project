@@ -125,7 +125,6 @@ public class CustomerController {
         }
 
         /* All */
-
         // http://localhost:8080/customers?idDesc=t
         if(idDesc != null){
             return new ResponseEntity(customerRepository.findAllByOrderByIdDesc(), HttpStatus.OK);

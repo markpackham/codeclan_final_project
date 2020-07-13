@@ -76,8 +76,7 @@ public class VenueTableController {
             return null;
         }
 
-        // Venues
-
+        /* Venues */
         // http://localhost:8080/venue-tables?venueAsc=t
         if(venueAsc != null){
             return new ResponseEntity(venueTableRepository.findAllByOrderByVenue_IdAsc(), HttpStatus.OK);
