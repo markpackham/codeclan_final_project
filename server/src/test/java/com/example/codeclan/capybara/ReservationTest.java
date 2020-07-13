@@ -277,7 +277,6 @@ class ReservationTest {
                 LocalDateTime.of(2020, Month.AUGUST, 21, 20, 30),1);
         reservation1027.setPartySize(10);
         assertEquals(10,reservation1027.getPartySize());
-
     }
 
     @Test
