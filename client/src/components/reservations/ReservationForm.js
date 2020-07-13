@@ -30,35 +30,56 @@ class ReservationForm extends Component {
     }
     
     render() {
+        const customerOptions = this.props.customers.map(customer => {
+            return (
+                <option key={customer.id} value={customer.id}>
+                    {customer.firstName + " " + customer.lastName}
+                </option>
+            );
+        });
+
+        const venueTableOptions = this.props.venueTables.map(venueTable => {
+            return (
+                <option key={venueTable.id} value={venueTable.id}>
+                    {`Table ${venueTable.id}: Seats ${venueTable.covers}`}
+                </option>
+            );
+        });
+
         return (
             <div className="reservationForm">
-                <h1>Reservations</h1>
+                <h1>Reservations</h1>              
+                <div className="dateTime">
+                    <input 
+                        value={this.state.start}
+                        type="datetime-local" 
+                        onChange={this.handleStartChange}
+                    />
+
+                    <input 
+                        value={this.state.end}
+                        type="datetime-local" 
+                        onChange={this.handleEndChange}
+                    />  
                 
-                    <div className="dateTime">
-                        <input 
-                            value={this.state.start}
-                            type="datetime-local" 
-                            onChange={this.handleStartChange}
+                    <p>Duration</p>
+                    <input
+                        type="number"
+                        id="duration"
+                        min="1"
+                        max="3"
+                        step="0.5"
                         />
+                </div>
 
-                        <input 
-                            value={this.state.end}
-                            type="datetime-local" 
-                            onChange={this.handleEndChange}
-                        />  
-                    
-                        <p>Duration</p>
-                        <input
-                            type="number"
-                            id="duration"
-                            min="1"
-                            max="3"
-                            step="0.5"
-                            />
-                    </div>
-                
-                
+                <select>
+                    {customerOptions}
+                </select>
 
+                <select>
+                    {venueTableOptions}
+                </select>
+        
                 <div className="tables">
                     <p>Tables</p>
                     <div className="tableButtons">
