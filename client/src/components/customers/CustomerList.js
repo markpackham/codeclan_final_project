@@ -3,13 +3,14 @@ import Customer from "./Customer";
 
 class CustomerList extends Component {
   render() {
-    const customerNodes = this.props.customers.map(customer => {
+    const customerNodes = this.props.customers.map((customer, index) => {
       return (
-        <Customer 
-        firstName={customer.firstName}
-        lastName={customer.lastName}
-        phone={customer.phone}
-        email={customer.email}>
+        <Customer
+          key={index}
+          firstName={customer.firstName}
+          lastName={customer.lastName}
+          phone={customer.phone}
+          email={customer.email}>
         </Customer>
       );
     });

@@ -1,0 +1,10 @@
+.screen {
+    display: flex;
+}
+
+.sidebar {
+    display: flex;
+    background-color: blue;
+    align-items: flex-start;
+    justify-content: center;
+}

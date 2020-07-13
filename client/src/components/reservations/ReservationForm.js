@@ -63,7 +63,7 @@ class ReservationForm extends Component {
                 <div className="newOrOldCutomerField">
                     <div className="exisitng customer">
                         <label
-                            for="customers">Search existing customers:
+                            htmlFor="customers">Search existing customers:
                         </label>
                         <select name="customers" id="customers">
                         <option value="Blogs">Bloggs</option>
@@ -75,7 +75,7 @@ class ReservationForm extends Component {
                     </div>
                 </div>
 
-                <CustomerForm />
+                <CustomerForm onCustomerSubmit={this.props.onCustomerSubmit} />
 
                 <div className="buttonField">
                     <div className="buttonGroupOne">

@@ -27,7 +27,8 @@ class CustomerForm extends Component {
                 'Content-Type': 'application/json'
             }
         })
-        .then(res => res.json());
+        .then(res => res.json())
+        .then(json => this.props.onCustomerSubmit(json));
     }
 
     handleSubmit(event) {
@@ -77,13 +78,13 @@ class CustomerForm extends Component {
                 /> 
                 <input
                     type="text"
-                    placeholder="Surname"
+                    placeholder="Last Name"
                     value={this.state.lastName}
                     onChange={this.handleLastNameChange}
                     required
                 /> 
                 <input
-                    type="text"
+                    type="tel"
                     placeholder="Phone number"
                     value={this.state.phone}
                     onChange={this.handlePhoneChange}
@@ -94,6 +95,7 @@ class CustomerForm extends Component {
                     placeholder="E-mail"
                     value={this.state.email}
                     onChange={this.handleEmailChange}
+                    required
                 />  
                 <input type="submit" value="Create"/>
             </form>
@@ -101,4 +103,4 @@ class CustomerForm extends Component {
     }
 }
 
-export default CustomerForm; 
+export default CustomerForm;
