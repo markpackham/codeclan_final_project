@@ -5,7 +5,6 @@ class CustomerForm extends Component {
     constructor(props) {
         super(props);
         this.state= {
-            id: '',
             firstName: '',
             lastName: '',
             phone: '',
@@ -22,7 +21,6 @@ class CustomerForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const id = this.state.id;
         const firstName = this.state.firstName.trim();
         const lastName = this.state.lastName.trim();
         const phone = this.state.phone.trim();
