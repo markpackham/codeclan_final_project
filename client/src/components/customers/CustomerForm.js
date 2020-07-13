@@ -94,6 +94,7 @@ class CustomerForm extends Component {
                     placeholder="E-mail"
                     value={this.state.email}
                     onChange={this.handleEmailChange}
+                    required
                 />  
                 <input type="submit" value="Create"/>
             </form>
