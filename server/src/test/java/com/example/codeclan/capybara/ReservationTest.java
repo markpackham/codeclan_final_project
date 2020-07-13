@@ -16,8 +16,7 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ReservationTest {
@@ -36,7 +35,7 @@ class ReservationTest {
     }
 
     @Test
-    public void createReservationThenSave(){
+    public void canCreateReservationThenSave(){
         Customer customer1013 = new Customer("customer1013FN", "customer1013LN", "1013", "customer1013@gmail.com");
         customerRepository.save(customer1013);
         Venue venue1000 = new Venue("venue1000");
@@ -48,6 +47,7 @@ class ReservationTest {
                 LocalDateTime.of(2020, Month.AUGUST, 31, 18, 30),
                 LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30));
         reservationRepository.save(reservation1000);
+        assertTrue(reservationRepository.findAll().size()>0);
     }
 
     @Test
@@ -265,5 +265,16 @@ class ReservationTest {
         assertEquals("2033-09-20T18:50",reservation1026.getStart().toString());
         reservation1026.setEnd(LocalDateTime.of(2043, Month.OCTOBER, 20, 18, 55));
         assertEquals("2043-10-20T18:55",reservation1026.getEnd().toString());
+    }
+
+    @Test
+    public void canGetReservationsFromDatabase(){
+        int foundReservations = reservationRepository.findAll().size();
+        assertTrue(foundReservations > 0);
+    }
+
+    @Test
+    public void canGetSpecificReservationFromDatabase(){
+        assertNotNull(reservationRepository.findById(1L));
     }
 }
