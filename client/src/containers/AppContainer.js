@@ -3,6 +3,7 @@ import MainFooter from '../components/sitewide/MainFooter';
 import MainHeader from '../components/sitewide/MainHeader';
 import MainContainer from './MainContainer';
 import SideBar from './SideBar';
+import '../styles/AppContainer.css';
 
 class AppContainer extends Component {
   constructor(props) {
@@ -42,12 +43,14 @@ class AppContainer extends Component {
     return (
       <div className="app-container">
             <MainHeader />
-            <SideBar />
-            <MainContainer
-              customers={this.state.customers}
-              venueTables={this.state.venueTables} 
-              onCustomerSubmit={this.handleCustomerSubmit}
-            />
+              <div className="screen">
+                <SideBar />
+                <MainContainer
+                  customers={this.state.customers}
+                  venueTables={this.state.venueTables} 
+                  onCustomerSubmit={this.handleCustomerSubmit}
+                />
+              </div>
             <MainFooter />
       </div>
     );

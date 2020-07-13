@@ -78,7 +78,7 @@ class CustomerForm extends Component {
                 /> 
                 <input
                     type="text"
-                    placeholder="Surname"
+                    placeholder="Last Name"
                     value={this.state.lastName}
                     onChange={this.handleLastNameChange}
                     required

@@ -8,7 +8,11 @@ class SideBar extends React.Component {
     }
 
     render() {
-        return <CalendarComponent />;
+        return (
+            <div className="sidebar">
+                <CalendarComponent />
+            </div>
+        )
     }
 }
 
