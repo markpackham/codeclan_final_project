@@ -36,7 +36,6 @@ class AppContainer extends Component {
                 <Calendar className="calendar" />
                 <CustomerList customers={this.state.customers} />
                 <VenueTableGrid venueTables={this.state.venueTables} />
-                <ReservationForm />
                 <MainFooter />
             </div>
         );
