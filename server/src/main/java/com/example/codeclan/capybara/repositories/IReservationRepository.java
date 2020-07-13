@@ -14,4 +14,12 @@ public interface IReservationRepository extends JpaRepository<Reservation, Long>
     List<Reservation> findByStartGreaterThan(LocalDateTime startAfter);
 
     List<Reservation> findByStartLessThanAndStartGreaterThan(LocalDateTime startBefore, LocalDateTime startAfter);
+
+    List<Reservation> findAllByOrderByVenueTableCoversAsc();
+
+    List<Reservation> findAllByOrderByVenueTableCoversDesc();
+
+    List<Reservation> findAllByOrderByIdAsc();
+
+    List<Reservation> findAllByOrderByIdDesc();
 }

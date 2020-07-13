@@ -14,6 +14,20 @@ public interface ICustomerRepository extends JpaRepository<Customer, Long> {
 
     List<Customer> findByFirstNameIgnoreCaseAndLastNameIgnoreCase(String firstName, String lastName);
 
+    List<Customer> findByFirstNameIgnoreCase(String firstName);
+
+    List<Customer> findAllByOrderByFirstNameAsc();
+
+    List<Customer> findAllByOrderByFirstNameDesc();
+
+    List<Customer> findAllByOrderByLastNameAsc();
+
+    List<Customer> findAllByOrderByLastNameDesc();
+
+    List<Customer> findByFirstNameContainingIgnoreCase(String firstNameContaining);
+
+    List<Customer> findByFirstNameStartsWithIgnoreCase(String firstNameStartsWith);
+
     List<Customer> findByLastNameIgnoreCase(String lastName);
 
     List<Customer> findByLastNameIgnoreCaseStartingWith(String lastNameStartsWith);
@@ -27,4 +41,6 @@ public interface ICustomerRepository extends JpaRepository<Customer, Long> {
     List<Customer> findByLastNameIgnoreCaseContaining(String lastNameContaining);
 
     List<Customer> findByEmailIgnoreCaseContaining(String emailContaining);
+
+    List<Customer> findAllByOrderByIdDesc();
 }
