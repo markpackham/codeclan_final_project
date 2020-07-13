@@ -60,9 +60,7 @@ class ReservationForm extends Component {
                     <p className="freeTables">Show all Free Tables</p>
                 </div>
 
-                <CustomerForm />
-
-                {/* <div className="newOrOldCutomerField">
+                <div className="newOrOldCutomerField">
                     <div className="exisitng customer">
                         <label
                             for="customers">Search existing customers:
@@ -77,21 +75,7 @@ class ReservationForm extends Component {
                     </div>
                 </div>
 
-
-                <div className="personalDetails">
-                    <div className="name">
-                        <p>Name:</p>
-                        <input type="text" placeholder="Joe Bloggs"/>
-                    </div>
-                    <div className="telNo">
-                        <p>Phone No:</p>
-                        <input type="tel" placeholder="0131 34343 545"/>
-                    </div>
-                    <div className="email">
-                        <p>Email:</p>
-                        <input type="email" placeholder="joe.bloggs@gmail.com"/>
-                    </div>
-                </div> */}
+                <CustomerForm />
 
                 <div className="buttonField">
                     <div className="buttonGroupOne">
