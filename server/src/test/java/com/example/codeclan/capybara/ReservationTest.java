@@ -268,6 +268,19 @@ class ReservationTest {
     }
 
     @Test
+    public void canSetPartySize(){
+        Customer customer1027 = new Customer("customer1027FN", "customer1027LN", "1027", "customer1027@gmail.com");
+        Venue venue1027 = new Venue("venue1027");
+        VenueTable venueTable1027 = new VenueTable(5, venue1027);
+        Reservation reservation1027 = new Reservation(customer1027, venueTable1027,
+                LocalDateTime.of(2020, Month.AUGUST, 21, 18, 30),
+                LocalDateTime.of(2020, Month.AUGUST, 21, 20, 30),1);
+        reservation1027.setPartySize(10);
+        assertEquals(10,reservation1027.getPartySize());
+
+    }
+
+    @Test
     public void canGetReservationsFromDatabase(){
         int foundReservations = reservationRepository.findAll().size();
         assertTrue(foundReservations > 0);
