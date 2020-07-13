@@ -7,6 +7,7 @@ import NavBar from "../components/sitewide/NavBar";
 import Home from "../components/miscellaneous/Home";
 import About from "../components/miscellaneous/About";
 import ErrorPage from "../components/miscellaneous/ErrorPage";
+import CustomerForm from "../components/customers/CustomerForm"
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -17,6 +18,8 @@ class AppContainer extends Component {
       customers: [],
       venueTables: [],
     };
+
+    this.handleCustomerSubmit = this.handleCustomerSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +38,13 @@ class AppContainer extends Component {
       .catch((err) => console.error(err));
   }
 
+  handleCustomerSubmit(newCustomer) {
+    const updatedCustomers = [...this.state.customers, newCustomer];
+    this.setState({
+        customers: updatedCustomers
+    });
+}
+
   render() {
     return (
       <div className="app-container">
@@ -47,6 +57,8 @@ class AppContainer extends Component {
               <Route exact path="/about" component={About} />
               <Route component={ErrorPage} />
             </Switch>
+            <h3>Create Customer</h3>
+            <CustomerForm title="Create Customer" onCustomerSubmit={this.handleCustomerSubmit}/>
             <CustomerList customers={this.state.customers} />
             <VenueTableGrid venueTables={this.state.venueTables} />
             <MainFooter />
