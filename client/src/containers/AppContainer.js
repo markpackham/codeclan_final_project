@@ -7,7 +7,8 @@ import NavBar from "../components/sitewide/NavBar";
 import Home from "../components/miscellaneous/Home";
 import About from "../components/miscellaneous/About";
 import ErrorPage from "../components/miscellaneous/ErrorPage";
-import CustomerForm from "../components/customers/CustomerForm"
+import CustomerForm from "../components/customers/CustomerForm";
+import ReservationForm from "../components/reservations/ReservationForm";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -53,14 +54,13 @@ class AppContainer extends Component {
             <MainHeader />
             <NavBar />
             <Switch>
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" render={() => <VenueTableGrid venueTables={this.state.venueTables} />} />
+              <Route exact path="/new-reservation" component={ReservationForm} />
+              <Route exact path="/customers" render={() => <CustomerList customers={this.state.customers} />} />
               <Route exact path="/about" component={About} />
               <Route component={ErrorPage} />
             </Switch>
-            <h3>Create Customer</h3>
-            <CustomerForm title="Create Customer" onCustomerSubmit={this.handleCustomerSubmit}/>
-            <CustomerList customers={this.state.customers} />
-            <VenueTableGrid venueTables={this.state.venueTables} />
+            
             <MainFooter />
           </React.Fragment>
         </Router>

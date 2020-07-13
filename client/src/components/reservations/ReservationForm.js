@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../../styles/ReservationForm.css'
+import CustomerForm from '../customers/CustomerForm';
 
 
 class ReservationForm extends Component {
@@ -59,7 +60,9 @@ class ReservationForm extends Component {
                     <p className="freeTables">Show all Free Tables</p>
                 </div>
 
-                <div className="newOrOldCutomerField">
+                <CustomerForm />
+
+                {/* <div className="newOrOldCutomerField">
                     <div className="exisitng customer">
                         <label
                             for="customers">Search existing customers:
@@ -88,7 +91,7 @@ class ReservationForm extends Component {
                         <p>Email:</p>
                         <input type="email" placeholder="joe.bloggs@gmail.com"/>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="buttonField">
                     <div className="buttonGroupOne">

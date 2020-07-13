@@ -4,8 +4,7 @@ class CustomerForm extends Component {
 
     constructor(props) {
         super(props);
-        this.state= {
-            id: '',
+        this.state = {
             firstName: '',
             lastName: '',
             phone: '',
@@ -19,31 +18,27 @@ class CustomerForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    addCustomer(customer) {
+        const url = 'http://localhost:8080/customers';
+        return fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(customer),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json());
+    }
 
     handleSubmit(event) {
         event.preventDefault();
-        const id = this.state.id;
-        const firstName = this.state.firstName.trim();
-        const lastName = this.state.lastName.trim();
-        const phone = this.state.phone.trim();
-        const email = this.state.email;
-        if (!firstName || !lastName || !phone || !email) {
-            return
-        }
-
-        this.props.onCustomerSubmit({
-            firstName: firstName,
-            lastName: lastName,
-            phone: phone,
-            email: email
-            });
-
-            this.setState({
-                firstName: '',
-                lastName: '',
-                phone: '',
-                email: ''
-            });
+        this.addCustomer(this.state);
+        this.setState({
+            firstName: '',
+            lastName: '',
+            phone: '',
+            email: ''
+        });
     }
 
     handleFirstNameChange(event) {
@@ -78,21 +73,24 @@ class CustomerForm extends Component {
                     placeholder="First Name"
                     value={this.state.firstName}
                     onChange={this.handleFirstNameChange}
+                    required
                 /> 
                 <input
                     type="text"
                     placeholder="Surname"
                     value={this.state.lastName}
                     onChange={this.handleLastNameChange}
+                    required
                 /> 
                 <input
                     type="text"
                     placeholder="Phone number"
                     value={this.state.phone}
                     onChange={this.handlePhoneChange}
+                    required
                 /> 
                 <input
-                    type="text"
+                    type="email"
                     placeholder="E-mail"
                     value={this.state.email}
                     onChange={this.handleEmailChange}

@@ -8,10 +8,13 @@ const NavBar = () => (
       <Link to="/">Home</Link>
     </li>
     <li>
-      <Link to="/about">About</Link>
+      <Link to="/new-reservation">NEW RESERVATION</Link>
     </li>
     <li>
-      <Link to="/ReservationForm">NEW RESERVATION</Link>
+      <Link to="/customers">Customers</Link>
+    </li>
+    <li>
+      <Link to="/about">About</Link>
     </li>
   </ul>
 );
