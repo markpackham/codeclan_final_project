@@ -20,9 +20,10 @@ class VenueTest {
     }
 
     @Test
-    public void createVenueThenSave(){
+    public void canCreateVenueThenSave(){
         Venue venue1029 = new Venue("venue1029");
         venueRepository.save(venue1029);
+        assertTrue(venueRepository.findAll().size()>0);
     }
 
     @Test
@@ -79,5 +80,16 @@ class VenueTest {
         venueRepository.save(venue1036);
         List<Venue> foundVenues = venueRepository.findByVenueTablesIsNull();
         assertTrue(foundVenues.size() > 0);
+    }
+
+    @Test
+    public void canGetVenuesFromDatabase(){
+        int foundVenues = venueRepository.findAll().size();
+        assertTrue( foundVenues > 0);
+    }
+
+    @Test
+    public void canGetSpecificVenueFromDatabase(){
+        assertNotNull(venueRepository.findById(1L));
     }
 }

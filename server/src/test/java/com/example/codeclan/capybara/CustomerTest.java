@@ -19,7 +19,32 @@ class CustomerTest {
     }
 
     @Test
-    public void createCustomerThenSave(){
+    public void canFindCustomerFirstNameStartsWith(){
+        Customer customer997 = new Customer("customer997FN", "customer997LN", "997", "customer997@gmail.com");
+        customerRepository.save(customer997);
+        List<Customer> foundCustomers = customerRepository.findByFirstNameStartsWithIgnoreCase("customer9");
+        assertTrue(foundCustomers.size() > 0);
+        assertTrue(customerRepository.findAll().size()>0);
+    }
+
+    @Test
+    public void canFindCustomerFirstNameContaining(){
+        Customer customer998 = new Customer("customer998FN", "customer998LN", "998", "customer998@gmail.com");
+        customerRepository.save(customer998);
+        List<Customer> foundCustomers = customerRepository.findByFirstNameContainingIgnoreCase("998FN");
+        assertEquals(1,foundCustomers.size());
+    }
+
+    @Test
+    public void canFindCustomerFirstName(){
+        Customer customer999 = new Customer("customer999FN", "customer999LN", "999", "customer999@gmail.com");
+        customerRepository.save(customer999);
+        List<Customer> foundCustomers = customerRepository.findByFirstNameIgnoreCase("customer999FN");
+        assertEquals(1,foundCustomers.size());
+    }
+
+    @Test
+    public void canCreateCustomerThenSave(){
         Customer customer1000 = new Customer("customer1000FN", "customer1000LN", "1000", "customer1000@gmail.com");
         customerRepository.save(customer1000);
     }
@@ -127,5 +152,22 @@ class CustomerTest {
     public void checkReservationsStartEmpty(){
         Customer customer1012 = new Customer("customer1012FN", "customer1012LN", "1012","customer1012@gmail.com");
         assertEquals(0,customer1012.getReservations().size());
+    }
+
+    @Test
+    public void checkPhoneIsString(){
+        Customer customer1013 = new Customer("customer1013FN", "customer1013LN", "1013","customer1013@gmail.com");
+        assertTrue(customer1013.getPhone() instanceof String);
+    }
+
+    @Test
+    public void canGetCustomersFromDatabase(){
+        int foundCustomers = customerRepository.findAll().size();
+        assertTrue(foundCustomers > 0);
+    }
+
+    @Test
+    public void canGetSpecificCustomerFromDatabase(){
+        assertNotNull(customerRepository.findById(1L));
     }
 }
