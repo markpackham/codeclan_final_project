@@ -29,11 +29,16 @@ public class Reservation {
     @Column(name = "end")
     private LocalDateTime end;
 
-    public Reservation(Customer customer, VenueTable venueTable, LocalDateTime start, LocalDateTime end) {
+    @Column(name = "partySize")
+    private int partySize;
+    
+
+    public Reservation(Customer customer, VenueTable venueTable, LocalDateTime start, LocalDateTime end, int partySize) {
         this.customer = customer;
         this.venueTable = venueTable;
         this.start = start;
         this.end = end;
+        this.partySize = partySize;
     }
 
     public Reservation() {}
@@ -78,4 +83,11 @@ public class Reservation {
         this.end = end;
     }
 
+    public int getPartySize() {
+        return partySize;
+    }
+
+    public void setPartySize(int partySize) {
+        this.partySize = partySize;
+    }
 }
