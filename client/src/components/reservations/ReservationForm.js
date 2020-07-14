@@ -106,10 +106,39 @@ class ReservationForm extends Component {
 
     updateAvailableTables() {
         const availableTables = [...this.props.venueTables];
-        const newAvailableTables = availableTables.filter(table => table.covers >= this.state.partySize);
+        const newAvailableTables = availableTables.filter(table => {
+            return (table.covers >= this.state.partySize) && this.checkTableAvailable(table)
+        });
         this.setState({
             availableTables: newAvailableTables
         });
+    }
+
+    checkTimeAvailable(reservation) {
+        const startMoment = moment(this.state.start);
+        const endMoment = moment(this.state.end);
+        const reservationStart = moment(reservation.start);
+        const reservationEnd = moment(reservation.end);
+        if (startMoment.isBetween(reservationStart, reservationEnd)) {
+            return false;
+        }
+        if (endMoment.isBetween(reservationStart, reservationStart)) {
+            return false;
+        }
+        return true;
+    }
+
+    checkTableAvailable(venueTable) {
+        const reservations = venueTable.reservations;
+        if (reservations.length === 0) {
+            return true;
+        }
+        for (const reservation of reservations) {
+            if (this.checkTimeAvailable(reservation)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     render() {
