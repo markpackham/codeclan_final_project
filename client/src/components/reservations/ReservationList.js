@@ -8,11 +8,9 @@ class ReservationList extends Component {
             return (
                 <Reservation
                     key={index}
-                    customer={reservation.customer}
-                    // table={reservation.venueTable}
-                    start={reservation.start}
-                    // end={reservation.end}
-                    partySize={reservation.partySize}>
+                    reservation={reservation}
+                   
+                >
                     
                     </Reservation>
               
