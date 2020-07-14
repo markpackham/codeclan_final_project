@@ -40,13 +40,9 @@ class ReservationForm extends Component {
     }
 
     handlePartySizeChange(event) {
-        const newPartySize = event.target.value
-        const availableTables = [...this.props.venueTables];
-        const newAvailableTables = availableTables.filter(table => table.covers >= newPartySize);
         this.setState({
-            partySize: newPartySize,
-            availableTables: newAvailableTables
-        });
+            partySize: event.target.value,
+        }, () => this.updateAvailableTables());
     }
     
     handleCustomerSelect(event) {
@@ -105,6 +101,14 @@ class ReservationForm extends Component {
         const newEnd = endMoment.format().slice(0, 16);
         this.setState({
             end: newEnd
+        });
+    }
+
+    updateAvailableTables() {
+        const availableTables = [...this.props.venueTables];
+        const newAvailableTables = availableTables.filter(table => table.covers >= this.state.partySize);
+        this.setState({
+            availableTables: newAvailableTables
         });
     }
 
