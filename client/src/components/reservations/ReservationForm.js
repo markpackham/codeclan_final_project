@@ -24,23 +24,19 @@ class ReservationForm extends Component {
         this.handleVenueTableSelect = this.handleVenueTableSelect.bind(this);
         this.selectCustomerById = this.selectCustomerById.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.updateEnd = this.updateEnd.bind(this);
     }
 
     handleStartChange(event) {     
         this.setState({
             start: event.target.value
-        });
+        }, () => this.updateEnd());
     }
 
     handleDurationChange(event) {
-        const newDuration = event.target.value;
-        const startMoment = moment(this.state.start, moment.HTML5_FMT.DATETIME_LOCAL);
-        const endMoment = startMoment.add(newDuration, 'hours');
-        const newEnd = endMoment.format().slice(0, 16);
         this.setState({
-            duration: newDuration,
-            end: newEnd
-        });
+            duration: event.target.value
+        }, () => this.updateEnd());
     }
 
     handlePartySizeChange(event) {
@@ -100,6 +96,15 @@ class ReservationForm extends Component {
             start: "",
             end: "",
             partySize: 1
+        });
+    }
+
+    updateEnd() {
+        const startMoment = moment(this.state.start);
+        const endMoment = startMoment.add(this.state.duration, 'hours');
+        const newEnd = endMoment.format().slice(0, 16);
+        this.setState({
+            end: newEnd
         });
     }
 
