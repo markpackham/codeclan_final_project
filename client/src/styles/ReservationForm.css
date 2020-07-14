@@ -1,4 +1,31 @@
-.reservationForm {
+.reservation-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.customer-form, .new-reservation {
+    margin: 15px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td, h2 {
+    padding: 5px;
+}
+
+th {
+    text-align: right;
+}
+
+input, select {
+    font-family: inherit;
+    font-size: 100%;
+}
+
+/* .reservationForm {
     background-color: rgb(194, 194, 194);
 }
 
@@ -142,6 +169,6 @@ h1 {
 .cancel {
     padding: 5px 10px;
     color: blue;
-}
+} */
 
 
