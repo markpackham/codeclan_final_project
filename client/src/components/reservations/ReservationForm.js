@@ -30,7 +30,8 @@ class ReservationForm extends Component {
     handleStartChange(event) {     
         this.setState({
             start: event.target.value
-        }, () => this.updateEnd());
+        }, () => this.updateEnd(),
+        () => this.updateAvailableTables());;
     }
 
     handleDurationChange(event) {
@@ -119,10 +120,10 @@ class ReservationForm extends Component {
         const endMoment = moment(this.state.end);
         const reservationStart = moment(reservation.start);
         const reservationEnd = moment(reservation.end);
-        if (startMoment.isBetween(reservationStart, reservationEnd)) {
+        if (reservationStart.isBetween(startMoment, endMoment)) {
             return false;
         }
-        if (endMoment.isBetween(reservationStart, reservationStart)) {
+        if (reservationEnd.isBetween(startMoment, endMoment)) {
             return false;
         }
         return true;
