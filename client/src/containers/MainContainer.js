@@ -22,6 +22,7 @@ const MainContainer = (props) => {
                                     customers={props.customers}
                                     venueTables={props.venueTables}
                                     onCustomerSubmit={props.onCustomerSubmit}
+                                    onReservationSubmit={props.onReservationSubmit}
                                 />
                             );
                         }} />

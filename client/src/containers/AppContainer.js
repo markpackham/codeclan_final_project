@@ -11,24 +11,30 @@ class AppContainer extends Component {
     this.state = {
       customers: [],
       venueTables: [],
+      reservations: []
     };
 
     this.handleCustomerSubmit = this.handleCustomerSubmit.bind(this);
+    this.handleReservationSubmit = this.handleReservationSubmit.bind(this);
   }
 
   componentDidMount() {
     const customersUrl = "http://localhost:8080/customers";
-
-    fetch(customersUrl)
+      fetch(customersUrl)
       .then((res) => res.json())
       .then((data) => this.setState({ customers: data }))
       .catch((err) => console.error(err));
 
     const venueTablesUrl = "http://localhost:8080/venue-tables";
-
-    fetch(venueTablesUrl)
+      fetch(venueTablesUrl)
       .then((res) => res.json())
       .then((data) => this.setState({ venueTables: data }))
+      .catch((err) => console.error(err));
+
+    const reservationsUrl = "http://localhost:8080/reservations";
+      fetch(reservationsUrl)
+      .then((res) => res.json())
+      .then((data) => this.setState({ reservations: data }))
       .catch((err) => console.error(err));
   }
 
@@ -36,6 +42,13 @@ class AppContainer extends Component {
     const updatedCustomers = [...this.state.customers, newCustomer];
     this.setState({
         customers: updatedCustomers
+  });
+}
+
+  handleReservationSubmit(newReservation) {
+    const updatedReservations = [...this.state.reservations, newReservation];
+    this.setState({
+      reservations: updatedReservations
   });
 }
 
@@ -49,6 +62,7 @@ class AppContainer extends Component {
                   customers={this.state.customers}
                   venueTables={this.state.venueTables} 
                   onCustomerSubmit={this.handleCustomerSubmit}
+                  onReservationSubmit={this.handleReservationSubmit}
                 />
               </div>
             <MainFooter />

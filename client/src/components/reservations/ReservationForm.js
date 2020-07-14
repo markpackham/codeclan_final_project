@@ -7,14 +7,20 @@ class ReservationForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            customer: null,
-            venueTable: null,
-            start: null,
-            end: null
+            customer: "",
+            venueTable: "",
+            start: "",
+            end: "",
+            partySize: 1
         };
 
         this.handleStartChange = this.handleStartChange.bind(this);
         this.handleEndChange = this.handleEndChange.bind(this);
+        this.handlePartySizeChange = this.handlePartySizeChange.bind(this);
+        this.handleCustomerSelect = this.handleCustomerSelect.bind(this);
+        this.handleVenueTableSelect = this.handleVenueTableSelect.bind(this);
+        this.selectCustomerById = this.selectCustomerById.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleStartChange(event) {
@@ -28,7 +34,63 @@ class ReservationForm extends Component {
             end: event.target.value
         });
     }
+
+    handlePartySizeChange(event) {
+        this.setState({
+            partySize: event.target.value
+        });
+    }
     
+    handleCustomerSelect(event) {
+        this.setState({
+            customer: event.target.value
+        });
+    }
+
+    handleVenueTableSelect(event) {
+        this.setState({
+            venueTable: event.target.value
+        });
+    }
+
+    selectCustomerById(id) {
+        this.setState({
+            customer: id
+        });
+    }
+
+    addReservation() {
+        const url = 'http://localhost:8080/reservations';
+        const newReservation = {
+            customer: {id: this.state.customer},
+            venueTable: {id: this.state.venueTable},
+            start: this.state.start,
+            end: this.state.end,
+            partySize: this.state.partySize
+        };
+        return fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(newReservation),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(json => this.props.onReservationSubmit(json));
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        this.addReservation();
+        this.setState({
+            customer: "",
+            venueTable: "",
+            start: "",
+            end: "",
+            partySize: 1
+        });
+    }
+
     render() {
         const customerOptions = this.props.customers.map(customer => {
             return (
@@ -47,85 +109,44 @@ class ReservationForm extends Component {
         });
 
         return (
-            <div className="reservationForm">
-                <h1>Reservations</h1>              
-                <div className="dateTime">
-                    <input 
-                        value={this.state.start}
+            <div>
+                <h1>New Customer</h1>
+                <CustomerForm onCustomerSubmit={this.props.onCustomerSubmit} selectCustomerById={this.selectCustomerById} />
+                <h1>New Reservation</h1>
+                <form className="reservation-form" onSubmit={this.handleSubmit}>
+                    <input
                         type="datetime-local" 
+                        value={this.state.start}
                         onChange={this.handleStartChange}
+                        required
+                    />
+        
+                    <input
+                        type="datetime-local"
+                        value={this.state.end}
+                        onChange={this.handleEndChange}
+                        required
                     />
 
-                    <input 
-                        value={this.state.end}
-                        type="datetime-local" 
-                        onChange={this.handleEndChange}
-                    />  
-                
-                    <p>Duration</p>
                     <input
                         type="number"
-                        id="duration"
-                        min="1"
-                        max="3"
-                        step="0.5"
-                        />
-                </div>
+                        value={this.state.partySize}
+                        onChange={this.handlePartySizeChange}
+                        required
+                    />
 
-                <select>
-                    {customerOptions}
-                </select>
+                    <select
+                        value={this.state.customer}
+                        onChange={this.handleCustomerSelect}
+                    >{customerOptions}</select>
 
-                <select>
-                    {venueTableOptions}
-                </select>
-        
-                <div className="tables">
-                    <p>Tables</p>
-                    <div className="tableButtons">
-                        <div>Table 1</div>
-                        <div>Table 2</div>
-                        <div>Table 3</div>
-                        <div>Table 4</div>
-                        <div>Table 5</div>
-                        <div>Table 6</div>
-                        <div>Table 7</div>
-                        <div>Table 8</div>
-                        <div>Table 9</div>
-                        <div>Table 10</div>
-                    </div>
-                    <p className="freeTables">Show all Free Tables</p>
-                </div>
-
-                <div className="newOrOldCutomerField">
-                    <div className="exisitng customer">
-                        <label
-                            htmlFor="customers">Search existing customers:
-                        </label>
-                        <select name="customers" id="customers">
-                        <option value="Blogs">Bloggs</option>
-                        <option value="Smith">Smith</option>
-                        </select>
-                    </div>
-                    <div className="NewButton">
-                        <div>New</div>
-                    </div>
-                </div>
-
-                <CustomerForm onCustomerSubmit={this.props.onCustomerSubmit} />
-
-                <div className="buttonField">
-                    <div className="buttonGroupOne">
-                        <div className="save">Save</div>
-                        <div className="cancel">Cancel Changes</div>
-                    </div>
-                    <div className="buttonGroupTwo">
-                        <div className="arrived">Arrived</div>
-                        <div className="delete">Delete</div>
-                    </div>
-                </div>
-                
-
+                    <select
+                        value={this.state.venueTable}
+                        onChange={this.handleVenueTableSelect}
+                    >{venueTableOptions}</select>
+                    
+                    <input type="submit" value="Create Reservation"/>
+                </form>
             </div>
         );
     }

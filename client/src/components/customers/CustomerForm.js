@@ -28,7 +28,10 @@ class CustomerForm extends Component {
             }
         })
         .then(res => res.json())
-        .then(json => this.props.onCustomerSubmit(json));
+        .then(newCustomer => {
+            this.props.onCustomerSubmit(newCustomer);
+            this.props.selectCustomerById(newCustomer.id);
+        });
     }
 
     handleSubmit(event) {
