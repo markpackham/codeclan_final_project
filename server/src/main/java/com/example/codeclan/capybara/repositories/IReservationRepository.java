@@ -20,4 +20,6 @@ public interface IReservationRepository extends JpaRepository<Reservation, Long>
     List<Reservation> findAllByOrderByVenueTableCoversDesc();
 
     List<Reservation> findAllByOrderByIdDesc();
+
+    Long countByCustomer_Id(Long customerId);
 }
