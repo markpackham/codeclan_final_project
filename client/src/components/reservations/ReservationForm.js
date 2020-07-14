@@ -30,8 +30,7 @@ class ReservationForm extends Component {
     handleStartChange(event) {     
         this.setState({
             start: event.target.value
-        }, () => this.updateEnd(),
-        () => this.updateAvailableTables());;
+        }, () => this.updateEnd());
     }
 
     handleDurationChange(event) {
@@ -102,7 +101,8 @@ class ReservationForm extends Component {
         const newEnd = endMoment.format().slice(0, 16);
         this.setState({
             end: newEnd
-        });
+        }, () => this.updateAvailableTables());
+        
     }
 
     updateAvailableTables() {
