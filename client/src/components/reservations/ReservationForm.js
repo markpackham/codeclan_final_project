@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import '../../styles/ReservationForm.css'
 import CustomerForm from '../customers/CustomerForm';
+import moment from 'moment';
 
 
 class ReservationForm extends Component {
@@ -11,34 +12,37 @@ class ReservationForm extends Component {
             venueTable: "",
             start: "",
             end: "",
-            partySize: 1
+            partySize: 1,
+            duration: 2,
+            availableTables: []
         };
 
         this.handleStartChange = this.handleStartChange.bind(this);
-        this.handleEndChange = this.handleEndChange.bind(this);
+        this.handleDurationChange = this.handleDurationChange.bind(this);
         this.handlePartySizeChange = this.handlePartySizeChange.bind(this);
         this.handleCustomerSelect = this.handleCustomerSelect.bind(this);
         this.handleVenueTableSelect = this.handleVenueTableSelect.bind(this);
         this.selectCustomerById = this.selectCustomerById.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.updateEnd = this.updateEnd.bind(this);
     }
 
-    handleStartChange(event) {
+    handleStartChange(event) {     
         this.setState({
             start: event.target.value
-        });
+        }, () => this.updateEnd());
     }
 
-    handleEndChange(event) {
+    handleDurationChange(event) {
         this.setState({
-            end: event.target.value
-        });
+            duration: event.target.value
+        }, () => this.updateEnd());
     }
 
     handlePartySizeChange(event) {
         this.setState({
-            partySize: event.target.value
-        });
+            partySize: event.target.value,
+        }, () => this.updateAvailableTables());
     }
     
     handleCustomerSelect(event) {
@@ -91,6 +95,52 @@ class ReservationForm extends Component {
         });
     }
 
+    updateEnd() {
+        const startMoment = moment(this.state.start);
+        const endMoment = startMoment.add(this.state.duration, 'hours');
+        const newEnd = endMoment.format().slice(0, 16);
+        this.setState({
+            end: newEnd
+        });
+    }
+
+    updateAvailableTables() {
+        const availableTables = [...this.props.venueTables];
+        const newAvailableTables = availableTables.filter(table => {
+            return (table.covers >= this.state.partySize) && this.checkTableAvailable(table)
+        });
+        this.setState({
+            availableTables: newAvailableTables
+        });
+    }
+
+    checkTimeAvailable(reservation) {
+        const startMoment = moment(this.state.start);
+        const endMoment = moment(this.state.end);
+        const reservationStart = moment(reservation.start);
+        const reservationEnd = moment(reservation.end);
+        if (startMoment.isBetween(reservationStart, reservationEnd)) {
+            return false;
+        }
+        if (endMoment.isBetween(reservationStart, reservationStart)) {
+            return false;
+        }
+        return true;
+    }
+
+    checkTableAvailable(venueTable) {
+        const reservations = venueTable.reservations;
+        if (reservations.length === 0) {
+            return true;
+        }
+        for (const reservation of reservations) {
+            if (this.checkTimeAvailable(reservation)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     render() {
         const customerOptions = this.props.customers.map(customer => {
             return (
@@ -100,7 +150,7 @@ class ReservationForm extends Component {
             );
         });
 
-        const venueTableOptions = this.props.venueTables.map(venueTable => {
+        const venueTableOptions = this.state.availableTables.map(venueTable => {
             return (
                 <option key={venueTable.id} value={venueTable.id}>
                     {`Table ${venueTable.id}: Seats ${venueTable.covers}`}
@@ -120,13 +170,13 @@ class ReservationForm extends Component {
                         onChange={this.handleStartChange}
                         required
                     />
-        
+
                     <input
-                        type="datetime-local"
-                        value={this.state.end}
-                        onChange={this.handleEndChange}
+                        type="number"
+                        value={this.state.duration}
+                        onChange={this.handleDurationChange}
                         required
-                    />
+                    />  
 
                     <input
                         type="number"
