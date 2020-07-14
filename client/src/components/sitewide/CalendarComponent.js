@@ -4,19 +4,12 @@ import '../../styles/CalendarComponent.css'
 import 'react-calendar/dist/Calendar.css';
  
 class CalendarComponent extends Component {
-  state = {
-    date: new Date(),
-  }
- 
-  onChange = date => this.setState({ date })
+  onChange = date => this.props.onDaySelect(date);
  
   render() {
     return (
       <div className="calendar">
-        <Calendar
-          onChange={this.onChange}
-          value={this.state.date}
-        />
+        <Calendar onChange={this.onChange} />
       </div>
     );
   }

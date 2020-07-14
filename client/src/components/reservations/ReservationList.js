@@ -4,22 +4,20 @@ import Reservation from "./Reservation";
 class ReservationList extends Component {
   
     render() {
+
         const reservationNodes = this.props.reservations.map((reservation, index) => {
             return (
                 <Reservation
                     key={index}
                     reservation={reservation}
-                   
-                >
-                    
-                    </Reservation>
-              
+                    >
+                </Reservation>
             )
         })
+
         return (
             <ul>
                 {reservationNodes}
-               <p>Reservation List</p>
             </ul>
         );
     }
