@@ -57,7 +57,7 @@ class AppContainer extends Component {
       <div className="app-container">
             <MainHeader />
               <div className="screen">
-                <SideBar />
+                <SideBar reservations={this.state.reservations} />
                 <MainContainer
                   customers={this.state.customers}
                   venueTables={this.state.venueTables} 

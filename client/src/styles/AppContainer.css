@@ -4,6 +4,7 @@
 
 .sidebar {
     display: flex;
+    flex-direction: column;
     background-color: blue;
     align-items: flex-start;
     justify-content: center;
