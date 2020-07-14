@@ -14,6 +14,7 @@ class ReservationForm extends Component {
             end: "",
             partySize: 1,
             duration: 2,
+            reservationNotes: "",
             availableTables: []
         };
 
@@ -22,6 +23,7 @@ class ReservationForm extends Component {
         this.handlePartySizeChange = this.handlePartySizeChange.bind(this);
         this.handleCustomerSelect = this.handleCustomerSelect.bind(this);
         this.handleVenueTableSelect = this.handleVenueTableSelect.bind(this);
+        this.handleReservationNotesChange = this.handleReservationNotesChange.bind(this);
         this.selectCustomerById = this.selectCustomerById.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.updateEnd = this.updateEnd.bind(this);
@@ -57,6 +59,12 @@ class ReservationForm extends Component {
         });
     }
 
+    handleReservationNotesChange(event) {
+        this.setState({
+            reservationNotes: event.target.value
+        });
+    }
+
     selectCustomerById(id) {
         this.setState({
             customer: id
@@ -70,7 +78,8 @@ class ReservationForm extends Component {
             venueTable: {id: this.state.venueTable},
             start: this.state.start,
             end: this.state.end,
-            partySize: this.state.partySize
+            partySize: this.state.partySize,
+            reservationNotes: this.state.reservationNotes
         };
         return fetch(url, {
             method: 'POST',
@@ -91,7 +100,8 @@ class ReservationForm extends Component {
             venueTable: "",
             start: "",
             end: "",
-            partySize: 1
+            partySize: 1,
+            reservationNotes: ""
         });
     }
 
@@ -165,7 +175,7 @@ class ReservationForm extends Component {
                 <CustomerForm onCustomerSubmit={this.props.onCustomerSubmit} selectCustomerById={this.selectCustomerById} />
                 <h1>New Reservation</h1>
                 <form className="reservation-form" onSubmit={this.handleSubmit}>
-                    <label htmlFor="Reservation Date">Reservation Date</label>
+                    <label htmlFor="Reservation Date">Reservation Date:</label>
                     <input
                         name="Reservation Date"
                         type="datetime-local" 
@@ -207,6 +217,14 @@ class ReservationForm extends Component {
                         value={this.state.venueTable}
                         onChange={this.handleVenueTableSelect}
                     >{venueTableOptions}</select>
+
+                    <label htmlFor="Reservation Notes">Reservation Notes:</label>
+                    <input
+                        name="Reservation Notes"
+                        type="text"
+                        value={this.state.reservationNotes}
+                        onChange={this.handleReservationNotesChange}
+                    />
                     
                     <input type="submit" value="Create Reservation"/>
                 </form>
