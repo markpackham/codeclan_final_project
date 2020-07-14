@@ -193,7 +193,7 @@ class ReservationForm extends Component {
         />
         <h1>New Reservation</h1>
         <form className="reservation-form" onSubmit={this.handleSubmit}>
-          <label htmlFor="Reservation Date">Reservation Date:</label>
+          <label htmlFor="Reservation Date">Reservation Date</label>
           <input
             name="Reservation Date"
             type="datetime-local"
