@@ -1,7 +1,7 @@
 # Capybara Cafe
 
 
-### Front End: React
+### Front End: JavaScript based using React
 
 
-### Back End: Spring
+### Back End: Java and SQL based using Spring and H2
