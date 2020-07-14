@@ -164,33 +164,45 @@ class ReservationForm extends Component {
                 <CustomerForm onCustomerSubmit={this.props.onCustomerSubmit} selectCustomerById={this.selectCustomerById} />
                 <h1>New Reservation</h1>
                 <form className="reservation-form" onSubmit={this.handleSubmit}>
+                    <label htmlFor="Reservation Date">Reservation Date</label>
                     <input
+                        name="Reservation Date"
                         type="datetime-local" 
                         value={this.state.start}
                         onChange={this.handleStartChange}
                         required
                     />
 
+                    <label htmlFor="Duration">Duration:</label>
                     <input
+                        name="Duration"
                         type="number"
                         value={this.state.duration}
                         onChange={this.handleDurationChange}
                         required
+                        min="1"
                     />  
 
+                    <label htmlFor="Party Size">Party Size:</label>
                     <input
+                        name="Party Size"
                         type="number"
                         value={this.state.partySize}
                         onChange={this.handlePartySizeChange}
                         required
+                        min="1"
                     />
 
+                    <label htmlFor="Customer">Customer:</label>
                     <select
+                        name="Customer"
                         value={this.state.customer}
                         onChange={this.handleCustomerSelect}
                     >{customerOptions}</select>
 
+                    <label htmlFor="Venue Table">Table:</label>
                     <select
+                        name="Venue Table"
                         value={this.state.venueTable}
                         onChange={this.handleVenueTableSelect}
                     >{venueTableOptions}</select>

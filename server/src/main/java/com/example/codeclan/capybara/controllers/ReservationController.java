@@ -23,6 +23,7 @@ public class ReservationController {
             @RequestParam(required = false, name = "startAfter")LocalDateTime startAfter,
             @RequestParam(required = false, name = "coversAsc") String coversAsc,
             @RequestParam(required = false, name = "coversDesc") String coversDesc,
+            @RequestParam(required = false, name = "customerId") Long customerId,
             @RequestParam(required = false, name = "idDesc") String idDesc
             ) {
 
@@ -49,6 +50,11 @@ public class ReservationController {
             return new ResponseEntity(reservationRepository.findAllByOrderByVenueTableCoversDesc(), HttpStatus.OK);
         }
 
+        /* Customer */
+        // http://localhost:8080/reservations?customerId=1
+        if(customerId != null){
+            return new ResponseEntity(reservationRepository.countByCustomer_Id(customerId), HttpStatus.OK);
+        }
 
         /* All */
         // http://localhost:8080/reservations?idDesc=t
