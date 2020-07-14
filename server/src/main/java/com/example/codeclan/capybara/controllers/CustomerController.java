@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping(value = "/customers")
 public class CustomerController {
@@ -14,7 +15,6 @@ public class CustomerController {
     @Autowired
     ICustomerRepository customerRepository;
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
     public ResponseEntity getAllCustomersWithFilters(
             @RequestParam(required = false, name = "firstName") String firstName,
@@ -135,14 +135,12 @@ public class CustomerController {
     }
 
     // http://localhost:8080/customers/1
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(value = "/{id}")
     public ResponseEntity getCustomerById(@PathVariable Long id){
         return new ResponseEntity(customerRepository.findById(id), HttpStatus.OK);
     }
 
     // http://localhost:8080/customers
-    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
     public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer){
         customerRepository.save(customer);
@@ -150,7 +148,6 @@ public class CustomerController {
     }
 
     // http://localhost:8080/customers/1
-    @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping(value = "/{id}")
     public ResponseEntity<Customer> putCustomer(@RequestBody Customer customer, @PathVariable Long id){
         Customer customerToUpdate = customerRepository.findById(id).get();
