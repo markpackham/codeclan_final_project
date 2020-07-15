@@ -4,7 +4,7 @@ import '../../styles/VenueTableGrid.css'
 
 const VenueTableGrid = (props) => {
     const venueTableNodes = props.venueTables.map((venueTable, index) => {
-        return <VenueTable key={index} venueTable={venueTable} />
+        return <VenueTable key={index} venueTable={venueTable} availableTables={props.availableTables} />
     });
 
     return (

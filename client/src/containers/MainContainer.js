@@ -1,6 +1,5 @@
 import React from 'react';
 import CustomerList from '../components/customers/CustomerList';
-import VenueTableGrid from '../components/venue_tables/VenueTableGrid';
 import About from '../components/miscellaneous/About';
 import ErrorPage from '../components/miscellaneous/ErrorPage';
 import ReservationForm from '../components/reservations/ReservationForm';
@@ -15,7 +14,6 @@ const MainContainer = (props) => {
                 <React.Fragment>
                     <NavBar />
                     <Switch>
-                        <Route exact path="/" render={() => <VenueTableGrid venueTables={props.venueTables} />} />
                         <Route exact path="/new-reservation" render={() => {
                             return (
                                 <ReservationForm

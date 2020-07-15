@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import '../../styles/ReservationForm.css'
 import CustomerForm from '../customers/CustomerForm';
+import VenueTableGrid from '../venue_tables/VenueTableGrid';
 import moment from 'moment';
 
 
@@ -162,6 +163,7 @@ class ReservationForm extends Component {
         });
 
         return (
+            <>
             <div className="reservation-form">
                 <CustomerForm onCustomerSubmit={this.props.onCustomerSubmit} selectCustomerById={this.selectCustomerById} />
                 <div className="new-reservation">
@@ -237,6 +239,8 @@ class ReservationForm extends Component {
                     </form>
                 </div>
             </div>
+            <VenueTableGrid venueTables={this.props.venueTables} availableTables={this.state.availableTables} />
+            </>
         );
     }
 }
