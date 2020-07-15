@@ -13,3 +13,7 @@ button {
 button.react-calendar__tile.react-calendar__tile--now.react-calendar__month-view__days__day{
     background-color: purple;
 }
+
+.react-calendar__month-view__days__day--weekend abbr{
+    color: var(--contrast);
+}
