@@ -1,0 +1,12 @@
+.customer-list{
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid black;
+}
+
+.customer{
+    padding: 0.5rem;
+    border: 1px solid black;
+    margin: 0.2rem;
+    background-color: var(--light);
+} 
