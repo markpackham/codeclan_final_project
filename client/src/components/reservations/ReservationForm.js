@@ -9,12 +9,12 @@ class ReservationForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            customer: "",
+            customer: "1",
             venueTable: "",
-            start: "",
+            start: moment().format().slice(0, 16),
             end: "",
-            partySize: 1,
-            duration: 2,
+            partySize: "",
+            duration: "2",
             reservationNotes: "",
             availableTables: []
         };
@@ -28,6 +28,10 @@ class ReservationForm extends Component {
         this.selectCustomerById = this.selectCustomerById.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.updateEnd = this.updateEnd.bind(this);
+    }
+
+    componentDidMount() {
+        this.updateEnd();
     }
 
     handleStartChange(event) {     
@@ -117,12 +121,12 @@ class ReservationForm extends Component {
     }
 
     updateAvailableTables() {
-        const availableTables = [...this.props.venueTables];
-        const newAvailableTables = availableTables.filter(table => {
+        const allTables = [...this.props.venueTables];
+        const availableTables = allTables.filter(table => {
             return (table.covers >= this.state.partySize) && this.checkTableAvailable(table)
         });
         this.setState({
-            availableTables: newAvailableTables
+            availableTables: availableTables
         });
     }
 
