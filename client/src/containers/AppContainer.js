@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MainFooter from '../components/sitewide/MainFooter';
-import MainHeader from '../components/sitewide/MainHeader';
 import MainContainer from './MainContainer';
 import SideBar from './SideBar';
 import '../styles/AppContainer.css';
@@ -55,7 +54,6 @@ class AppContainer extends Component {
   render() {
     return (
       <div className="app-container">
-            <MainHeader />
               <div className="screen">
                 <SideBar reservations={this.state.reservations} />
                 <MainContainer
