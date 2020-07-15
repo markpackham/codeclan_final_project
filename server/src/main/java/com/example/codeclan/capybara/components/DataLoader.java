@@ -159,16 +159,6 @@ public class DataLoader implements ApplicationRunner {
         VenueTable venueTable18 = new VenueTable(1, venue1);
         VenueTable venueTable19 = new VenueTable(1, venue1);
         VenueTable venueTable20 = new VenueTable(1, venue1);
-        VenueTable venueTable21 = new VenueTable(1, venue1);
-        VenueTable venueTable22 = new VenueTable(1, venue1);
-        VenueTable venueTable23 = new VenueTable(1, venue1);
-        VenueTable venueTable24 = new VenueTable(1, venue1);
-        VenueTable venueTable25 = new VenueTable(1, venue1);
-        VenueTable venueTable26 = new VenueTable(1, venue1);
-        VenueTable venueTable27 = new VenueTable(1, venue1);
-        VenueTable venueTable28 = new VenueTable(1, venue1);
-        VenueTable venueTable29 = new VenueTable(1, venue1);
-        VenueTable venueTable30 = new VenueTable(1, venue1);
 
         venueTableRepository.save(venueTable1);
         venueTableRepository.save(venueTable2);
@@ -190,16 +180,16 @@ public class DataLoader implements ApplicationRunner {
         venueTableRepository.save(venueTable18);
         venueTableRepository.save(venueTable19);
         venueTableRepository.save(venueTable20);
-        venueTableRepository.save(venueTable21);
-        venueTableRepository.save(venueTable22);
-        venueTableRepository.save(venueTable23);
-        venueTableRepository.save(venueTable24);
-        venueTableRepository.save(venueTable25);
-        venueTableRepository.save(venueTable26);
-        venueTableRepository.save(venueTable27);
-        venueTableRepository.save(venueTable28);
-        venueTableRepository.save(venueTable29);
-        venueTableRepository.save(venueTable30);
+        venueTableRepository.save(venueTable1);
+        venueTableRepository.save(venueTable2);
+        venueTableRepository.save(venueTable3);
+        venueTableRepository.save(venueTable4);
+        venueTableRepository.save(venueTable5);
+        venueTableRepository.save(venueTable6);
+        venueTableRepository.save(venueTable7);
+        venueTableRepository.save(venueTable8);
+        venueTableRepository.save(venueTable9);
+        venueTableRepository.save(venueTable10);
 
         Reservation reservation1 = new Reservation(customer1, venueTable1,
                 LocalDateTime.of(2020, Month.AUGUST, 31, 10, 10),
@@ -281,43 +271,43 @@ public class DataLoader implements ApplicationRunner {
                 LocalDateTime.of(2020, Month.OCTOBER, 20, 13, 30),
                 LocalDateTime.of(2020, Month.OCTOBER, 20, 15, 30),4, "ordination");
 
-        Reservation reservation21 = new Reservation(customer21, venueTable21,
+        Reservation reservation21 = new Reservation(customer21, venueTable1,
                 LocalDateTime.of(2020, Month.OCTOBER, 21, 13, 30),
                 LocalDateTime.of(2020, Month.OCTOBER, 21, 15, 30),5, "non smoking");
 
-        Reservation reservation22 = new Reservation(customer22, venueTable22,
+        Reservation reservation22 = new Reservation(customer22, venueTable2,
                 LocalDateTime.of(2020, Month.OCTOBER, 22, 13, 30),
                 LocalDateTime.of(2020, Month.OCTOBER, 22, 15, 30),6, "wheelchair access");
 
-        Reservation reservation23 = new Reservation(customer23, venueTable23,
+        Reservation reservation23 = new Reservation(customer23, venueTable3,
                 LocalDateTime.of(2020, Month.OCTOBER, 23, 13, 30),
                 LocalDateTime.of(2020, Month.OCTOBER, 23, 15, 30),7,"comedy night");
 
-        Reservation reservation24 = new Reservation(customer24, venueTable24,
+        Reservation reservation24 = new Reservation(customer24, venueTable4,
                 LocalDateTime.of(2020, Month.OCTOBER, 24, 13, 30),
                 LocalDateTime.of(2020, Month.OCTOBER, 24, 15, 30),8, "folk night");
 
-        Reservation reservation25 = new Reservation(customer25, venueTable25,
+        Reservation reservation25 = new Reservation(customer25, venueTable5,
                 LocalDateTime.of(2020, Month.OCTOBER, 25, 13, 30),
                 LocalDateTime.of(2020, Month.OCTOBER, 25, 15, 30),9, "allergic to red meat");
 
-        Reservation reservation26 = new Reservation(customer26, venueTable26,
+        Reservation reservation26 = new Reservation(customer26, venueTable6,
                 LocalDateTime.of(2020, Month.OCTOBER, 26, 13, 30),
                 LocalDateTime.of(2020, Month.OCTOBER, 26, 15, 30),8, "fancy dress party");
 
-        Reservation reservation27 = new Reservation(customer27, venueTable27,
+        Reservation reservation27 = new Reservation(customer27, venueTable7,
                 LocalDateTime.of(2020, Month.OCTOBER, 27, 13, 30),
                 LocalDateTime.of(2020, Month.OCTOBER, 27, 15, 30),7, "sit outdoors");
 
-        Reservation reservation28 = new Reservation(customer28, venueTable28,
+        Reservation reservation28 = new Reservation(customer28, venueTable8,
                 LocalDateTime.of(2020, Month.OCTOBER, 28, 13, 30),
                 LocalDateTime.of(2020, Month.OCTOBER, 28, 15, 30),6, "smoking");
 
-        Reservation reservation29 = new Reservation(customer29, venueTable29,
+        Reservation reservation29 = new Reservation(customer29, venueTable9,
                 LocalDateTime.of(2020, Month.OCTOBER, 29, 13, 30),
                 LocalDateTime.of(2020, Month.OCTOBER, 29, 15, 30),5, "an additional 3 may join");
 
-        Reservation reservation30 = new Reservation(customer30, venueTable30,
+        Reservation reservation30 = new Reservation(customer30, venueTable10,
                 LocalDateTime.of(2020, Month.OCTOBER, 30, 13, 30),
                 LocalDateTime.of(2020, Month.OCTOBER, 30, 15, 30),4, "2 people might not show");
 
