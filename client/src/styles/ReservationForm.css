@@ -8,7 +8,7 @@
 }
 
 table, th, td {
-    border: 1px solid black;
+    border: 1px solid var(--dark);
     border-collapse: collapse;
 }
 
@@ -20,155 +20,28 @@ th {
     text-align: right;
 }
 
-input, select {
+input, select, button {
     font-family: inherit;
     font-size: 100%;
 }
 
-/* .reservationForm {
-    background-color: rgb(194, 194, 194);
+button {
+    margin: 0 15px
 }
 
-h1 {
-    padding: 5px;
-}
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-.dateTime {
-    display: flex;
-    flex-direction: row;
-    padding: 5px;
+    padding: 25px;
+    background-color: white;
     
+    border: 1px solid var(--dark);
+    border-radius: 10px;
+    
+    box-shadow: 2px 2px 2px 2px var(--shadow);
+    outline: none;
 }
-
-.dateTime p {
-    margin-right: 20px;
-}
-
-.dateTime input {
-    margin-right: 30px;
-    width: 80px;
-}
-
-.tables p {
-    padding: 5px;
-}
-
-.tableButtons {
-    display: flex;
-    flex-direction: row;
-    padding: 5px;
-}
-
-.tableButtons div {
-    margin-right: 30px;
-    border: 1px solid black;
-    padding: 5px;
-    width: 5em;
-    text-align: center;
-    background-color: rgb(41, 110, 189);
-    color: white;
-}
-
-.freeTables {
-    color: blue;
-}
-
-.personalDetails {
-    padding: 5px;
-}
-
-.personalDetails input {
-    width: 300px;
-}
-
-.name {
-    display: flex;
-    flex-direction: row;
-    margin-top: 30px;
-}
-
-.name input {
-    margin-left: 50px;;
-}
-
-.telNo {
-    display: flex;
-    flex-direction: row;
-    margin-top: 30px;
-}
-
-.telNo input {
-    margin-left: 22px;;
-}
-
-.email {
-    display: flex;
-    flex-direction: row;
-    margin-top: 30px;
-}
-
-.email input {
-    margin-left: 52px;;
-}
-
-.newOrOldCutomerField {
-    display: flex;
-    flex-direction: row;
-}
-
-
-.newOrOldCutomerField label {
-   margin-right: 10px;
-}
-.NewButton {
-    margin-left: 50px;
-    border: 1px solid black;
-    background-color: rgb(93, 185, 93);
-    padding: 5px 10px;
-    text-align: center;
-}
-
-.buttonField {
-    margin-left: 100px;
-    margin-top: 20px;
-}
-
-.buttonGroupOne {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 30px;
-}
-
-.save {
-    margin-right: 60px;
-    border: 1px solid black;
-    padding: 5px 10px;
-    background-color: rgb(93, 185, 93);
-}
-
-.buttonGroupTwo {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 20px;
-}
-
-.arrived {
-    margin-right: 42px;
-    border: 1px solid black;
-    padding: 5px 10px;
-    background-color: orange;
-}
-
-.delete {
-    margin-right: 42px;
-    border: 1px solid black;
-    padding: 5px 10px;
-    background-color: rgb(185, 51, 51);
-}
-
-.cancel {
-    padding: 5px 10px;
-    color: blue;
-} */
-
 
