@@ -4,21 +4,27 @@ import '../../styles/CustomerList.css'
 
 class CustomerList extends Component {
   render() {
-    const customerNodes = this.props.customers.map((customer, index) => {
+    let customerNodesReverse = this.props.customers.reverse();
+    const customerNodes = customerNodesReverse.map((customer, index) => {
       return (
         <Customer
           key={index}
           firstName={customer.firstName}
           lastName={customer.lastName}
           phone={customer.phone}
-          email={customer.email}>
+          email={customer.email}
+            id={customer.id}>
         </Customer>
       );
     });
 
+    const sortedCustomers = [].concat(this.props.CustomerList)
+    .sort((a, b) => a.index > b.index ? 1 : -1)
+    
+
     return (
       <ul className="customer-list">
-        <h2>Amount of customers that have made reservations: {this.props.customers.length}</h2>
+        <h2>Amount of customers that have provided their details: {this.props.customers.length}</h2>
         {customerNodes}
       </ul>
     );
