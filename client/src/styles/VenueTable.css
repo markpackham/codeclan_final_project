@@ -7,11 +7,12 @@
 
 .venue-table {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    width: 100px;
-    height: 100px;
+    width: 85px;
+    height: 85px;
     margin: 10px;
 
     border: 2px solid var(--dark);
@@ -20,4 +21,17 @@
     color: var(--dark);
     background-color: var(--light);
     box-shadow: 2px 2px 2px 2px var(--shadow);
+}
+
+.unavailable {
+    opacity: 0.5;
+}
+
+#table-number {
+    font-weight: bold;
+}
+
+#covers {
+    font-style: italic;
+    font-size: small;
 }
