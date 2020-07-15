@@ -112,7 +112,12 @@ class CustomerForm extends Component {
                                 onChange={this.handleEmailChange}
                                 required
                             /></td></tr>
-                            <tr><td><input type="submit" value="Create Customer"/></td></tr>
+                            <tr>
+                                <td>
+                                    <input type="submit" value="Create"/>
+                                    <button onClick={this.props.closeModal}>Cancel</button>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </form>
