@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Customer from "./Customer";
+import '../../styles/CustomerList.css'
 
 class CustomerList extends Component {
   render() {
@@ -17,7 +18,7 @@ class CustomerList extends Component {
 
     return (
       <ul className="customer-list">
-        <h3>Amount of customers that have made reservations: {this.props.customers.length}</h3>
+        <h2>Amount of customers that have made reservations: {this.props.customers.length}</h2>
         {customerNodes}
       </ul>
     );
