@@ -10,7 +10,7 @@ button {
     color: white;
 }
 
-button.react-calendar__tile.react-calendar__tile--now.react-calendar__month-view__days__day{
+.react-calendar__tile--now.react-calendar__month-view__days__day{
     background-color: purple;
 }
 
