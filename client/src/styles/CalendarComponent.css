@@ -3,6 +3,10 @@
   font-size: smaller;
 }
 
+abbr[title] {
+  text-decoration: none;
+}
+
 .react-calendar__tile--active {
   background: var(--light);
   color: var(--dark);
