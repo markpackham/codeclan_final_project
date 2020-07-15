@@ -11,7 +11,7 @@ class ReservationForm extends Component {
         this.state = {
             customer: "1",
             venueTable: "",
-            start: "",
+            start: moment().format().slice(0, 16),
             end: "",
             partySize: "1",
             duration: "2",
