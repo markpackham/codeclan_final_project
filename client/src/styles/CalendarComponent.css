@@ -2,11 +2,11 @@
   width: 250px;
 }
 
-button {
-  color: white;
+div.react-calendar__navigation button.react-calendar__navigation__label:hover, div.react-calendar__viewContainer div.react-calendar__month-view__days button:hover{
+ background-color: var(--dark);
 }
 
-.react-calendar__month-view__weekdays__weekday {
+button, .react-calendar__month-view__weekdays__weekday {
   color: white;
 }
 
