@@ -1,5 +1,11 @@
 .calendar {
   width: 250px;
+  font-size: smaller;
+}
+
+.react-calendar__tile--active {
+  background: var(--light);
+  color: var(--dark);
 }
 
 div.react-calendar__navigation button.react-calendar__navigation__label:hover,
@@ -14,16 +20,21 @@ div.react-calendar__navigation
   button.react-calendar__navigation__arrow.react-calendar__navigation__prev-button:hover,
 div.react-calendar__navigation
   button.react-calendar__navigation__arrow.react-calendar__navigation__prev2-button:hover {
-  background-color: var(--dark);
+  background-color: var(--light);
+  color: var(--dark);
 }
 
-button,
 .react-calendar__month-view__weekdays__weekday {
   color: white;
 }
 
+.calendar button {
+  color: white;
+}
+
 .react-calendar__tile--now.react-calendar__month-view__days__day {
-  background-color: purple;
+  background-color: var(--contrast);
+  color: var(--dark);
 }
 
 .react-calendar__month-view__days__day--weekend abbr {

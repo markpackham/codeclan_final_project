@@ -13,9 +13,7 @@ table, th, td {
     border-collapse: collapse;
 }
 
-th,
-td,
-h2 {
+th, td, h2 {
   padding: 5px;
 }
 

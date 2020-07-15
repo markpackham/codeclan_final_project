@@ -9,18 +9,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Nunito", Arial, "Helvetica Neue", Helvetica, sans-serif;
-}
-
-html {
-  height: 100%;
-}
-
-body {
-  padding: 1rem;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+  font-family: "Nunito", sans-serif;
 }
 
 .app-container {
@@ -42,17 +31,17 @@ ul {
 
 .react-calendar {
   border: none;
-  background-color: #38526b;
+  background-color: var(--dark);
 }
 
 .sidebar {
   display: flex;
   align-items: center;
-  background-color: #38526b;
+  background-color: var(--dark);
 }
 
 .main-footer {
-  background-color: #38526b;
+  background-color: var(--dark);
   color: white;
 }
 
