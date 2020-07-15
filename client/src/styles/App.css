@@ -12,9 +12,22 @@
     font-family: 'Nunito', Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     padding: 1rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
+
+.app-container {
+    min-height: calc(100vh - 70px);
+}
+
+
 
 a { 
     text-decoration: none; 
@@ -26,4 +39,10 @@ ul {
 
 .main-footer {
     padding: 1rem;
+    text-align: center;
+}
+
+.react-calendar {
+    border: none;
+    padding-right: 20px;
 }
