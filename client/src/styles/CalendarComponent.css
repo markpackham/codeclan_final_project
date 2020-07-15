@@ -29,7 +29,3 @@ button,
 .react-calendar__month-view__days__day--weekend abbr {
   color: var(--contrast);
 }
-
-.reservation-container {
-  background-color: var(--dark);
-}
