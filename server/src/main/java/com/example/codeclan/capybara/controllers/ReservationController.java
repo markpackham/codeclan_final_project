@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping(value = "/reservations")
 public class ReservationController {
@@ -16,7 +17,6 @@ public class ReservationController {
     @Autowired
     IReservationRepository reservationRepository;
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
     public ResponseEntity getAllReservationsWithFilters(
             @RequestParam(required = false, name = "startBefore")LocalDateTime startBefore,
@@ -67,14 +67,12 @@ public class ReservationController {
     }
 
     // http://localhost:8080/reservations/1
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(value = "/{id}")
     public ResponseEntity getReservationById(@PathVariable Long id) {
         return new ResponseEntity(reservationRepository.findById(id), HttpStatus.OK);
     }
 
     // http://localhost:8080/reservations/
-    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
     public ResponseEntity<Reservation> createReservation(@RequestBody Reservation reservation) {
         reservationRepository.save(reservation);
@@ -83,7 +81,6 @@ public class ReservationController {
 
     // Delete All Reservations
     // http://localhost:8080/reservations/
-    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping
     public ResponseEntity deleteAllReservations(){
         reservationRepository.deleteAll();
@@ -91,7 +88,6 @@ public class ReservationController {
     }
 
     // http://localhost:8080/reservations/1
-    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping(value="/{id}")
     public ResponseEntity<Long> deleteReservation(@PathVariable Long id){
         reservationRepository.deleteById(id);
@@ -99,7 +95,6 @@ public class ReservationController {
     }
 
     // http://localhost:8080/reservations/1
-    @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping(value = "/{id}")
     public ResponseEntity<Reservation> putReservation(@RequestBody Reservation reservation, @PathVariable Long id){
         Reservation reservationToUpdate = reservationRepository.findById(id).get();

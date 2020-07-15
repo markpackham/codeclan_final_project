@@ -1,7 +1,11 @@
 # Capybara Cafe
 
+## A cafe/restaurant booking app.
 
-### Front End: React
+
+### Front End: JavaScript and CSS based using React
+
+#### Additional node modules used include: React Calandar and Moment
 
 
-### Back End: Spring
+### Back End: Java and SQL based using Spring and H2

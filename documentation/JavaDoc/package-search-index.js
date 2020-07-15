@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.example.codeclan.capybara"},{"l":"com.example.codeclan.capybara.components"},{"l":"com.example.codeclan.capybara.controllers"},{"l":"com.example.codeclan.capybara.models"},{"l":"com.example.codeclan.capybara.repositories"}]
