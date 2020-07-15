@@ -260,7 +260,7 @@ class ReservationForm extends Component {
             </div>
             <VenueTableGrid venueTables={this.props.venueTables} availableTables={this.state.availableTables} />
 
-            <ReactModal isOpen={this.state.showModal} contentLabel="Customer Form">
+            <ReactModal isOpen={this.state.showModal} contentLabel="Customer Form" className="Modal">
                 <CustomerForm
                     onCustomerSubmit={this.props.onCustomerSubmit}
                     selectCustomerById={this.selectCustomerById}

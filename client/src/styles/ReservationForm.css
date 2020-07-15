@@ -25,6 +25,22 @@ input, select {
     font-size: 100%;
 }
 
+.Modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 25px;
+    background-color: white;
+    
+    border: 1px solid var(--dark);
+    border-radius: 10px;
+    
+    box-shadow: 2px 2px 2px 2px var(--shadow);
+    outline: none;
+}
+
 /* .reservationForm {
     background-color: rgb(194, 194, 194);
 }
