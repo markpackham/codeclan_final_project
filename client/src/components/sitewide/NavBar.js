@@ -5,7 +5,7 @@ import '../../styles/NavBar.css'
 const NavBar = () => (
   <div className="nav-bar">
     <ul>
-      <li><Link to="/new-reservation">New Reservation</Link></li>
+      <li><Link to="/">New Reservation</Link></li>
       <li><Link to="/customers">All Customers</Link></li>
       <li><Link to="/about">About</Link></li>
     </ul>

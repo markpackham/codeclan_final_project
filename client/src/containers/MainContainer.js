@@ -14,7 +14,7 @@ const MainContainer = (props) => {
                 <React.Fragment>
                     <NavBar />
                     <Switch>
-                        <Route exact path="/new-reservation" render={() => {
+                        <Route exact path="/" render={() => {
                             return (
                                 <ReservationForm
                                     customers={props.customers}
