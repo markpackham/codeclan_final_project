@@ -1,15 +1,15 @@
-.customer-list{
-    display: flexbox;
-    margin: 1rem;
-    padding: 1rem;
-    border: 1px solid black;
-    border-radius: 5px;
+.customer-list {
+  display: flexbox;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
-.customer{
-    padding: 0.5rem;
-    border: 1px solid black;
-    margin: 0.2rem;
-    background-color: var(--light);
-    box-shadow: 2px 2px 2px 2px var(--shadow);
-} 
+.customer {
+  padding: 0.5rem;
+  border: 1px solid black;
+  margin: 0.2rem;
+  background-color: var(--light);
+  box-shadow: 2px 2px 2px 2px var(--shadow);
+}

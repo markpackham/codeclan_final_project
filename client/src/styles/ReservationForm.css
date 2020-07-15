@@ -1,10 +1,11 @@
 .reservation-form {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.customer-form, .new-reservation {
-    margin: 15px;
+.customer-form,
+.new-reservation {
+  margin: 15px;
 }
 
 table, th, td {
@@ -12,12 +13,14 @@ table, th, td {
     border-collapse: collapse;
 }
 
-th, td, h2 {
-    padding: 5px;
+th,
+td,
+h2 {
+  padding: 5px;
 }
 
 th {
-    text-align: right;
+  text-align: rigt;
 }
 
 input, select, button {
@@ -44,4 +47,3 @@ button {
     box-shadow: 2px 2px 2px 2px var(--shadow);
     outline: none;
 }
-
