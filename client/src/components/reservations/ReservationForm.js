@@ -5,6 +5,8 @@ import VenueTableGrid from '../venue_tables/VenueTableGrid';
 import moment from 'moment';
 import ReactModal from 'react-modal';
 
+ReactModal.setAppElement('#root');
+
 class ReservationForm extends Component {
     constructor(props) {
         super(props);
