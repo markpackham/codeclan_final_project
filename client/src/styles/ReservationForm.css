@@ -1,28 +1,34 @@
 .reservation-form {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.customer-form, .new-reservation {
-    margin: 15px;
+.customer-form,
+.new-reservation {
+  margin: 15px;
 }
 
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
 }
 
-th, td, h2 {
-    padding: 5px;
+th,
+td,
+h2 {
+  padding: 5px;
 }
 
 th {
-    text-align: right;
+  text-align: right;
 }
 
-input, select {
-    font-family: inherit;
-    font-size: 100%;
+input,
+select {
+  font-family: inherit;
+  font-size: 100%;
 }
 
 /* .reservationForm {
@@ -170,5 +176,3 @@ h1 {
     padding: 5px 10px;
     color: blue;
 } */
-
-

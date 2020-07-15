@@ -11,11 +11,11 @@ ul {
   padding: 0;
   overflow: hidden;
 }
-  
+
 li {
   float: left;
 }
-  
+
 li a {
   display: block;
   color: var(--dark);

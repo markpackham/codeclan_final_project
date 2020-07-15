@@ -1,19 +1,19 @@
 .calendar {
-    width: 250px;
+  width: 250px;
 }
 
 button {
-    color: white;
+  color: white;
 }
 
 .react-calendar__month-view__weekdays__weekday {
-    color: white;
+  color: white;
 }
 
-.react-calendar__tile--now.react-calendar__month-view__days__day{
-    background-color: purple;
+.react-calendar__tile--now.react-calendar__month-view__days__day {
+  background-color: purple;
 }
 
-.react-calendar__month-view__days__day--weekend abbr{
-    color: var(--contrast);
+.react-calendar__month-view__days__day--weekend abbr {
+  color: var(--contrast);
 }
