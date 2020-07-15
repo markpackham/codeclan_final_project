@@ -170,64 +170,80 @@ class ReservationForm extends Component {
         });
 
         return (
-            <div>
-                <h1>New Customer</h1>
+            <div className="reservation-form">
                 <CustomerForm onCustomerSubmit={this.props.onCustomerSubmit} selectCustomerById={this.selectCustomerById} />
-                <h1>New Reservation</h1>
-                <form className="reservation-form" onSubmit={this.handleSubmit}>
-                    <label htmlFor="Reservation Date">Reservation Date:</label>
-                    <input
-                        name="Reservation Date"
-                        type="datetime-local" 
-                        value={this.state.start}
-                        onChange={this.handleStartChange}
-                        required
-                    />
+                <div className="new-reservation">
+                    <h2>New Reservation</h2>
+                    <form className="reservation-form" onSubmit={this.handleSubmit}>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th><label htmlFor="datetime">Date & Time</label></th>
+                                    <td><input
+                                        name="datetime"
+                                        type="datetime-local" 
+                                        value={this.state.start}
+                                        onChange={this.handleStartChange}
+                                        required
+                                    /></td>
+                                </tr>
 
-                    <label htmlFor="Duration">Duration:</label>
-                    <input
-                        name="Duration"
-                        type="number"
-                        value={this.state.duration}
-                        onChange={this.handleDurationChange}
-                        required
-                        min="1"
-                    />  
+                                <tr>
+                                    <th><label htmlFor="duration">Duration</label></th>
+                                    <td><input
+                                        name="duration"
+                                        type="number"
+                                        value={this.state.duration}
+                                        onChange={this.handleDurationChange}
+                                        required
+                                        min="1"
+                                    /> hour(s)</td>
+                                </tr>
 
-                    <label htmlFor="Party Size">Party Size:</label>
-                    <input
-                        name="Party Size"
-                        type="number"
-                        value={this.state.partySize}
-                        onChange={this.handlePartySizeChange}
-                        required
-                        min="1"
-                    />
+                                <tr>
+                                    <th><label htmlFor="party-size">Party Size</label></th>
+                                    <td><input
+                                        name="party-size"
+                                        type="number"
+                                        value={this.state.partySize}
+                                        onChange={this.handlePartySizeChange}
+                                        required
+                                        min="1"
+                                    /></td>
+                                </tr>
 
-                    <label htmlFor="Customer">Customer:</label>
-                    <select
-                        name="Customer"
-                        value={this.state.customer}
-                        onChange={this.handleCustomerSelect}
-                    >{customerOptions}</select>
+                                <tr>
+                                    <th><label htmlFor="customer">Customer</label></th>
+                                    <td><select
+                                        name="customer"
+                                        value={this.state.customer}
+                                        onChange={this.handleCustomerSelect}
+                                    >{customerOptions}</select></td>
+                                </tr>
 
-                    <label htmlFor="Venue Table">Table:</label>
-                    <select
-                        name="Venue Table"
-                        value={this.state.venueTable}
-                        onChange={this.handleVenueTableSelect}
-                    >{venueTableOptions}</select>
+                                <tr>
+                                    <th><label htmlFor="venue-table">Table</label></th>
+                                    <td><select
+                                        name="venue-table"
+                                        value={this.state.venueTable}
+                                        onChange={this.handleVenueTableSelect}
+                                    >{venueTableOptions}</select></td>
+                                </tr>
 
-                    <label htmlFor="Reservation Notes">Reservation Notes:</label>
-                    <input
-                        name="Reservation Notes"
-                        type="text"
-                        value={this.state.reservationNotes}
-                        onChange={this.handleReservationNotesChange}
-                    />
-                    
-                    <input type="submit" value="Create Reservation"/>
-                </form>
+                                <tr>
+                                    <th><label htmlFor="Reservation Notes">Reservation Notes:</label></th>
+                                    <td><input
+                                        name="Reservation Notes"
+                                        type="text"
+                                        value={this.state.reservationNotes}
+                                        onChange={this.handleReservationNotesChange}
+                                    /></td>
+                                </tr>
+                                <tr><td colSpan="2"><input type="submit" value="Create Reservation"/></td></tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
             </div>
         );
     }

@@ -71,37 +71,44 @@ class CustomerForm extends Component {
 
     render() {
         return (
-            <form className="customer-form" onSubmit={this.handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="First Name"
-                    value={this.state.firstName}
-                    onChange={this.handleFirstNameChange}
-                    required
-                /> 
-                <input
-                    type="text"
-                    placeholder="Last Name"
-                    value={this.state.lastName}
-                    onChange={this.handleLastNameChange}
-                    required
-                /> 
-                <input
-                    type="tel"
-                    placeholder="Phone number"
-                    value={this.state.phone}
-                    onChange={this.handlePhoneChange}
-                    required
-                /> 
-                <input
-                    type="email"
-                    placeholder="E-mail"
-                    value={this.state.email}
-                    onChange={this.handleEmailChange}
-                    required
-                />  
-                <input type="submit" value="Create"/>
-            </form>
+            <div className="customer-form">
+                <h2>New Customer</h2>
+                <form onSubmit={this.handleSubmit}>
+                    <table>
+                        <tbody>
+                            <tr><td><input
+                                type="text"
+                                placeholder="First Name"
+                                value={this.state.firstName}
+                                onChange={this.handleFirstNameChange}
+                                required
+                            /></td></tr>
+                            <tr><td><input
+                                type="text"
+                                placeholder="Last Name"
+                                value={this.state.lastName}
+                                onChange={this.handleLastNameChange}
+                                required
+                            /></td></tr>
+                            <tr><td><input
+                                type="tel"
+                                placeholder="Phone Number"
+                                value={this.state.phone}
+                                onChange={this.handlePhoneChange}
+                                required
+                            /></td></tr>
+                            <tr><td><input
+                                type="email"
+                                placeholder="E-mail"
+                                value={this.state.email}
+                                onChange={this.handleEmailChange}
+                                required
+                            /></td></tr>
+                            <tr><td><input type="submit" value="Create Customer"/></td></tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
         )
     }
 }
