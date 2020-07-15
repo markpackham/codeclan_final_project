@@ -54,16 +54,16 @@ class AppContainer extends Component {
   render() {
     return (
       <div className="app-container">
-              <div className="screen">
-                <SideBar reservations={this.state.reservations} />
-                <MainContainer
-                  customers={this.state.customers}
-                  venueTables={this.state.venueTables} 
-                  onCustomerSubmit={this.handleCustomerSubmit}
-                  onReservationSubmit={this.handleReservationSubmit}
-                />
-              </div>
-            <MainFooter />
+        <div className="screen">
+          <SideBar reservations={this.state.reservations} />
+          <MainContainer
+            customers={this.state.customers}
+            venueTables={this.state.venueTables} 
+            onCustomerSubmit={this.handleCustomerSubmit}
+            onReservationSubmit={this.handleReservationSubmit}
+          />
+        </div>
+        <MainFooter />
       </div>
     );
   }

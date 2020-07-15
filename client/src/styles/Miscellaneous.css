@@ -13,7 +13,7 @@
 .opening-times {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    border: 1px solid var(--dark);
     margin: 4px;
     padding: 4px;
     background-color: var(--light);
@@ -22,7 +22,7 @@
 .serving-times {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    border: 1px solid var(--dark);
     margin: 4px;
     padding: 4px;
     background-color: var(--light);
@@ -40,7 +40,7 @@
 .user-instructions {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    border: 1px solid var(--dark);
     margin: 4px;
     padding: 4px;
     background-color: var(--light);
@@ -50,7 +50,7 @@
 .venue-info {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    border: 1px solid var(--dark);
     margin: 4px;
     padding: 4px;
     background-color: var(--light);

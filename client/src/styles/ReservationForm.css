@@ -13,9 +13,7 @@ table, th, td {
     border-collapse: collapse;
 }
 
-th,
-td,
-h2 {
+th, td, h2 {
   padding: 5px;
 }
 
@@ -26,10 +24,20 @@ th {
 input, select, button {
     font-family: inherit;
     font-size: 100%;
+    color: var(--dark);
 }
 
-button {
-    margin: 0 15px
+input[type="submit"], button {
+    outline: none;
+    margin: 0 15px;
+    background-color: var(--contrast);
+    border: 1px solid var(--dark);
+    border-radius: 5px;
+    padding: 0 5px;
+}
+
+input[type="submit"]:hover, button:hover {
+  box-shadow: 1px 1px var(--shadow);
 }
 
 .modal {

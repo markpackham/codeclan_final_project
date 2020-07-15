@@ -1,11 +1,8 @@
 .res-list {
-  width: 180px;
-  border: solid black 1px;
-  padding: 5px 0 5px 5px;
+  width: 210px;
+  padding: 5px;
   border-radius: 5px;
-  margin: 10px;
-  background-color: var(--dark);
-  color: white;
-  box-shadow: 1.8px 1.8px 1px rgba(219, 214, 214, 0.897),
-    0 1px 2px rgba(204, 200, 200, 0.795);
+  background-color: var(--contrast);
+  color: var(--dark);
+  box-shadow: inset 2px 2px 2px 2px var(--shadow);
 }

@@ -1,8 +1,7 @@
 .nav-bar {
   background-color: var(--light);
   width: 100%;
-  box-shadow: 1.7px 1.7px 1.7px 1.7px var(--shadow);
-  border-radius: 5px;
+  box-shadow: 2px 2px 2px 2px var(--shadow);
 }
 
 ul {

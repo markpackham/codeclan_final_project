@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const MainContainer = (props) => {
     return (
-        <div className="app-container">
+        <div className="main-container">
             <Router>
                 <React.Fragment>
                     <NavBar />

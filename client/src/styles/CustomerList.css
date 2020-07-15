@@ -2,13 +2,13 @@
   display: flexbox;
   margin: 1rem;
   padding: 1rem;
-  border: 1px solid black;
+  border: 1px solid var(--dark);
   border-radius: 5px;
 }
 
 .customer {
   padding: 0.5rem;
-  border: 1px solid black;
+  border: 1px solid var(--dark);
   margin: 0.2rem;
   background-color: var(--light);
   box-shadow: 2px 2px 2px 2px var(--shadow);

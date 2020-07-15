@@ -9,22 +9,15 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Nunito", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
-html {
-  height: 100%;
-}
-
-body {
-  padding: 1rem;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.app-container {
+/* .app-container {
   min-height: calc(100vh - 70px);
+} */
+
+.main-container {
+  color: var(--dark);
 }
 
 a {
@@ -42,17 +35,17 @@ ul {
 
 .react-calendar {
   border: none;
-  background-color: #38526b;
+  background-color: var(--dark);
 }
 
 .sidebar {
   display: flex;
   align-items: center;
-  background-color: #38526b;
+  background-color: var(--dark);
 }
 
 .main-footer {
-  background-color: #38526b;
+  background-color: var(--dark);
   color: white;
 }
 

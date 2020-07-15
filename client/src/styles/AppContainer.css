@@ -1,5 +1,6 @@
 .screen {
   display: flex;
+  min-height: 90vh;
 }
 
 .sidebar {
