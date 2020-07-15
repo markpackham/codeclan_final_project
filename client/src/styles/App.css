@@ -16,6 +16,10 @@
   min-height: calc(100vh - 70px);
 }
 
+.main-container {
+  color: var(--dark);
+}
+
 a {
   text-decoration: none;
 }
