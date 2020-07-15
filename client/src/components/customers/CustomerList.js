@@ -17,8 +17,8 @@ class CustomerList extends Component {
 
     return (
       <ul className="customer-list">
+        <h3>Amount of customers that have made reservations: {this.props.customers.length}</h3>
         {customerNodes}
-        I am a Customer List
       </ul>
     );
   }
