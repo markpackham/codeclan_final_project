@@ -192,36 +192,36 @@ public class DataLoader implements ApplicationRunner {
         venueTableRepository.save(venueTable10);
 
         Reservation reservation1 = new Reservation(customer1, venueTable1,
-                LocalDateTime.of(2020, Month.AUGUST, 31, 10, 10),
-                LocalDateTime.of(2020, Month.AUGUST, 31, 11, 10),1, "birthday party");
+                LocalDateTime.of(2020, Month.JULY, 17, 10, 10),
+                LocalDateTime.of(2020, Month.JULY, 17, 11, 10),1, "birthday party");
 
         Reservation reservation2 = new Reservation(customer2, venueTable2,
-                LocalDateTime.of(2020, Month.OCTOBER, 5, 12, 20),
-                LocalDateTime.of(2020, Month.OCTOBER, 5, 13, 20),2, "wedding");
+                LocalDateTime.of(2020, Month.JULY, 17, 12, 20),
+                LocalDateTime.of(2020, Month.JULY, 17, 13, 20),2, "wedding");
 
         Reservation reservation3 = new Reservation(customer3, venueTable3,
-                LocalDateTime.of(2020, Month.OCTOBER, 1, 14, 30),
-                LocalDateTime.of(2020, Month.OCTOBER, 1, 15, 30),3, "allergic to nuts");
+                LocalDateTime.of(2020, Month.JULY, 17, 14, 30),
+                LocalDateTime.of(2020, Month.JULY, 17, 15, 30),3, "allergic to nuts");
 
         Reservation reservation4 = new Reservation(customer4, venueTable4,
-                LocalDateTime.of(2020, Month.OCTOBER, 2, 16, 40),
-                LocalDateTime.of(2020, Month.OCTOBER, 2, 17, 40),4, "no alcohol");
+                LocalDateTime.of(2020, Month.JULY, 17, 16, 40),
+                LocalDateTime.of(2020, Month.JULY, 17, 17, 40),4, "no alcohol");
 
         Reservation reservation5 = new Reservation(customer5, venueTable5,
-                LocalDateTime.of(2020, Month.OCTOBER, 3, 18, 50),
-                LocalDateTime.of(2020, Month.OCTOBER, 3, 19, 50),5, "allergic to fish");
+                LocalDateTime.of(2020, Month.JULY, 17, 18, 50),
+                LocalDateTime.of(2020, Month.JULY, 17, 19, 50),5, "allergic to fish");
 
         Reservation reservation6 = new Reservation(customer6, venueTable6,
-                LocalDateTime.of(2020, Month.OCTOBER, 4, 10, 10),
-                LocalDateTime.of(2020, Month.OCTOBER, 4, 11, 10),6 , "wedding");
+                LocalDateTime.of(2020, Month.JULY, 17, 10, 10),
+                LocalDateTime.of(2020, Month.JULY, 17, 11, 10),6 , "wedding");
 
         Reservation reservation7 = new Reservation(customer7, venueTable7,
-                LocalDateTime.of(2020, Month.OCTOBER, 5, 12, 20),
-                LocalDateTime.of(2020, Month.OCTOBER, 5, 13, 20),7, "vegan food only");
+                LocalDateTime.of(2020, Month.JULY, 17, 12, 20),
+                LocalDateTime.of(2020, Month.JULY, 17, 13, 20),7, "vegan food only");
 
         Reservation reservation8 = new Reservation(customer8, venueTable8,
-                LocalDateTime.of(2020, Month.OCTOBER, 6, 14, 30),
-                LocalDateTime.of(2020, Month.OCTOBER, 6, 15, 30),8, "smoking room");
+                LocalDateTime.of(2020, Month.JULY, 17, 14, 30),
+                LocalDateTime.of(2020, Month.JULY, 17, 15, 30),8, "smoking room");
 
         Reservation reservation9 = new Reservation(customer9, venueTable9,
                 LocalDateTime.of(2020, Month.OCTOBER, 7, 16, 40),
