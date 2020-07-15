@@ -1,15 +1,31 @@
 .calendar {
-    width: 250px;
+  width: 250px;
 }
 
-button {
-    color: white;
+div.react-calendar__navigation button.react-calendar__navigation__label:hover,
+div.react-calendar__viewContainer
+  div.react-calendar__month-view__days
+  button:hover,
+div.react-calendar__navigation
+  button.react-calendar__navigation__arrow.react-calendar__navigation__next-button:hover,
+div.react-calendar__navigation
+  button.react-calendar__navigation__arrow.react-calendar__navigation__next2-button:hover,
+div.react-calendar__navigation
+  button.react-calendar__navigation__arrow.react-calendar__navigation__prev-button:hover,
+div.react-calendar__navigation
+  button.react-calendar__navigation__arrow.react-calendar__navigation__prev2-button:hover {
+  background-color: var(--dark);
 }
 
+button,
 .react-calendar__month-view__weekdays__weekday {
-    color: white;
+  color: white;
 }
 
-button.react-calendar__tile.react-calendar__tile--now.react-calendar__month-view__days__day{
-    background-color: purple;
+.react-calendar__tile--now.react-calendar__month-view__days__day {
+  background-color: purple;
+}
+
+.react-calendar__month-view__days__day--weekend abbr {
+  color: var(--contrast);
 }
