@@ -1,8 +1,58 @@
-.about,
-.error-page {
-  padding: 1rem;
+.about, .error-page{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: space-evenly;
 }
 
-.about li {
-  width: 100%;
+.about li{
+    width: 100%;
+}
+
+.opening-times {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin: 4px;
+    padding: 4px;
+    background-color: var(--light);
+    box-shadow: 2px 2px 2px 2px var(--shadow);
+}
+.serving-times {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin: 4px;
+    padding: 4px;
+    background-color: var(--light);
+    box-shadow: 2px 2px 2px 2px var(--shadow);
+}
+
+.opening-block {
+    display: flex;
+    flex-grow: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+    justify-content: flex-start;
+}
+
+.user-instructions {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin: 4px;
+    padding: 4px;
+    background-color: var(--light);
+    box-shadow: 2px 2px 2px 2px var(--shadow);
+}
+
+.venue-info {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin: 4px;
+    padding: 4px;
+    background-color: var(--light);
+    box-shadow: 2px 2px 2px 2px var(--shadow);
 }
