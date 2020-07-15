@@ -44,12 +44,26 @@ ul {
 
 .react-calendar {
     border: none;
-    padding-right: 20px;
+    background-color: #38526B;
+   
 }
 
 .sidebar {
     display: flex;
     align-items: center;
-    background-color: var(--light);
-    border: solid 1px var(--light);
+    background-color: #38526B;
+  
+}
+
+.main-footer {
+    background-color: #38526B;
+    color: white;
+}
+
+
+.res-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    
 }
