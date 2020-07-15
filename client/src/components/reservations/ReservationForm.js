@@ -9,12 +9,12 @@ class ReservationForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            customer: "",
+            customer: "1",
             venueTable: "",
             start: "",
             end: "",
-            partySize: 1,
-            duration: 2,
+            partySize: "1",
+            duration: "2",
             reservationNotes: "",
             availableTables: []
         };
