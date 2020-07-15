@@ -50,6 +50,7 @@ class CustomerForm extends Component {
             phone: '',
             email: ''
         });
+        this.props.closeModal();
     }
 
     handleFirstNameChange(event) {

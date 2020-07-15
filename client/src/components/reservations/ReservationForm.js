@@ -3,7 +3,7 @@ import '../../styles/ReservationForm.css'
 import CustomerForm from '../customers/CustomerForm';
 import VenueTableGrid from '../venue_tables/VenueTableGrid';
 import moment from 'moment';
-
+import ReactModal from 'react-modal';
 
 class ReservationForm extends Component {
     constructor(props) {
@@ -29,6 +29,8 @@ class ReservationForm extends Component {
         this.selectCustomerById = this.selectCustomerById.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.updateEnd = this.updateEnd.bind(this);
+        this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
     }
 
     componentDidMount() {
@@ -150,6 +152,14 @@ class ReservationForm extends Component {
         return reservations.every(reservation => this.checkTimeAvailable(reservation));
     }
 
+    handleOpenModal() {
+        this.setState({showModal: true});
+    }
+
+    handleCloseModal() {
+        this.setState({showModal: false});
+    }
+
     render() {
         const customerOptions = this.props.customers.map(customer => {
             return (
@@ -170,7 +180,7 @@ class ReservationForm extends Component {
         return (
             <>
             <div className="reservation-form">
-                <CustomerForm onCustomerSubmit={this.props.onCustomerSubmit} selectCustomerById={this.selectCustomerById} />
+                {/* <CustomerForm onCustomerSubmit={this.props.onCustomerSubmit} selectCustomerById={this.selectCustomerById} /> */}
                 <div className="new-reservation">
                     <h2>New Reservation</h2>
                     <form className="reservation-form" onSubmit={this.handleSubmit}>
@@ -217,7 +227,9 @@ class ReservationForm extends Component {
                                         name="customer"
                                         value={this.state.customer}
                                         onChange={this.handleCustomerSelect}
-                                    >{customerOptions}</select></td>
+                                    >{customerOptions}</select>
+                                    <button onClick={this.handleOpenModal}>New</button>
+                                    </td>
                                 </tr>
 
                                 <tr>
@@ -245,6 +257,15 @@ class ReservationForm extends Component {
                 </div>
             </div>
             <VenueTableGrid venueTables={this.props.venueTables} availableTables={this.state.availableTables} />
+
+            <ReactModal isOpen={this.state.showModal} contentLabel="Customer Form">
+                <CustomerForm
+                    onCustomerSubmit={this.props.onCustomerSubmit}
+                    selectCustomerById={this.selectCustomerById}
+                    closeModal={this.handleCloseModal}
+                />
+            </ReactModal>
+
             </>
         );
     }
