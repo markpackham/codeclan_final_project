@@ -2,7 +2,7 @@ import React from 'react';
 import CalendarComponent from '../components/sitewide/CalendarComponent';
 import ReservationList from '../components/reservations/ReservationList';
 import moment from 'moment';
-
+import '../styles/SideBar.css';
 
 class SideBar extends React.Component {
     constructor(props) {
