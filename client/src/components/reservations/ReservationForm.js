@@ -16,7 +16,8 @@ class ReservationForm extends Component {
             partySize: "",
             duration: "2",
             reservationNotes: "",
-            availableTables: []
+            availableTables: [],
+            showModal: false
         };
 
         this.handleStartChange = this.handleStartChange.bind(this);
