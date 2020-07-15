@@ -1,3 +1,7 @@
 .about, .error-page{
     padding: 1rem;
 }
+
+.about li{
+    width: 100%;
+}

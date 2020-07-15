@@ -36,7 +36,14 @@ class CustomerForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        this.addCustomer(this.state);
+        const newCustomer = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            phone: this.state.phone,
+            email: this.state.email,
+            reservations: []
+        }
+        this.addCustomer(newCustomer);
         this.setState({
             firstName: '',
             lastName: '',
