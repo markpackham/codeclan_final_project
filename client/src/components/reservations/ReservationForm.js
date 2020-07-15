@@ -223,7 +223,7 @@ class ReservationForm extends Component {
                                 </tr>
 
                                 <tr>
-                                    <th><label htmlFor="Reservation Notes">Reservation Notes:</label></th>
+                                    <th><label htmlFor="Reservation Notes">Reservation Notes</label></th>
                                     <td><input
                                         name="Reservation Notes"
                                         type="text"

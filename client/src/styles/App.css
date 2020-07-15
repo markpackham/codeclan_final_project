@@ -1,3 +1,11 @@
+:root {
+    --dark: #2D3142;
+    --light: #AFC2D5;
+    --contrast: #FBFFB9;
+    --shadow: #2d314266;
+    --danger: #f23427;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -13,8 +21,7 @@ a {
 } 
 
 ul { 
-    list-style: 
-    none; 
+    list-style: none; 
 }
 
 .main-footer{
