@@ -12,9 +12,9 @@
   font-family: "Nunito", sans-serif;
 }
 
-.app-container {
+/* .app-container {
   min-height: calc(100vh - 70px);
-}
+} */
 
 .main-container {
   color: var(--dark);

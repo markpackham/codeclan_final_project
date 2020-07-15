@@ -24,6 +24,7 @@ th {
 input, select, button {
     font-family: inherit;
     font-size: 100%;
+    color: var(--dark);
 }
 
 button {
