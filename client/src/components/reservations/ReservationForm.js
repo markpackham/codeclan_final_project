@@ -141,15 +141,7 @@ class ReservationForm extends Component {
 
     checkTableAvailable(venueTable) {
         const reservations = venueTable.reservations;
-        if (reservations.length === 0) {
-            return true;
-        }
-        for (const reservation of reservations) {
-            if (this.checkTimeAvailable(reservation)) {
-                return true;
-            }
-        }
-        return false;
+        return reservations.every(reservation => this.checkTimeAvailable(reservation));
     }
 
     render() {
