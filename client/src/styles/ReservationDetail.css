@@ -1,8 +1,7 @@
 .res-list {
-  width: 180px;
-  padding: 5px 0 5px 5px;
+  width: 210px;
+  padding: 5px;
   border-radius: 5px;
-  margin: 10px;
   background-color: var(--contrast);
   color: var(--dark);
   box-shadow: inset 2px 2px 2px 2px var(--shadow);
