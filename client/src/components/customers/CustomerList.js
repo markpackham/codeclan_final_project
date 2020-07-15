@@ -13,14 +13,11 @@ class CustomerList extends Component {
           lastName={customer.lastName}
           phone={customer.phone}
           email={customer.email}
-            id={customer.id}>
+          reservations={customer.reservations.length}>
         </Customer>
       );
     });
-
-    const sortedCustomers = [].concat(this.props.CustomerList)
-    .sort((a, b) => a.index > b.index ? 1 : -1)
-    
+ 
 
     return (
       <ul className="customer-list">
