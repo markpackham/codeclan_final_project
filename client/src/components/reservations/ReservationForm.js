@@ -8,7 +8,6 @@ import moment from 'moment';
 class ReservationForm extends Component {
     constructor(props) {
         super(props);
-        console.log(props);
         this.state = {
             customer: "1",
             venueTable: "",
