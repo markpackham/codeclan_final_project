@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping(value = "/venue-tables")
 public class VenueTableController {
@@ -16,7 +17,6 @@ public class VenueTableController {
     @Autowired
     IVenueTableRepository venueTableRepository;
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
     public ResponseEntity getAllVenueTablesWithFilters(
             @RequestParam(required = false, name = "covers") Integer covers,
@@ -100,14 +100,12 @@ public class VenueTableController {
     }
 
     // http://localhost:8080/venue-tables/1
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(value = "/{id}")
     public ResponseEntity getVenueTableById(@PathVariable Long id) {
         return new ResponseEntity(venueTableRepository.findById(id), HttpStatus.OK);
     }
 
     // http://localhost:8080/venue-tables
-    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
     public ResponseEntity<VenueTable> createVenueTable(@RequestBody VenueTable venueTable) {
         venueTableRepository.save(venueTable);
@@ -115,7 +113,6 @@ public class VenueTableController {
     }
 
     // http://localhost:8080/venue-tables/1
-    @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping(value = "/{id}")
     public ResponseEntity<VenueTable> putVenueTable(@RequestBody VenueTable venueTable, @PathVariable Long id) {
         VenueTable venueTableToUpdate = venueTableRepository.findById(id).get();

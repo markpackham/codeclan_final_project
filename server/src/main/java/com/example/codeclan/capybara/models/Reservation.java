@@ -31,14 +31,17 @@ public class Reservation {
 
     @Column(name = "partySize")
     private int partySize;
-    
 
-    public Reservation(Customer customer, VenueTable venueTable, LocalDateTime start, LocalDateTime end, int partySize) {
+    @Column(name = "reservationNotes")
+    private String reservationNotes;
+
+    public Reservation(Customer customer, VenueTable venueTable, LocalDateTime start, LocalDateTime end, int partySize, String reservationNotes) {
         this.customer = customer;
         this.venueTable = venueTable;
         this.start = start;
         this.end = end;
         this.partySize = partySize;
+        this.reservationNotes = reservationNotes;
     }
 
     public Reservation() {}
@@ -89,5 +92,13 @@ public class Reservation {
 
     public void setPartySize(int partySize) {
         this.partySize = partySize;
+    }
+
+    public String getReservationNotes() {
+        return reservationNotes;
+    }
+
+    public void setReservationNotes(String reservationNotes) {
+        this.reservationNotes = reservationNotes;
     }
 }

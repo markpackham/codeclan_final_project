@@ -14,6 +14,7 @@ class ReservationForm extends Component {
             end: "",
             partySize: 1,
             duration: 2,
+            reservationNotes: "",
             availableTables: []
         };
 
@@ -22,6 +23,7 @@ class ReservationForm extends Component {
         this.handlePartySizeChange = this.handlePartySizeChange.bind(this);
         this.handleCustomerSelect = this.handleCustomerSelect.bind(this);
         this.handleVenueTableSelect = this.handleVenueTableSelect.bind(this);
+        this.handleReservationNotesChange = this.handleReservationNotesChange.bind(this);
         this.selectCustomerById = this.selectCustomerById.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.updateEnd = this.updateEnd.bind(this);
@@ -57,6 +59,12 @@ class ReservationForm extends Component {
         });
     }
 
+    handleReservationNotesChange(event) {
+        this.setState({
+            reservationNotes: event.target.value
+        });
+    }
+
     selectCustomerById(id) {
         this.setState({
             customer: id
@@ -70,7 +78,8 @@ class ReservationForm extends Component {
             venueTable: {id: this.state.venueTable},
             start: this.state.start,
             end: this.state.end,
-            partySize: this.state.partySize
+            partySize: this.state.partySize,
+            reservationNotes: this.state.reservationNotes
         };
         return fetch(url, {
             method: 'POST',
@@ -91,7 +100,8 @@ class ReservationForm extends Component {
             venueTable: "",
             start: "",
             end: "",
-            partySize: 1
+            partySize: 1,
+            reservationNotes: ""
         });
     }
 
@@ -218,6 +228,16 @@ class ReservationForm extends Component {
                                         value={this.state.venueTable}
                                         onChange={this.handleVenueTableSelect}
                                     >{venueTableOptions}</select></td>
+                                </tr>
+
+                                <tr>
+                                    <th><label htmlFor="Reservation Notes">Reservation Notes:</label></th>
+                                    <td><input
+                                        name="Reservation Notes"
+                                        type="text"
+                                        value={this.state.reservationNotes}
+                                        onChange={this.handleReservationNotesChange}
+                                    /></td>
                                 </tr>
                                 <tr><td colSpan="2"><input type="submit" value="Create Reservation"/></td></tr>
                             </tbody>

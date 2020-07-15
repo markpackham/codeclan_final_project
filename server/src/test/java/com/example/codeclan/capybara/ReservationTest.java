@@ -45,7 +45,7 @@ class ReservationTest {
 
         Reservation reservation1000 = new Reservation(customer1013, venueTable1000,
                 LocalDateTime.of(2020, Month.AUGUST, 31, 18, 30),
-                LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30),1);
+                LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30),1,"");
         reservationRepository.save(reservation1000);
         assertTrue(reservationRepository.findAll().size()>0);
     }
@@ -61,7 +61,7 @@ class ReservationTest {
 
         Reservation reservation1001 = new Reservation(customer1014, venueTable1001,
                 LocalDateTime.of(2020, Month.AUGUST, 31, 18, 30),
-                LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30),1);
+                LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30),1,"");
         reservationRepository.save(reservation1001);
 
         Customer customer1015 = new Customer("customer1015FN", "customer1015LN", "1015", "customer1015@gmail.com");
@@ -73,7 +73,7 @@ class ReservationTest {
 
         Reservation reservation1003 = new Reservation(customer1015, venueTable1003,
                 LocalDateTime.of(2021, Month.AUGUST, 31, 18, 30),
-                LocalDateTime.of(2021, Month.AUGUST, 31, 20, 30),1);
+                LocalDateTime.of(2021, Month.AUGUST, 31, 20, 30),1,"");
         reservationRepository.save(reservation1003);
 
         List<Reservation> foundReservations = reservationRepository.findByStartLessThan(LocalDateTime.of(2090, Month.AUGUST, 31, 18, 30));
@@ -92,7 +92,7 @@ class ReservationTest {
 
         Reservation reservation1016 = new Reservation(customer1016, venueTable1016,
                 LocalDateTime.of(2020, Month.AUGUST, 31, 18, 30),
-                LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30),1);
+                LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30),1,"");
         reservationRepository.save(reservation1016);
 
         Customer customer1017 = new Customer("customer1017FN", "customer1017LN", "1017", "customer1017@gmail.com");
@@ -104,7 +104,7 @@ class ReservationTest {
 
         Reservation reservation1017 = new Reservation(customer1017, venueTable1017,
                 LocalDateTime.of(2021, Month.AUGUST, 31, 18, 30),
-                LocalDateTime.of(2021, Month.AUGUST, 31, 20, 30),1);
+                LocalDateTime.of(2021, Month.AUGUST, 31, 20, 30),1,"");
         reservationRepository.save(reservation1017);
 
         List<Reservation> foundReservations = reservationRepository.findByStartLessThan(LocalDateTime.of(1977, Month.AUGUST, 31, 18, 30));
@@ -123,7 +123,7 @@ class ReservationTest {
 
         Reservation reservation1 = new Reservation(customer1018, venueTable1,
                 LocalDateTime.of(2020, Month.AUGUST, 31, 18, 30),
-                LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30),1);
+                LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30),1,"");
         reservationRepository.save(reservation1);
 
         Customer customer1019 = new Customer("customer1019FN", "customer1019LN", "1019", "customer1019@gmail.com");
@@ -135,7 +135,7 @@ class ReservationTest {
 
         Reservation reservation1020 = new Reservation(customer1019, venueTable1019,
                 LocalDateTime.of(2021, Month.AUGUST, 31, 18, 30),
-                LocalDateTime.of(2021, Month.AUGUST, 31, 20, 30),1);
+                LocalDateTime.of(2021, Month.AUGUST, 31, 20, 30),1,"");
         reservationRepository.save(reservation1020);
 
         List<Reservation> foundReservations = reservationRepository.findByStartGreaterThan(LocalDateTime.of(1980, Month.AUGUST, 31, 18, 30));
@@ -154,7 +154,7 @@ class ReservationTest {
 
         Reservation reservation1020 = new Reservation(customer1020, venueTable1020,
                 LocalDateTime.of(2020, Month.AUGUST, 31, 18, 30),
-                LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30),1);
+                LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30),1,"");
         reservationRepository.save(reservation1020);
 
         Customer customer1021 = new Customer("customer1021FN", "customer1021LN", "1021", "customer1021@gmail.com");
@@ -166,7 +166,7 @@ class ReservationTest {
 
         Reservation reservation1021 = new Reservation(customer1021, venueTable1021,
                 LocalDateTime.of(2021, Month.AUGUST, 31, 18, 30),
-                LocalDateTime.of(2021, Month.AUGUST, 31, 20, 30),1);
+                LocalDateTime.of(2021, Month.AUGUST, 31, 20, 30),1,"");
         reservationRepository.save(reservation1021);
 
         List<Reservation> foundReservations = reservationRepository.findByStartGreaterThan(LocalDateTime.of(4040, Month.AUGUST, 31, 18, 30));
@@ -185,7 +185,7 @@ class ReservationTest {
 
         Reservation reservation1022 = new Reservation(customer1022, venueTable1022,
                 LocalDateTime.of(2020, Month.AUGUST, 31, 18, 30),
-                LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30),1);
+                LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30),1,"");
         reservationRepository.save(reservation1022);
 
         Customer customer1023 = new Customer("customer1023FN", "customer1023LN", "1023", "customer1023@gmail.com");
@@ -197,7 +197,7 @@ class ReservationTest {
 
         Reservation reservation1023 = new Reservation(customer1023, venueTable1023,
                 LocalDateTime.of(2021, Month.AUGUST, 31, 18, 30),
-                LocalDateTime.of(2021, Month.AUGUST, 31, 20, 30),1);
+                LocalDateTime.of(2021, Month.AUGUST, 31, 20, 30),1,"");
         reservationRepository.save(reservation1023);
 
         List<Reservation> foundReservations = reservationRepository.findByStartLessThanAndStartGreaterThan(LocalDateTime.of(2090, Month.AUGUST, 31, 18, 30),LocalDateTime.of(1980, Month.AUGUST, 31, 18, 30));
@@ -216,7 +216,7 @@ class ReservationTest {
 
         Reservation reservation1024 = new Reservation(customer1024, venueTable1024,
                 LocalDateTime.of(2020, Month.AUGUST, 31, 18, 30),
-                LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30),1);
+                LocalDateTime.of(2020, Month.AUGUST, 31, 20, 30),1,"");
         reservationRepository.save(reservation1024);
 
         Customer customer1025 = new Customer("customer1025FN", "customer1025LN", "1025", "customer1025@gmail.com");
@@ -228,7 +228,7 @@ class ReservationTest {
 
         Reservation reservation1025 = new Reservation(customer1025, venueTable1025,
                 LocalDateTime.of(2021, Month.AUGUST, 31, 18, 30),
-                LocalDateTime.of(2021, Month.AUGUST, 31, 20, 30),1);
+                LocalDateTime.of(2021, Month.AUGUST, 31, 20, 30),1,"");
         reservationRepository.save(reservation1025);
 
         List<Reservation> foundReservations = reservationRepository.findByStartLessThanAndStartGreaterThan(LocalDateTime.of(1977, Month.AUGUST, 31, 18, 30),LocalDateTime.of(4040, Month.AUGUST, 31, 18, 30));
@@ -260,7 +260,7 @@ class ReservationTest {
         VenueTable venueTable1026 = new VenueTable(4, venue1026);
         Reservation reservation1026 = new Reservation(customer1026, venueTable1026,
                 LocalDateTime.of(2020, Month.AUGUST, 20, 18, 30),
-                LocalDateTime.of(2020, Month.AUGUST, 20, 20, 30),1);
+                LocalDateTime.of(2020, Month.AUGUST, 20, 20, 30),1,"");
         reservation1026.setStart(LocalDateTime.of(2033, Month.SEPTEMBER, 20, 18, 50));
         assertEquals("2033-09-20T18:50",reservation1026.getStart().toString());
         reservation1026.setEnd(LocalDateTime.of(2043, Month.OCTOBER, 20, 18, 55));
@@ -274,9 +274,21 @@ class ReservationTest {
         VenueTable venueTable1027 = new VenueTable(5, venue1027);
         Reservation reservation1027 = new Reservation(customer1027, venueTable1027,
                 LocalDateTime.of(2020, Month.AUGUST, 21, 18, 30),
-                LocalDateTime.of(2020, Month.AUGUST, 21, 20, 30),1);
+                LocalDateTime.of(2020, Month.AUGUST, 21, 20, 30),1,"");
         reservation1027.setPartySize(10);
         assertEquals(10,reservation1027.getPartySize());
+    }
+
+    @Test
+    public void canSetReservationNotes(){
+        Customer customer1028 = new Customer("customer1028FN", "customer1028LN", "1028", "customer1028@gmail.com");
+        Venue venue1028 = new Venue("venue1028");
+        VenueTable venueTable1028 = new VenueTable(2, venue1028);
+        Reservation reservation1028 = new Reservation(customer1028, venueTable1028,
+                LocalDateTime.of(2020, Month.AUGUST, 22, 18, 30),
+                LocalDateTime.of(2020, Month.AUGUST, 22, 20, 30),1,"these notes will change");
+        reservation1028.setReservationNotes("an additional 5 may join");
+        assertEquals("an additional 5 may join",reservation1028.getReservationNotes());
     }
 
     @Test
