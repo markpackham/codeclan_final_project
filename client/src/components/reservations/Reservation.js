@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../../styles/ReservationDetail.css';
 
 class Reservation extends Component {
     render() {
