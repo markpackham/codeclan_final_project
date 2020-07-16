@@ -45,7 +45,6 @@ class AppContainer extends Component {
 }
 
   handleReservationSubmit(newReservation) {
-    console.log(newReservation);
     const updatedReservations = [...this.state.reservations, newReservation];
     this.setState({
       reservations: updatedReservations
