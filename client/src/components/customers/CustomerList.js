@@ -3,10 +3,14 @@ import Customer from "./Customer";
 import '../../styles/CustomerList.css'
 
 class CustomerList extends Component {
-  render() {
-    let customerNodesSort = this.props.customers.sort(this.props.customers.reservations);
 
-    const customerNodes = customerNodesSort.map((customer, index) => {
+  sortByReservationCount(customers) {
+    return customers.sort((a, b) => b.reservations.length - a.reservations.length);
+  }
+  
+  render() {
+    const sortedCustomers = this.sortByReservationCount(this.props.customers);
+    const customerNodes = sortedCustomers.map((customer, index) => {
       return (
         <Customer
           key={index}
