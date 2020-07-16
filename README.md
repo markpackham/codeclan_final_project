@@ -40,6 +40,6 @@ You have been tasked to create a booking system for a brand new restaurant. The 
 
 
 * From the server folder run CapybaraApplication.  This can be done in IntelliJ by right clicking the CapybaraApplication file and clicking run
-* From the client folder do the following installations:  "npm i", "npm i moment", "npm i react-calendar", "npm i react-modal" and then "npm start"
+* From the client folder do the following installations:  "npm i" and then "npm start"
 * The app should now be available locally, most likely on http://localhost:3000/ with the back end data available on for example http://localhost:8080/customers
 
