@@ -28,22 +28,6 @@ div.react-calendar__navigation
   color: var(--dark);
 }
 
-div.react-calendar__navigation button.react-calendar__navigation__label,
-div.react-calendar__viewContainer
-  div.react-calendar__month-view__days
-  button:hover,
-div.react-calendar__navigation
-  button.react-calendar__navigation__arrow.react-calendar__navigation__next-button,
-div.react-calendar__navigation
-  button.react-calendar__navigation__arrow.react-calendar__navigation__next2-button,
-div.react-calendar__navigation
-  button.react-calendar__navigation__arrow.react-calendar__navigation__prev-button,
-div.react-calendar__navigation
-  button.react-calendar__navigation__arrow.react-calendar__navigation__prev2-button {
-  background-color: var(--dark);
-  color: var(--light);
-}
-
 .react-calendar__month-view__weekdays__weekday {
   color: white;
 }
