@@ -2,6 +2,9 @@
   background-color: var(--light);
   width: 100%;
   box-shadow: 2px 2px 2px 2px var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 ul {
@@ -22,9 +25,16 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  height: 100%;
 }
 
 li a:hover {
   color: var(--light);
   background-color: var(--dark);
+}
+
+#capybara-img {
+  width: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
