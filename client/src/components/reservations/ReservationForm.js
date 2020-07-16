@@ -11,7 +11,7 @@ class ReservationForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            customer: "1",
+            customer: "",
             venueTable: "",
             start: moment().format().slice(0, 16),
             end: "",
@@ -76,9 +76,8 @@ class ReservationForm extends Component {
     }
 
     selectCustomerById(id) {
-        const selectedCustomer = this.getCustomerById(id);
         this.setState({
-            customer: selectedCustomer
+            customer: `${id}`
         });
     }
 
@@ -120,11 +119,14 @@ class ReservationForm extends Component {
         this.setState({
             customer: "",
             venueTable: "",
-            start: "",
+            start: moment().format().slice(0, 16),
             end: "",
-            partySize: 1,
-            reservationNotes: ""
-        });
+            partySize: "",
+            duration: "2",
+            reservationNotes: "",
+            availableTables: [],
+            showModal: false
+        }, () => this.updateEnd());
     }
 
     updateEnd() {
@@ -241,7 +243,11 @@ class ReservationForm extends Component {
                                         name="customer"
                                         value={this.state.customer}
                                         onChange={this.handleCustomerSelect}
-                                    >{customerOptions}</select>
+                                        required
+                                    >
+                                        <option value="" disabled>Please Select</option>
+                                        {customerOptions}
+                                    </select>
                                     <button onClick={this.handleOpenModal}>New</button>
                                     </td>
                                 </tr>
@@ -252,7 +258,11 @@ class ReservationForm extends Component {
                                         name="venue-table"
                                         value={this.state.venueTable}
                                         onChange={this.handleVenueTableSelect}
-                                    >{venueTableOptions}</select></td>
+                                        required
+                                    >   
+                                        <option value="" disabled>Please Select</option>
+                                        {venueTableOptions}
+                                    </select></td>
                                 </tr>
 
                                 <tr>
