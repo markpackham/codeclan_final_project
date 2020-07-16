@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import '../../styles/NavBar.css'
+import capybara from '../../styles/assets/capybara.png'
 
+console.log(capybara);
 const NavBar = () => (
   <div className="nav-bar">
     <ul>
@@ -9,6 +11,7 @@ const NavBar = () => (
       <li><Link to="/customers">All Customers</Link></li>
       <li><Link to="/about">About</Link></li>
     </ul>
+    <img id="capybara-img" alt="capybara" src={capybara} />
   </div>
 );
 
