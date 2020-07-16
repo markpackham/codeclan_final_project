@@ -1,6 +1,6 @@
 ### Capybara Cafe. A cafe/restaurant booking app.
 
-#### Brief:
+
 
 You have been tasked to create a booking system for a brand new restaurant. The restaurant needs a way to book and arrange tables for customers who are booking over the phone. This system is for the staff to use.
 
@@ -14,7 +14,9 @@ You have been tasked to create a booking system for a brand new restaurant. The 
 
 
 
+
 #### MVP:
+
 
 * Allow a customer to book a table at the restaurant for a particular time and date
 * Update a booking, for example if the customer wants to change a booking time
@@ -23,7 +25,9 @@ You have been tasked to create a booking system for a brand new restaurant. The 
 
 
 
+
 #### Possible Extensions:
+
 
 * Don't allow double bookings
 * Add a customer's receipt to a booking so you can view their previous orders and how much they spent
@@ -31,8 +35,11 @@ You have been tasked to create a booking system for a brand new restaurant. The 
 * Give discounts to frequent customers
 
 
+
 #### Running the site locally:
+
 
 * From the server folder run CapybaraApplication.  This can be done in IntelliJ by right clicking the CapybaraApplication file and clicking run
 * From the client folder do the following installations:  "npm i", "npm i moment", "npm i react-calendar", "npm i react-modal" and then "npm start"
 * The app should now be available locally, most likely on http://localhost:3000/ with the back end data available on for example http://localhost:8080/customers
+
