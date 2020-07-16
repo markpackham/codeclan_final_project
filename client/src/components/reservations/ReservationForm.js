@@ -155,10 +155,10 @@ class ReservationForm extends Component {
         const endMoment = moment(this.state.end);
         const reservationStart = moment(reservation.start);
         const reservationEnd = moment(reservation.end);
-        if (reservationStart.isBetween(startMoment, endMoment, undefined, '[)')) {
+        if (startMoment.isBetween(reservationStart, reservationEnd, undefined, '[)')) {
             return false;
         }
-        if (reservationEnd.isBetween(startMoment, endMoment, undefined, '(]')) {
+        if (endMoment.isBetween(reservationStart, reservationEnd, undefined, '(]')) {
             return false;
         }
         return true;
