@@ -13,8 +13,10 @@ class SideBar extends React.Component {
         }
 
         this.handleDaySelect = this.handleDaySelect.bind(this);
+        this.sortByStartTime = this.sortByStartTime.bind(this);
     }
 
+    
     handleDaySelect(day) {
         const selectedDay = moment(day).format().slice(0, 10);
         const allReservations = [...this.props.reservations];
@@ -22,7 +24,22 @@ class SideBar extends React.Component {
             const reservationDay = moment(reservation.start).format().slice(0, 10);
             return reservationDay === selectedDay;
         });
-        this.setState({selectedDay: selectedDay, filteredReservations: filteredReservations})
+        const sortedReservations = this.sortByStartTime(filteredReservations);
+        this.setState({selectedDay: selectedDay, filteredReservations: sortedReservations});
+    }
+
+    sortByStartTime(reservations) {
+        return reservations.sort((a, b) => {
+            const momentA = moment(a.start);
+            const momentB =  moment(b.start);
+            if (moment(momentA).isBefore(momentB)) {
+                return -1;
+            }
+            if (moment(momentB).isBefore(momentA)) {
+                return 1;
+            }
+            return 0;
+        })
     }
 
     render() {
