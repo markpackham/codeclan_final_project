@@ -16,7 +16,7 @@ class ReservationList extends Component {
         })
 
         return (
-            <ul>
+            <ul className="list-scroll">
                 {reservationNodes}
             </ul>
         );
