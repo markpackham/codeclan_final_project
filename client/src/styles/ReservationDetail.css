@@ -6,3 +6,7 @@
   color: var(--dark);
   box-shadow: inset 2px 2px 2px 2px var(--shadow);
 }
+
+.italics {
+  font-style: italic;
+}

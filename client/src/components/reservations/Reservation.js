@@ -13,6 +13,7 @@ class Reservation extends Component {
                     <li>{start} - {end}</li>
                     <li>{this.props.reservation.customer.firstName} {this.props.reservation.customer.lastName}</li>
                     <li>{this.props.reservation.partySize} Guest(s) / Table {this.props.reservation.venueTable.id}</li>
+                    {this.props.reservation.reservationNotes && <li className="italics">Notes: {this.props.reservation.reservationNotes}</li>}
                 </ul>
             </div>
         )
