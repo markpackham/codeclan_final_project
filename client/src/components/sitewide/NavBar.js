@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import '../../styles/NavBar.css'
 import capybara from '../../styles/assets/capybara.png'
 
-console.log(capybara);
+
 const NavBar = () => (
   <div className="nav-bar">
     <ul>
