@@ -18,7 +18,7 @@ th, td, h2 {
 }
 
 th {
-  text-align: rigt;
+  text-align: right;
 }
 
 input, select, button {
@@ -38,6 +38,10 @@ input[type="submit"], button {
 
 input[type="submit"]:hover, button:hover {
   box-shadow: 1px 1px var(--shadow);
+}
+
+select {
+  width: 150px;
 }
 
 .modal {
