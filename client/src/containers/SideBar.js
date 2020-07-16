@@ -8,22 +8,21 @@ class SideBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            date: new Date(),
-            selectedDay: '',
+            selectedDay: moment().format().slice(0, 10),
             filteredReservations: []
         }
 
         this.handleDaySelect = this.handleDaySelect.bind(this);
     }
-    
-    handleDaySelect(date) {
-        const selectedDay = moment(date).format().slice(0, 10);
+
+    handleDaySelect(day) {
+        const selectedDay = moment(day).format().slice(0, 10);
         const allReservations = [...this.props.reservations];
         const filteredReservations = allReservations.filter(reservation => {
             const reservationDay = moment(reservation.start).format().slice(0, 10);
             return reservationDay === selectedDay;
         });
-        this.setState({selectedDay: date, filteredReservations: filteredReservations})
+        this.setState({selectedDay: selectedDay, filteredReservations: filteredReservations})
     }
 
     render() {
