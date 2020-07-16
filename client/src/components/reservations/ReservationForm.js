@@ -16,7 +16,7 @@ class ReservationForm extends Component {
             start: moment().format().slice(0, 16),
             end: "",
             partySize: "",
-            duration: "2",
+            duration: "",
             reservationNotes: "",
             availableTables: [],
             showModal: false
@@ -110,7 +110,7 @@ class ReservationForm extends Component {
             }
         })
         .then(res => res.json())
-        .then(json => this.props.onReservationSubmit(json));
+        .then(() => this.props.onReservationSubmit());
     }
 
     handleSubmit(event) {
@@ -122,7 +122,7 @@ class ReservationForm extends Component {
             start: moment().format().slice(0, 16),
             end: "",
             partySize: "",
-            duration: "2",
+            duration: "",
             reservationNotes: "",
             availableTables: [],
             showModal: false
@@ -145,7 +145,8 @@ class ReservationForm extends Component {
             return (table.covers >= this.state.partySize) && this.checkTableAvailable(table)
         });
         this.setState({
-            availableTables: availableTables
+            availableTables: availableTables,
+            venueTable: ""
         });
     }
 
@@ -154,10 +155,10 @@ class ReservationForm extends Component {
         const endMoment = moment(this.state.end);
         const reservationStart = moment(reservation.start);
         const reservationEnd = moment(reservation.end);
-        if (reservationStart.isBetween(startMoment, endMoment)) {
+        if (reservationStart.isBetween(startMoment, endMoment, undefined, '[)')) {
             return false;
         }
-        if (reservationEnd.isBetween(startMoment, endMoment)) {
+        if (reservationEnd.isBetween(startMoment, endMoment, undefined, '(]')) {
             return false;
         }
         return true;
@@ -196,7 +197,6 @@ class ReservationForm extends Component {
         return (
             <>
             <div className="reservation-form">
-                {/* <CustomerForm onCustomerSubmit={this.props.onCustomerSubmit} selectCustomerById={this.selectCustomerById} /> */}
                 <div className="new-reservation">
                     <h2>New Reservation</h2>
                     <form className="reservation-form" onSubmit={this.handleSubmit}>
