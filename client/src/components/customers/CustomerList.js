@@ -4,8 +4,9 @@ import '../../styles/CustomerList.css'
 
 class CustomerList extends Component {
   render() {
-    let customerNodesReverse = this.props.customers.reverse();
-    const customerNodes = customerNodesReverse.map((customer, index) => {
+    let customerNodesSort = this.props.customers.sort(this.props.customers.reservations);
+
+    const customerNodes = customerNodesSort.map((customer, index) => {
       return (
         <Customer
           key={index}
