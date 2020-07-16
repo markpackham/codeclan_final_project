@@ -76,8 +76,9 @@ class ReservationForm extends Component {
     }
 
     selectCustomerById(id) {
+        const selectedCustomer = this.getCustomerById(id);
         this.setState({
-            customer: id
+            customer: selectedCustomer
         });
     }
 
@@ -101,7 +102,7 @@ class ReservationForm extends Component {
             partySize: this.state.partySize,
             reservationNotes: this.state.reservationNotes
         };
-        console.log(newReservation);
+        
         return fetch(url, {
             method: 'POST',
             body: JSON.stringify(newReservation),
