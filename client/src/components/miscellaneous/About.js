@@ -40,7 +40,7 @@ const About = () => (
           <li>General Manager: Jean Luke Picard</li>
           <li>Phone Number: 0131 123456</li>
           <li>Email: capybaraCafe.castleTerrace@Capybara.com</li>
-          <li>Adress:<li>37.5 Castle Terrace Edinburgh EH1 2EL</li></li>
+          <li>Address: 37.5 Castle Terrace Edinburgh EH1 2EL</li>
         </ul>
   </div>
 );
