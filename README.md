@@ -15,24 +15,13 @@ You have been tasked to create a booking system for a brand new restaurant. The 
 
 
 
-#### MVP:
+#### Functionality:
 
 
 * Allow a customer to book a table at the restaurant for a particular time and date
-* Update a booking, for example if the customer wants to change a booking time
 * Display a list of bookings for a given date
 * Display a list of customers ordered by frequency of visits
-
-
-
-
-#### Possible Extensions:
-
-
-* Don't allow double bookings
-* Add a customer's receipt to a booking so you can view their previous orders and how much they spent
-* Calculate how much a customer has spent over a given period of time
-* Give discounts to frequent customers
+*  Don't allow double bookings
 
 
 
