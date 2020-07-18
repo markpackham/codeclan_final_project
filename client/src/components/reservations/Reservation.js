@@ -6,12 +6,15 @@ class Reservation extends Component {
 
     constructor(props) {
         super(props);
-
         this.deleteReservation = this.deleteReservation.bind();
     }
 
     deleteReservation(id){
-        console.log(id);
+        const reservationsDeleteUrl = "http://localhost:8080/reservations/";
+        return fetch(reservationsDeleteUrl + id, {
+            method: 'delete'
+          })
+          .then(response => response.json());
     }
 
     render() {
