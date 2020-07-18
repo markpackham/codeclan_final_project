@@ -98,6 +98,21 @@ public class VenueController {
         return new ResponseEntity<>(venue, HttpStatus.CREATED);
     }
 
+    // Delete All Venues
+    // http://localhost:8080/venues/
+    @DeleteMapping
+    public ResponseEntity deleteAllVenues(){
+        venueRepository.deleteAll();
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    // http://localhost:8080/venues/1
+    @DeleteMapping(value="/{id}")
+    public ResponseEntity<Long> deleteVenue(@PathVariable Long id){
+        venueRepository.deleteById(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
+
     // http://localhost:8080/venues/1
     @PutMapping(value = "/{id}")
     public ResponseEntity<Venue> putVenue(@RequestBody Venue venue, @PathVariable Long id){

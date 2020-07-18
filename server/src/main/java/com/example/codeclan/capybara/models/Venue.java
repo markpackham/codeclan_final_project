@@ -18,7 +18,7 @@ public class Venue {
     private String name;
 
     @JsonIgnoreProperties({"venue"})
-    @OneToMany(mappedBy = "venue", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "venue", fetch = FetchType.LAZY, cascade=CascadeType.REMOVE)
     private List<VenueTable> venueTables;
 
     public Venue(String name) {
