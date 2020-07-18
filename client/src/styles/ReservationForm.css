@@ -44,6 +44,18 @@ select {
   width: 150px;
 }
 
+.btn-delete{
+  margin-top: 5px;
+  width: 60px;
+  color: white;
+  background-color: var(--danger);
+}
+
+.btn-delete:hover{
+  opacity: 0.7;
+  cursor: pointer;
+}
+
 .modal {
     position: absolute;
     top: 50%;
