@@ -27,7 +27,7 @@ public class Customer {
     private String email;
 
     @JsonIgnoreProperties({"customer"})
-    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade=CascadeType.REMOVE)
     private List<Reservation> reservations;
 
     public Customer(String firstName, String lastName, String phone, String email) {

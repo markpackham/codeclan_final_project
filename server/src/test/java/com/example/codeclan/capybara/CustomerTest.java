@@ -170,4 +170,12 @@ class CustomerTest {
     public void canGetSpecificCustomerFromDatabase(){
         assertNotNull(customerRepository.findById(1L));
     }
+
+    @Test
+    public void canDeleteCustomer(){
+        int preDelete = customerRepository.findAll().size();
+        customerRepository.deleteById(10L);
+        int postDelete = customerRepository.findAll().size();
+        assertTrue(preDelete > postDelete);
+    }
 }

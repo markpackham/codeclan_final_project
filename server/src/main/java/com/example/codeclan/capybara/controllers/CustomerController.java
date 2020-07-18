@@ -147,6 +147,21 @@ public class CustomerController {
         return new ResponseEntity<>(customer,HttpStatus.CREATED);
     }
 
+    // Delete All Customers
+    // http://localhost:8080/customers/
+    @DeleteMapping
+    public ResponseEntity deleteAllCustomers(){
+        customerRepository.deleteAll();
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    // http://localhost:8080/customers/1
+    @DeleteMapping(value="/{id}")
+    public ResponseEntity<Long> deleteCustomer(@PathVariable Long id){
+        customerRepository.deleteById(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
+
     // http://localhost:8080/customers/1
     @PutMapping(value = "/{id}")
     public ResponseEntity<Customer> putCustomer(@RequestBody Customer customer, @PathVariable Long id){
