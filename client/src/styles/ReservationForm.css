@@ -52,7 +52,8 @@ select {
 }
 
 .btn-delete:hover{
-  opacity: 0.7;
+  opacity: 0.6;
+  color: var(--contrast);
   cursor: pointer;
 }
 
