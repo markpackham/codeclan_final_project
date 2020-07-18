@@ -12,7 +12,8 @@ deleteCustomer(id){
   return fetch(customerDeleteUrl + id, {
       method: 'delete'
     })
-    .then(response => response.json());
+    .then(response => response.json())
+    .then(window.location.reload(false));
 }
 
   render() {
