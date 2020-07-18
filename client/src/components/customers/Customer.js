@@ -1,6 +1,20 @@
 import React, { Component } from "react";
 
 class Customer extends Component {
+
+  constructor(props) {
+    super(props);
+    this.deleteCustomer = this.deleteCustomer.bind();
+}
+
+deleteCustomer(id){
+  const customerDeleteUrl = "http://localhost:8080/customers/";
+  return fetch(customerDeleteUrl + id, {
+      method: 'delete'
+    })
+    .then(response => response.json());
+}
+
   render() {
     return (
       <li className="customer">
@@ -9,6 +23,7 @@ class Customer extends Component {
         <p>Phone: {this.props.phone}</p>
         <p>Email: {this.props.email}</p>
         <p>Total Reservations: {this.props.reservations}</p>
+        <button onClick={() => this.deleteCustomer(this.props.id)} className="btn-delete">Delete</button>
       </li>
     );
   }

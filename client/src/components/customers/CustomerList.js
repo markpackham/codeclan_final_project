@@ -14,6 +14,7 @@ class CustomerList extends Component {
       return (
         <Customer
           key={index}
+          id={customer.id}
           firstName={customer.firstName}
           lastName={customer.lastName}
           phone={customer.phone}
