@@ -90,4 +90,12 @@ class VenueTableTest {
     public void canGetSpecificVenueTableFromDatabase(){
         assertNotNull(venueTableRepository.findById(1L));
     }
+
+    @Test
+    public void canDeleteVenueTable(){
+        int preDelete = venueTableRepository.findAll().size();
+        venueTableRepository.deleteById(10L);
+        int postDelete = venueTableRepository.findAll().size();
+        assertTrue(preDelete > postDelete);
+    }
 }

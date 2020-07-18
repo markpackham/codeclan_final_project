@@ -22,7 +22,7 @@ public class VenueTable {
     private Venue venue;
 
     @JsonIgnoreProperties({"venueTable"})
-    @OneToMany(mappedBy = "venueTable", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "venueTable", fetch = FetchType.LAZY, cascade=CascadeType.REMOVE)
     private List<Reservation> reservations;
 
     public VenueTable(int covers, Venue venue) {
