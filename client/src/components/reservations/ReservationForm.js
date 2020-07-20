@@ -115,6 +115,7 @@ class ReservationForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
+        alert("Reservation created!");
         this.addReservation();
         this.setState({
             customer: "",
