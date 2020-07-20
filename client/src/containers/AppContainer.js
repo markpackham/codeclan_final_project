@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import MainFooter from '../components/sitewide/MainFooter';
-import MainContainer from './MainContainer';
-import SideBar from './SideBar';
-import '../styles/AppContainer.css';
+import React, { Component } from "react";
+import MainFooter from "../components/sitewide/MainFooter";
+import MainContainer from "./MainContainer";
+import SideBar from "./SideBar";
+import "../styles/AppContainer.css";
 
 class AppContainer extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class AppContainer extends Component {
     this.state = {
       customers: [],
       venueTables: [],
-      reservations: []
+      reservations: [],
     };
 
     this.fetchData = this.fetchData.bind(this);
@@ -19,23 +19,23 @@ class AppContainer extends Component {
   fetchData() {
     const customersUrl = "http://localhost:8080/customers";
     fetch(customersUrl)
-    .then((res) => res.json())
-    .then((data) => this.setState({ customers: data }))
-    .catch((err) => console.error(err));
+      .then((res) => res.json())
+      .then((data) => this.setState({ customers: data }))
+      .catch((err) => console.error(err));
 
-  const venueTablesUrl = "http://localhost:8080/venue-tables";
+    const venueTablesUrl = "http://localhost:8080/venue-tables";
     fetch(venueTablesUrl)
-    .then((res) => res.json())
-    .then((data) => this.setState({ venueTables: data }))
-    .catch((err) => console.error(err));
+      .then((res) => res.json())
+      .then((data) => this.setState({ venueTables: data }))
+      .catch((err) => console.error(err));
 
-  const reservationsUrl = "http://localhost:8080/reservations";
+    const reservationsUrl = "http://localhost:8080/reservations";
     fetch(reservationsUrl)
-    .then((res) => res.json())
-    .then((data) => this.setState({ reservations: data }))
-    .catch((err) => console.error(err));
+      .then((res) => res.json())
+      .then((data) => this.setState({ reservations: data }))
+      .catch((err) => console.error(err));
   }
-  
+
   componentDidMount() {
     this.fetchData();
   }
