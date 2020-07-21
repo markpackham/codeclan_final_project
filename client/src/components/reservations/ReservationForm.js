@@ -4,6 +4,7 @@ import CustomerForm from "../customers/CustomerForm";
 import VenueTableGrid from "../venue_tables/VenueTableGrid";
 import moment from "moment";
 import ReactModal from "react-modal";
+import ReactTooltip from "react-tooltip";
 
 ReactModal.setAppElement("#root");
 
@@ -330,7 +331,9 @@ class ReservationForm extends Component {
                         type="text"
                         value={this.state.reservationNotes}
                         onChange={this.handleReservationNotesChange}
+                        data-tip="eg birthday cake, nut allergy"
                       />
+                      <ReactTooltip />
                     </td>
                   </tr>
                   <tr>
